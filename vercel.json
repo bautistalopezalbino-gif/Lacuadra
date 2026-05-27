@@ -1,0 +1,10 @@
+{
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/",       "destination": "/code.html"  },
+    { "source": "/carta",  "destination": "/carta.html" },
+    { "source": "/menu2",  "destination": "/menu2.html" }
+  ]
+}
