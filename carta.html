@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Carta — La Cuadra Valencia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          // Fondos y superficies — crema cálida
+          "background":                "#FAF7F2",
+          "surface":                   "#FAF7F2",
+          "surface-bright":            "#FFFFFF",
+          "surface-dim":               "#E8D8C4",
+          "surface-variant":           "#F0E4D0",
+          "surface-container-lowest":  "#FFFFFF",
+          "surface-container-low":     "#F5F0E8",
+          "surface-container":         "#EDE5D8",
+          "surface-container-high":    "#E3D8C8",
+          "surface-container-highest": "#D9CCBA",
+          "surface-tint":              "#7A3520",
+          "inverse-surface":           "#2C1505",
+          "inverse-on-surface":        "#FAF0E6",
+          // Texto
+          "on-background":             "#2C1505",
+          "on-surface":                "#2C1505",
+          "on-surface-variant":        "#6B4020",
+          // Primario — siena oscuro (precios, íconos, botón, tabs)
+          "primary":                   "#7A3520",
+          "on-primary":                "#FFFFFF",
+          "primary-container":         "#913F28",
+          "on-primary-container":      "#FFFFFF",
+          "primary-fixed":             "#F5D0BC",
+          "primary-fixed-dim":         "#D4906A",
+          "on-primary-fixed":          "#2C0A02",
+          "on-primary-fixed-variant":  "#5C2010",
+          "inverse-primary":           "#D4906A",
+          // Secundario — ámbar dorado (subsecciones, acentos)
+          "secondary":                 "#9C7030",
+          "on-secondary":              "#FFFFFF",
+          "secondary-container":       "#C4962A",
+          "on-secondary-container":    "#2C1A00",
+          "secondary-fixed":           "#F5E8C8",
+          "secondary-fixed-dim":       "#D4B870",
+          "on-secondary-fixed":        "#1A0E00",
+          "on-secondary-fixed-variant":"#5A3E10",
+          // Terciario — terracota (variedad visual)
+          "tertiary":                  "#B85C30",
+          "on-tertiary":               "#FFFFFF",
+          "tertiary-container":        "#C87040",
+          "on-tertiary-container":     "#FFFFFF",
+          "tertiary-fixed":            "#F5D8C0",
+          "tertiary-fixed-dim":        "#D4A080",
+          "on-tertiary-fixed":         "#2C0E00",
+          "on-tertiary-fixed-variant": "#6B2C10",
+          // Contornos y divisores — beige tostado
+          "outline":                   "#9C7040",
+          "outline-variant":           "#C8B09A",
+          // Error (sin cambio)
+          "error":                     "#ba1a1a",
+          "error-container":           "#ffdad6",
+          "on-error":                  "#ffffff",
+          "on-error-container":        "#93000a",
+        },
+        borderRadius: {
+          DEFAULT: "0.125rem",
+          lg: "0.25rem",
+          xl: "0.5rem",
+          full: "0.75rem"
+        },
+        spacing: {
+          "section-gap": "120px",
+          "unit": "8px",
+          "margin-desktop": "80px",
+          "margin-mobile": "20px",
+          "gutter": "24px"
+        },
+        fontFamily: {
+          "headline-lg-mobile": ["Libre Caslon Text"],
+          "caption": ["DM Sans"],
+          "headline-lg": ["Libre Caslon Text"],
+          "display-lg": ["Libre Caslon Text"],
+          "body-lg": ["DM Sans"],
+          "body-md": ["DM Sans"],
+          "headline-md": ["Libre Caslon Text"],
+          "label-md": ["DM Sans"]
+        },
+        fontSize: {
+          "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "400" }],
+          "caption": ["12px", { lineHeight: "1.4", fontWeight: "400" }],
+          "headline-lg": ["48px", { lineHeight: "1.2", fontWeight: "400" }],
+          "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
+          "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+          "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+          "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
+          "label-md": ["14px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "500" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .material-symbols-outlined.fill {
+    font-variation-settings: 'FILL' 1;
+  }
+
+  :root {
+    --granite-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='0.09'/%3E%3C/svg%3E");
+  }
+
+  body {
+    background-color: #FAF7F2;
+    background-image: var(--granite-noise);
+    background-size: 400px 400px;
+  }
+
+  section, nav, footer, header {
+    position: relative;
+  }
+
+  section::before, nav::before, footer::before, header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--granite-noise);
+    background-size: 400px 400px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  section > *, nav > *, footer > *, header > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Scrollbar for category tabs */
+  .tabs-scroll::-webkit-scrollbar {
+    height: 0;
+  }
+
+  /* Active tab indicator */
+  .tab-link.active {
+    color: #7A3520;
+    border-bottom-color: #7A3520;
+  }
+
+  /* Menu item row animation */
+  .menu-item {
+    transition: background-color 0.15s ease;
+  }
+  .menu-item:hover {
+    background-color: rgba(122, 53, 32, 0.04);
+  }
+
+  /* ═══════════════════════════════
+     ANIMACIONES
+  ═══════════════════════════════ */
+
+  @keyframes _slideDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes _floatBob {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
+  }
+
+  #main-nav {
+    animation: _slideDown .5s cubic-bezier(.16,1,.3,1) both;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity  .65s cubic-bezier(.16,1,.3,1),
+      transform .65s cubic-bezier(.16,1,.3,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .card-lift {
+    transition:
+      transform .28s cubic-bezier(.34,1.56,.64,1),
+      box-shadow .28s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 44px rgba(122,53,32,.13);
+  }
+
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.22) 50%, transparent 60%);
+    transform: skewX(-20deg) translateX(-180%);
+    pointer-events: none;
+  }
+  .btn-shine:hover::after {
+    transform: skewX(-20deg) translateX(500%);
+    transition: transform .55s ease;
+  }
+
+  .btn-grow {
+    transition: transform .32s cubic-bezier(.34,1.56,.64,1), box-shadow .32s ease,
+                background-color .2s ease, color .2s ease, border-color .2s ease !important;
+  }
+  .btn-grow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 26px 58px rgba(122,53,32,.26);
+  }
+
+  main a[href*="wa.me"],
+  header a[href*="wa.me"] {
+    animation: _floatBob 3.5s ease-in-out infinite;
+  }
+
+  /* ── Section icon pop ── */
+  @keyframes _iconPop {
+    from { opacity: 0; transform: scale(.35) rotate(-20deg); }
+    to   { opacity: 1; transform: scale(1)  rotate(0deg); }
+  }
+  .section-icon-anim { opacity: 0; }
+  .section-icon-anim.in {
+    animation: _iconPop .55s cubic-bezier(.34,1.56,.64,1) forwards;
+  }
+
+  /* ── Menu row slide-in stagger ── */
+  .menu-row-reveal {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity .38s ease, transform .42s cubic-bezier(.16,1,.3,1);
+  }
+  .menu-row-reveal.in { opacity: 1; transform: none; }
+
+  /* ── Header entrance ── */
+  @keyframes _headerUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .header-item {
+    opacity: 0;
+    animation: _headerUp .75s cubic-bezier(.16,1,.3,1) forwards;
+  }
+
+  /* ── Tab smooth transition ── */
+  .tab-link {
+    transition: color .25s ease, border-color .25s ease;
+  }
+</style>
+</head>
+
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Top Nav -->
+<nav class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md transition-all duration-300 border-b border-outline-variant/20" id="main-nav">
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1440px] mx-auto">
+    <a class="flex items-center group" href="/">
+      <img src="/logo.png" alt="La Cuadra Valencia" class="h-14 w-auto group-hover:opacity-80 transition-opacity">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="/">Inicio</a>
+      <a class="font-label-md text-label-md text-primary border-b border-primary pb-0.5" href="/carta.html">Carta</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="/#pedidos">Pedidos</a>
+      <a class="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2 rounded-DEFAULT font-label-md text-label-md hover:opacity-90 transition-opacity shadow-sm" href="https://wa.me/34667952560" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        667 95 25 60
+      </a>
+    </div>
+    <!-- Mobile menu button -->
+    <button class="md:hidden text-on-surface-variant hover:text-primary transition-colors" id="mobile-menu-btn" aria-label="Abrir menú">
+      <span class="material-symbols-outlined text-[28px]">menu</span>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div class="md:hidden hidden border-t border-outline-variant/20 bg-background/98" id="mobile-menu">
+    <div class="flex flex-col px-margin-mobile py-4 gap-4">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="/">Inicio</a>
+      <a class="font-label-md text-label-md text-primary" href="/carta.html">Carta</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html#pedidos">Pedidos</a>
+      <a class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-5 py-2 rounded-DEFAULT font-label-md text-label-md hover:opacity-90 transition-opacity shadow-sm" href="https://wa.me/34667952560" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        667 95 25 60
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Header -->
+<header class="pt-28 pb-6 bg-surface-container-low border-b border-outline-variant/10">
+  <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <p class="header-item font-caption text-caption text-on-surface-variant uppercase tracking-widest mb-3" style="animation-delay:.1s">Calle Campaners 17, Valencia</p>
+        <h1 class="header-item font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2" style="animation-delay:.25s">Nuestra Carta</h1>
+        <p class="header-item font-body-md text-body-md text-on-surface-variant" style="animation-delay:.4s">Cafetería · Pastelería Artesanal · Bocadillería · Cocina Casera</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-high px-3 py-1.5 rounded-full font-caption text-caption text-on-surface">
+          <span class="material-symbols-outlined text-[14px] text-primary">schedule</span>
+          L-V 7:30–20:00
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-surface-container-high px-3 py-1.5 rounded-full font-caption text-caption text-on-surface">
+          <span class="material-symbols-outlined text-[14px] text-primary">schedule</span>
+          S-D 8:00–21:00
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-primary/10 px-3 py-1.5 rounded-full font-caption text-caption text-primary">
+          <span class="material-symbols-outlined text-[14px]">restaurant_menu</span>
+          Precios con IVA
+        </span>
+      </div>
+    </div>
+    <div class="mt-6 flex flex-wrap items-center gap-4">
+      <a href="https://wa.me/34667952560" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-DEFAULT font-label-md text-label-md hover:opacity-90 transition-opacity shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escríbanos por WhatsApp
+      </a>
+      <span class="font-caption text-caption text-on-surface-variant italic">No realizamos envíos a domicilio</span>
+    </div>
+  </div>
+</header>
+
+<!-- Category Tabs (Sticky) -->
+<div class="sticky top-[73px] z-40 bg-background/95 backdrop-blur-md border-b border-outline-variant/20">
+  <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="flex gap-0 overflow-x-auto tabs-scroll -mb-px">
+      <a href="#cafeteria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 font-label-md text-label-md text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 transition-colors whitespace-nowrap">
+        <span class="material-symbols-outlined text-[16px]">local_cafe</span>
+        Cafetería
+      </a>
+      <a href="#bolleria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 font-label-md text-label-md text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 transition-colors whitespace-nowrap">
+        <span class="material-symbols-outlined text-[16px]">bakery_dining</span>
+        Bollería
+      </a>
+      <a href="#bocadillos" class="tab-link flex items-center gap-1.5 px-4 py-3.5 font-label-md text-label-md text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 transition-colors whitespace-nowrap">
+        <span class="material-symbols-outlined text-[16px]">lunch_dining</span>
+        Bocadillos
+      </a>
+      <a href="#empanadas" class="tab-link flex items-center gap-1.5 px-4 py-3.5 font-label-md text-label-md text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 transition-colors whitespace-nowrap">
+        <span class="material-symbols-outlined text-[16px]">pie_chart</span>
+        Empanadas
+      </a>
+      <a href="#cocina" class="tab-link flex items-center gap-1.5 px-4 py-3.5 font-label-md text-label-md text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 transition-colors whitespace-nowrap">
+        <span class="material-symbols-outlined text-[16px]">skillet</span>
+        Cocina Casera
+      </a>
+      <a href="#pasteleria" class="tab-link flex items-center gap-1.5 px-4 py-3.5 font-label-md text-label-md text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 transition-colors whitespace-nowrap">
+        <span class="material-symbols-outlined text-[16px]">cake</span>
+        Pastelería
+      </a>
+      <a href="#bebidas" class="tab-link flex items-center gap-1.5 px-4 py-3.5 font-label-md text-label-md text-on-surface-variant border-b-2 border-transparent hover:text-primary hover:border-primary/40 transition-colors whitespace-nowrap">
+        <span class="material-symbols-outlined text-[16px]">local_bar</span>
+        Bebidas
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-10 space-y-10">
+
+  <!-- ─── CAFETERÍA & BEBIDAS ─── -->
+  <section id="cafeteria" class="scroll-mt-36">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="material-symbols-outlined text-primary text-[28px]">local_cafe</span>
+      <h2 class="font-headline-md text-headline-md text-on-background">Cafetería & Bebidas</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
+
+      <!-- Cafés clásicos -->
+      <div>
+        <h3 class="font-caption text-caption text-on-surface-variant uppercase tracking-widest mb-3 pb-2 border-b border-outline-variant/30">Cafés Clásicos y Especiales</h3>
+        <div class="space-y-0">
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Café</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,20 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Cortado</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Bombón</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Café con leche</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,60 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Americano</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Carajillo</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Café con leche argentino</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,80 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Capuccino</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Caramel Latte</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,20 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Cremaet</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,50 €</span>
+          </div>
+        </div>
+        <!-- Baker's note -->
+        <div class="mt-3 bg-surface-container-low px-4 py-2 rounded-lg border border-outline-variant/20">
+          <p class="font-caption text-caption text-on-surface-variant italic">Suplemento leche de avena, soja, almendra o sin lactosa: <span class="text-on-surface not-italic font-medium">+0,20 €</span></p>
+        </div>
+      </div>
+
+      <!-- Especialidades calientes -->
+      <div>
+        <h3 class="font-caption text-caption text-on-surface-variant uppercase tracking-widest mb-3 pb-2 border-b border-outline-variant/30">Especialidades y Bebidas Calientes</h3>
+        <div class="space-y-0">
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Vaso de leche</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,20 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Infusión</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,60 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Cola Cao</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,60 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Choleck <span class="text-on-surface-variant text-[13px]">(choco / vainilla)</span></span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,60 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Chocolate chico</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Chocolate grande</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Submarino argentino</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Matcha Latte</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Chai Latte</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─── BOLLERÍA & DULCES ─── -->
+  <section id="bolleria" class="scroll-mt-36">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="material-symbols-outlined text-primary text-[28px]">bakery_dining</span>
+      <h2 class="font-headline-md text-headline-md text-on-background">Bollería & Dulces</h2>
+    </div>
+
+    <div class="max-w-2xl space-y-0">
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Ensaimada</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">0,90 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Bollería simple</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,00 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Bollería rellena</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,20 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Magdalenas</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,20 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Magdalenas de calabaza</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,40 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Magdalenas sin gluten</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,50 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Croissant pequeño Kinder</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,50 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Croissant</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,60 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Berlinesa <span class="text-on-surface-variant text-[13px]">(bañada / rellena)</span></span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,70 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Napolitana de chocolate</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,70 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Napolitana de jamón y queso</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,90 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Muffin relleno</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,00 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Pasteles <span class="text-on-surface-variant text-[13px]">(manzana / crema)</span></span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,00 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Alfajor <span class="text-on-surface-variant text-[13px]">(choco / maicena)</span></span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,50 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Croissant de dulce de leche</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,50 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Budín de pan <span class="text-on-surface-variant text-[13px]">(porción)</span></span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,50 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Croissant relleno</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,20 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface font-medium">Super croissant relleno</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,50 €</span>
+      </div>
+    </div>
+    <div class="mt-3 bg-surface-container-low px-4 py-2 rounded-lg border border-outline-variant/20">
+      <p class="font-caption text-caption text-on-surface-variant italic">Sabores disponibles: <span class="text-on-surface not-italic">Oreo, Pistacho y Kinder</span></p>
+    </div>
+  </section>
+
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─── BOCADILLOS ─── -->
+  <section id="bocadillos" class="scroll-mt-36">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="material-symbols-outlined text-primary text-[28px]">lunch_dining</span>
+      <h2 class="font-headline-md text-headline-md text-on-background">Bocadillos</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
+
+      <!-- Bocadillos pequeños + grandes -->
+      <div>
+        <h3 class="font-caption text-caption text-on-surface-variant uppercase tracking-widest mb-3 pb-2 border-b border-outline-variant/30">Bocadillos Pequeños</h3>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Atún y olivas</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,50 €</span>
+        </div>
+
+        <h3 class="font-caption text-caption text-on-surface-variant uppercase tracking-widest mt-5 mb-3 pb-2 border-b border-outline-variant/30">Bocadillos Grandes / CL</h3>
+        <div class="space-y-0">
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Bacon</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Milanesa de pollo</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tortilla francesa y queso</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tortilla francesa, jamón y tomate</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Atún y olivas</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tortilla de patatas</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Lomo, bacon y queso</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Carne desmechada</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Calamares</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Brascada</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Milanesa de pollo</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Caballo, ajos tiernos y jamón</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tortilla francesa y longaniza <span class="text-on-surface-variant text-[13px]">(XL)</span></span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tostas, croissants y brioches -->
+      <div>
+        <h3 class="font-caption text-caption text-on-surface-variant uppercase tracking-widest mb-3 pb-2 border-b border-outline-variant/30">Tostas, Croissants y Brioches</h3>
+        <div class="space-y-0">
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Croissant york y queso</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,80 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Croissant revuelto y bacon</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tosta revuelto, guac y tomate</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,90 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tosta de atún y anchoas</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tosta tomate, huevo y aguacate</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tosta salmón, guac y queso</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tosta tort. francesa, tom y guac</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Brioche pollo, criolla, queso y bacon</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Brioche pollo, criolla, queso y huevo</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─── EMPANADAS ─── -->
+  <section id="empanadas" class="scroll-mt-36">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="material-symbols-outlined text-primary text-[28px]">pie_chart</span>
+      <h2 class="font-headline-md text-headline-md text-on-background">Empanadas Artesanales</h2>
+    </div>
+
+    <div class="max-w-2xl space-y-0">
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Empanada de verdura <span class="text-on-surface-variant text-[13px]">(espinaca)</span></span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,20 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Empanada de cebolla y queso</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,30 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Empanada de pisto y atún</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,30 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Empanada humita <span class="text-on-surface-variant text-[13px]">(maíz)</span></span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,30 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Empanada pollo, champi y bechamel</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,40 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Empanada de jamón york y queso</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,40 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Empanada criolla</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,70 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface">Empanada de pollo al curry</span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,70 €</span>
+      </div>
+      <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+      <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+        <span class="font-body-md text-body-md text-on-surface font-medium">Empanada de campo <span class="text-on-surface-variant text-[13px] font-normal">(carne)</span></span>
+        <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,30 €</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─── COCINA CASERA ─── -->
+  <section id="cocina" class="scroll-mt-36">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="material-symbols-outlined text-primary text-[28px]">skillet</span>
+      <h2 class="font-headline-md text-headline-md text-on-background">Cocina Casera & Tapas</h2>
+    </div>
+
+    <div class="max-w-2xl">
+      <div class="space-y-0">
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Porción / Pincho de tortilla</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,50 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Ensalada Rusa / de pasta</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,40 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Arroz al horno / Pasta tomate y atún</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,80 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Paella Valenciana / de Secreto</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,50 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Lasagna de carne / Albóndigas</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,40 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Milanesa de pollo <span class="text-on-surface-variant text-[13px]">(Plato)</span></span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Patatas bravas</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">5,50 €</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─── PASTELERÍA ─── -->
+  <section id="pasteleria" class="scroll-mt-36">
+    <div class="flex items-center gap-3 mb-2">
+      <span class="material-symbols-outlined text-primary text-[28px]">cake</span>
+      <h2 class="font-headline-md text-headline-md text-on-background">Pastelería Artesanal</h2>
+    </div>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-5">Tartas enteras por encargo · Consulte las porciones disponibles en vitrina</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+
+      <!-- Tartas individuales -->
+      <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-5">
+        <h3 class="font-caption text-caption text-on-surface-variant uppercase tracking-widest mb-3 pb-2 border-b border-outline-variant/30">Tartas Individuales (Porciones)</h3>
+        <div class="space-y-0">
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Chocotorta</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Manzana con canela</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Brazo Gitano</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta de Ricota</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">3,70 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tiramisú / Selva Negra / Mousse</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta Oreo / Lemon Pie / Brownie</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta Queso / Carrot / Cuadra</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">4,00 €</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tartas enteras M -->
+      <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-5">
+        <h3 class="font-caption text-caption text-on-surface-variant uppercase tracking-widest mb-3 pb-2 border-b border-outline-variant/30">Tartas Enteras (Tamaño M)</h3>
+        <div class="space-y-0">
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Brazo Gitano Entero</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">14,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Coco y Dulce de Leche</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">20,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Pastafrola</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">20,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Chocotorta Entera</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">22,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta de Ricota / Brownie</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">22,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Lemon Pie</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">24,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Rogel / Chaja / Mousse</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">28,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Carrot / Selva Negra / Red Velvet</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">28,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta La Cuadra / Oreo / Fresita</span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">28,00 €</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tartas grandes XL -->
+      <div class="bg-surface-container-low rounded-lg border border-outline-variant/20 p-5">
+        <h3 class="font-caption text-caption text-on-surface-variant uppercase tracking-widest mb-3 pb-2 border-b border-outline-variant/30">Grandes y Especiales (XL)</h3>
+        <div class="space-y-0">
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Cheesecake <span class="text-on-surface-variant text-[13px]">(Tamaño M)</span></span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">35,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta de Ricota / Lemon Pie <span class="text-on-surface-variant text-[13px]">(XL)</span></span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">38,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta Frutal <span class="text-on-surface-variant text-[13px]">(Tamaño XL)</span></span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">38,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta Oreo / Red Velvet / Carrot <span class="text-on-surface-variant text-[13px]">(XL)</span></span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">40,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface">Tarta Pistacho <span class="text-on-surface-variant text-[13px]">(Tamaño M)</span></span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">40,00 €</span>
+          </div>
+          <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+          <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+            <span class="font-body-md text-body-md text-on-surface font-medium">Cheesecake <span class="text-on-surface-variant text-[13px] font-normal">(Tamaño XL)</span></span>
+            <span class="font-label-md text-label-md text-primary shrink-0 ml-4">43,00 €</span>
+          </div>
+        </div>
+        <div class="mt-3 bg-primary/5 px-4 py-2 rounded-lg border border-primary/15">
+          <p class="font-caption text-caption text-on-surface-variant italic">Encargue su tarta con antelación. Llámenos al <span class="text-primary not-italic font-medium">667 95 25 60</span></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="border-b border-outline-variant/20"></div>
+
+  <!-- ─── BEBIDAS Y BODEGA ─── -->
+  <section id="bebidas" class="scroll-mt-36">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="material-symbols-outlined text-primary text-[28px]">local_bar</span>
+      <h2 class="font-headline-md text-headline-md text-on-background">Bebidas & Bodega</h2>
+    </div>
+
+    <div class="max-w-sm">
+      <div class="space-y-0">
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Agua 0,50L</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,00 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Caña</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">1,60 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Refresco / Agua con gas</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,20 €</span>
+        </div>
+        <div class="border-b border-dotted border-outline-variant/30 mx-2"></div>
+        <div class="menu-item flex items-center justify-between py-1.5 px-2 rounded-lg">
+          <span class="font-body-md text-body-md text-on-surface">Cerveza Doble / Tercio Estrella</span>
+          <span class="font-label-md text-label-md text-primary shrink-0 ml-4">2,20 €</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Allergy note -->
+  <div class="bg-surface-container-low border border-outline-variant/20 rounded-lg px-6 py-5 flex items-start gap-3">
+    <span class="material-symbols-outlined text-on-surface-variant text-[20px] mt-0.5 shrink-0">info</span>
+    <p class="font-body-md text-body-md text-on-surface-variant italic">
+      Si padece alguna <span class="text-on-surface not-italic font-medium">alergia o intolerancia alimentaria</span>, le rogamos que lo comunique a nuestro personal. Muchas gracias por elegirnos.
+    </p>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container border-t border-outline-variant/10 mt-6">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-10 max-w-[1440px] mx-auto">
+
+    <!-- Brand -->
+    <div class="flex flex-col items-start space-y-4">
+      <a class="flex items-center group mb-2" href="/">
+        <img src="/logo.png" alt="La Cuadra Valencia" class="h-16 w-auto group-hover:opacity-80 transition-opacity">
+      </a>
+      <p class="font-body-md text-body-md text-on-surface-variant">Cafetería · Pastelería Artesanal · Valencia</p>
+      <a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1.5" href="https://www.instagram.com/lacuadravalencia" target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined text-[14px]">photo_camera</span>
+        @lacuadravalencia
+      </a>
+    </div>
+
+    <!-- Links -->
+    <div class="flex flex-col items-start space-y-4">
+      <h4 class="font-headline-md text-[18px] text-on-background mb-2">Secciones</h4>
+      <nav class="flex flex-col space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <a class="hover:text-primary transition-colors" href="/">Inicio</a>
+        <a class="hover:text-primary transition-colors" href="#cafeteria">Cafetería & Bebidas</a>
+        <a class="hover:text-primary transition-colors" href="#bocadillos">Bocadillos & Salado</a>
+        <a class="hover:text-primary transition-colors" href="#pasteleria">Pastelería & Tartas</a>
+      </nav>
+    </div>
+
+    <!-- Contact -->
+    <div class="flex flex-col items-start space-y-4">
+      <h4 class="font-headline-md text-[18px] text-on-background mb-2">Contacto</h4>
+      <div class="flex flex-col space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <a class="hover:text-primary transition-colors flex items-center gap-2" href="https://maps.google.com/?q=Calle+Campaners+17+Valencia" target="_blank" rel="noopener noreferrer">
+          <span class="material-symbols-outlined text-[16px]">location_on</span>
+          Calle Campaners 17, Valencia
+        </a>
+        <a class="hover:text-primary transition-colors flex items-center gap-2" href="tel:667952560">
+          <span class="material-symbols-outlined text-[16px]">phone</span>
+          667 95 25 60
+        </a>
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[16px]">schedule</span>
+          L–V 7:30–20:00 · S–D 8:00–21:00
+        </span>
+      </div>
+    </div>
+
+  </div>
+  <div class="border-t border-outline-variant/10 px-margin-mobile md:px-margin-desktop py-4 max-w-[1440px] mx-auto">
+    <p class="font-caption text-caption text-on-surface-variant">© 2026 La Cuadra Valencia · Precios con IVA incluido · Sujetos a disponibilidad diaria</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+
+  // Active tab on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const tabLinks = document.querySelectorAll('.tab-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tabLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(s => observer.observe(s));
+
+  /* ── Scroll Reveal ── */
+  (function () {
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -5% 0px', threshold: .07 });
+
+    function reveal(el, delay) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = delay + 's';
+      revealObs.observe(el);
+    }
+
+    document.querySelectorAll('main section').forEach(section => {
+      Array.from(section.children).forEach((child, i) => reveal(child, i * .1));
+    });
+
+    const footer = document.querySelector('footer');
+    if (footer) Array.from(footer.children).forEach((el, i) => reveal(el, i * .1));
+
+    document.querySelectorAll('main .rounded-lg').forEach(el => {
+      if (el.tagName === 'SPAN' || el.tagName === 'A') return;
+      el.classList.add('card-lift');
+    });
+
+    document.querySelectorAll('a[class*="bg-primary"]').forEach(el => {
+      if (!(el.getAttribute('href') || '').includes('wa.me')) el.classList.add('btn-shine');
+    });
+    document.querySelectorAll('a[class*="rounded-DEFAULT"], button[class*="rounded-DEFAULT"]').forEach(el => {
+      if (!(el.getAttribute('href') || '').includes('wa.me')) el.classList.add('btn-grow');
+    });
+  })();
+
+  /* ── Section icon pop on reveal ── */
+  (function () {
+    const iconObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const icon = entry.target.querySelector('.section-icon-anim');
+        if (icon) icon.classList.add('in');
+        iconObs.unobserve(entry.target);
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('section[id]').forEach(s => {
+      const icon = s.querySelector('.flex.items-center.gap-3 > .material-symbols-outlined');
+      if (icon) {
+        icon.classList.add('section-icon-anim');
+        iconObs.observe(s);
+      }
+    });
+  })();
+
+  /* ── Menu row stagger per section ── */
+  (function () {
+    const secObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const rows = Array.from(entry.target.querySelectorAll('.menu-item'));
+        rows.forEach((r, i) => {
+          setTimeout(() => r.classList.add('in'), i * 30);
+          r.addEventListener('transitionend', () => { r.style.transitionDelay = '0s'; }, { once: true });
+        });
+        secObs.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .05 });
+
+    document.querySelectorAll('section[id]').forEach(s => {
+      s.querySelectorAll('.menu-item').forEach(r => r.classList.add('menu-row-reveal'));
+      secObs.observe(s);
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+.claude/
+node_modules/
+config.json
+reviews-cache.json
+*.log

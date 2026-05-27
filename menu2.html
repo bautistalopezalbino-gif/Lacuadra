@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú — La Cuadra Patraix Valencia</title>
+  <meta name="description" content="Pastelería argentina artesanal en Patraix, Valencia. Tartas, bollería, bocadillos y café de obrador."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background":                "#FAF7F2",
+            "surface":                   "#FAF7F2",
+            "surface-bright":            "#FFFFFF",
+            "surface-dim":               "#E8D8C4",
+            "surface-variant":           "#F0E4D0",
+            "surface-container-lowest":  "#FFFFFF",
+            "surface-container-low":     "#F5F0E8",
+            "surface-container":         "#EDE5D8",
+            "surface-container-high":    "#E3D8C8",
+            "surface-container-highest": "#D9CCBA",
+            "surface-tint":              "#7A3520",
+            "inverse-surface":           "#2C1505",
+            "inverse-on-surface":        "#FAF0E6",
+            "on-background":             "#2C1505",
+            "on-surface":                "#2C1505",
+            "on-surface-variant":        "#6B4020",
+            "primary":                   "#7A3520",
+            "on-primary":                "#FFFFFF",
+            "primary-container":         "#913F28",
+            "on-primary-container":      "#FFFFFF",
+            "primary-fixed":             "#F5D0BC",
+            "primary-fixed-dim":         "#D4906A",
+            "on-primary-fixed":          "#2C0A02",
+            "on-primary-fixed-variant":  "#5C2010",
+            "inverse-primary":           "#D4906A",
+            "secondary":                 "#9C7030",
+            "on-secondary":              "#FFFFFF",
+            "secondary-container":       "#C4962A",
+            "on-secondary-container":    "#2C1A00",
+            "secondary-fixed":           "#F5E8C8",
+            "secondary-fixed-dim":       "#D4B870",
+            "on-secondary-fixed":        "#1A0E00",
+            "on-secondary-fixed-variant":"#5A3E10",
+            "outline":                   "#9C7040",
+            "outline-variant":           "#C8B09A",
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "2xl": "1rem",
+            "full": "9999px",
+          },
+          fontFamily: {
+            "serif": ["Libre Caslon Text", "Georgia", "serif"],
+            "sans":  ["DM Sans", "system-ui", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background-color: #FAF7F2;
+    }
+
+    .card-lift {
+      transition: transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .28s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 44px rgba(122,53,32,.13);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Hero parallax */
+    #hero-bg {
+      will-change: transform;
+    }
+
+    /* Cake card */
+    .cake-card img {
+      transition: transform .4s ease;
+    }
+    .cake-card:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Infinite strip */
+    @keyframes slide {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .strip-track {
+      animation: slide 32s linear infinite;
+    }
+    .strip-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Nav blur */
+    #main-nav {
+      background: rgba(44,21,5,0.70);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface overflow-x-hidden">
+
+  <!-- ── NAV ────────────────────────────────────────────── -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 border-b border-white/8">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <a href="/" class="text-inverse-on-surface/60 text-sm hover:text-inverse-on-surface transition-colors flex items-center gap-1">
+        ← Volver
+      </a>
+      <span class="font-serif text-inverse-on-surface text-base tracking-wide">La Cuadra</span>
+      <a href="https://wa.me/34667952560?text=Hola%2C+me+gustar%C3%ADa+hacer+un+pedido."
+         class="bg-inverse-on-surface text-primary text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-full hover:bg-primary-fixed transition-colors">
+        Pedir por WhatsApp
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ───────────────────────────────────────────── -->
+  <section class="relative min-h-svh overflow-hidden flex flex-col justify-end">
+    <div id="hero-bg" class="absolute inset-0 scale-[1.04]">
+      <img src="Fotos/IMG_5623.JPG" alt="Tarta Chajá" class="w-full h-full object-cover"/>
+    </div>
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#2C1505]/92 via-[#2C1505]/35 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#2C1505]/20 to-transparent"></div>
+
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 pb-20 pt-28 w-full">
+      <div class="max-w-2xl reveal">
+        <span class="text-[0.7rem] font-bold uppercase tracking-[0.16em] bg-white/10 text-white/70 rounded-full px-4 py-1.5 inline-block mb-7">
+          Pastelería · Cafetería · Patraix, Valencia
+        </span>
+        <h1 class="font-serif text-[clamp(2.8rem,6vw,5rem)] text-inverse-on-surface leading-[1.1] mb-5">
+          La pastelería argentina<br>que <em style="color:#D4906A;">mereces.</em>
+        </h1>
+        <p class="text-inverse-on-surface/70 text-lg leading-relaxed mb-8 max-w-lg">
+          Del obrador a tu mesa. Tartas artesanales, bollería fresca y el café de siempre.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/carta.html"
+             class="bg-inverse-on-surface text-primary font-bold text-sm px-8 py-3.5 rounded-full hover:bg-primary-fixed transition-colors">
+            Ver la carta completa
+          </a>
+          <a href="https://wa.me/34667952560"
+             class="border border-white/25 text-inverse-on-surface text-sm font-semibold px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors">
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex flex-wrap gap-10 mt-14 reveal" style="transition-delay:.15s">
+        <div>
+          <p class="font-serif text-2xl text-inverse-on-surface">Desde 0,90 €</p>
+          <p class="text-inverse-on-surface/50 text-sm">bollería fresca diaria</p>
+        </div>
+        <div class="border-l border-white/15 pl-10">
+          <p class="font-serif text-2xl text-inverse-on-surface">Hecho a diario</p>
+          <p class="text-inverse-on-surface/50 text-sm">elaboración propia</p>
+        </div>
+        <div class="border-l border-white/15 pl-10">
+          <p class="font-serif text-2xl text-inverse-on-surface">Patraix · Valencia</p>
+          <p class="text-inverse-on-surface/50 text-sm">C/ Campaners, 17</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHOTO STRIP ────────────────────────────────────── -->
+  <section class="py-0 overflow-hidden bg-surface-container border-y border-outline-variant/20">
+    <div class="strip-track flex gap-4 py-4" style="width: max-content;">
+      <!-- Original -->
+      <img src="Fotos/IMG_5610.JPG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_9003.PNG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_0429.png"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/85EDECD6-1EBE-4C90-BCC8-45C6F1407087.png" alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_9723.PNG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_5589.JPG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_5623.JPG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_5594.JPG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_8721.jpg"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_8805.png"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <!-- Duplicado para loop infinito -->
+      <img src="Fotos/IMG_5610.JPG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_9003.PNG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_0429.png"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/85EDECD6-1EBE-4C90-BCC8-45C6F1407087.png" alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_9723.PNG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_5589.JPG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_5623.JPG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_5594.JPG"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_8721.jpg"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+      <img src="Fotos/IMG_8805.png"     alt="" class="h-40 w-auto rounded-xl object-cover flex-shrink-0"/>
+    </div>
+  </section>
+
+  <!-- ── INFO ───────────────────────────────────────────── -->
+  <section class="py-20 bg-surface-container-low">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+
+        <div class="border border-outline-variant/40 rounded-2xl p-8 bg-surface-bright">
+          <p class="text-[11px] font-bold uppercase tracking-widest text-primary mb-4">Horario</p>
+          <p class="font-serif text-lg text-on-background mb-1">Lun – Sáb</p>
+          <p class="text-on-surface-variant text-sm">8:00 – 14:00 · 17:00 – 20:30</p>
+          <p class="font-serif text-lg text-on-background mt-3 mb-1">Domingo</p>
+          <p class="text-on-surface-variant text-sm">8:00 – 14:00</p>
+        </div>
+
+        <div class="border border-outline-variant/40 rounded-2xl p-8 bg-surface-bright">
+          <p class="text-[11px] font-bold uppercase tracking-widest text-primary mb-4">Dónde estamos</p>
+          <p class="font-serif text-lg text-on-background mb-1">C/ Campaners, 17</p>
+          <p class="text-on-surface-variant text-sm">Patraix · Valencia</p>
+          <p class="text-on-surface-variant text-sm mt-2">@lacuadravalencia</p>
+        </div>
+
+        <div class="border border-outline-variant/40 rounded-2xl p-8 bg-surface-bright">
+          <p class="text-[11px] font-bold uppercase tracking-widest text-primary mb-4">Encargos y pedidos</p>
+          <p class="font-serif text-lg text-on-background mb-1">667 95 25 60</p>
+          <p class="text-on-surface-variant text-sm mb-5">WhatsApp o llamada · 48 h de antelación</p>
+          <a href="https://wa.me/34667952560"
+             class="inline-flex items-center gap-2 bg-primary text-on-primary text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full hover:bg-primary-container transition-colors">
+            Abrir WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA FINAL ──────────────────────────────────────── -->
+  <section class="py-24 bg-inverse-surface relative overflow-hidden">
+    <!-- decorativos -->
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] rounded-full opacity-10"
+         style="background: radial-gradient(circle, #D4906A, transparent 70%); transform: translate(-30%, -30%);"></div>
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-10"
+         style="background: radial-gradient(circle, #9C7030, transparent 70%); transform: translate(30%, 30%);"></div>
+
+    <div class="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 text-center reveal">
+      <span class="text-[11px] font-bold uppercase tracking-[0.18em] text-primary-fixed-dim block mb-5">Hecho a medida</span>
+      <h2 class="font-serif text-[clamp(2.4rem,5vw,4rem)] text-inverse-on-surface leading-[1.15] mb-6">
+        Pide tu tarta<br><em style="color:#D4906A;">hecha a medida</em>
+      </h2>
+      <p class="text-inverse-on-surface/60 text-lg mb-10 max-w-md mx-auto">
+        Rogel, Chocotorta, Balcarce, Lemon Pie… pide con 48 h de antelación y te la preparamos.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="https://wa.me/34667952560?text=Hola%21+Quiero+encargar+una+tarta."
+           class="inline-flex items-center gap-3 bg-inverse-on-surface text-primary font-bold text-sm px-9 py-4 rounded-full hover:bg-primary-fixed transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Pedir por WhatsApp
+        </a>
+        <a href="/carta.html"
+           class="border border-white/20 text-inverse-on-surface/80 text-sm font-semibold px-9 py-4 rounded-full hover:bg-white/8 transition-colors">
+          Ver carta completa
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="bg-inverse-surface border-t border-white/8 py-10">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="font-serif text-inverse-on-surface/50 text-sm">La Cuadra — Patraix, Valencia</span>
+      <div class="flex gap-8 text-xs text-inverse-on-surface/40">
+        <a href="/" class="hover:text-inverse-on-surface/70 transition-colors">Inicio</a>
+        <a href="/carta.html" class="hover:text-inverse-on-surface/70 transition-colors">Carta</a>
+        <a href="https://wa.me/34667952560" class="hover:text-inverse-on-surface/70 transition-colors">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Parallax hero
+    const heroBg = document.getElementById('hero-bg');
+    window.addEventListener('scroll', () => {
+      heroBg.style.transform = `scale(1.04) translateY(${window.scrollY * 0.22}px)`;
+    }, { passive: true });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.10 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
