@@ -251,6 +251,77 @@
             .pt-section-gap  { padding-top: 56px !important; }
             .pb-section-gap  { padding-bottom: 56px !important; }
         }
+
+        /* ── Lightbox ── */
+        #lc-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.93);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            cursor: zoom-out;
+        }
+        #lc-lightbox.open {
+            display: flex;
+            animation: lc-lb-in .22s ease both;
+        }
+        @keyframes lc-lb-in {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        #lc-lightbox-img {
+            max-height: 90dvh;
+            max-width: 90dvw;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            cursor: default;
+            animation: lc-lb-img-in .28s cubic-bezier(.34,1.4,.64,1) both;
+        }
+        @keyframes lc-lb-img-in {
+            from { transform: scale(.9); opacity: 0; }
+            to   { transform: none;      opacity: 1; }
+        }
+        #lc-lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,.65);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            background: rgba(0,0,0,.45);
+            padding: 5px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        #lc-lightbox-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .18s;
+            line-height: 1;
+        }
+        #lc-lightbox-close:hover { background: rgba(255,255,255,.22); }
+        img:not([src="/logo.png"]) { cursor: zoom-in; }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
@@ -981,7 +1052,47 @@
             obs.observe(chipWrap);
         })();
 
+        /* ── Lightbox ── */
+        document.addEventListener('DOMContentLoaded', function () {
+            const overlay = document.getElementById('lc-lightbox');
+            const lbImg   = document.getElementById('lc-lightbox-img');
+            const caption = document.getElementById('lc-lightbox-caption');
+            const closeBtn = document.getElementById('lc-lightbox-close');
+
+            function openLB(src, alt) {
+                lbImg.src = src;
+                lbImg.alt = alt || '';
+                caption.textContent = alt || '';
+                caption.style.display = alt ? '' : 'none';
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeLB() {
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            overlay.addEventListener('click', closeLB);
+            lbImg.addEventListener('click', e => e.stopPropagation());
+            closeBtn.addEventListener('click', e => { e.stopPropagation(); closeLB(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+            document.querySelectorAll('img:not([src="/logo.png"])').forEach(img => {
+                img.addEventListener('click', () => openLB(img.src, img.alt));
+            });
+        });
+
     </script>
+
+<!-- Lightbox overlay -->
+<div id="lc-lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button id="lc-lightbox-close" aria-label="Cerrar">
+        <span class="material-symbols-outlined" style="font-size:22px;font-variation-settings:'FILL' 0,'wght' 300">close</span>
+    </button>
+    <img id="lc-lightbox-img" src="" alt=""/>
+    <span id="lc-lightbox-caption"></span>
+</div>
+
 </body></html>
 
 
