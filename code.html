@@ -339,6 +339,20 @@
             .pt-section-gap  { padding-top: 56px !important; }
             .pb-section-gap  { padding-bottom: 56px !important; }
         }
+        /* ── Category icon cards: 3 por fila en mobile ── */
+        @media (max-width: 639px) {
+            .menu-icon-card {
+                min-width: 90px !important;
+                padding: 12px 10px !important;
+                gap: 8px !important;
+            }
+            .menu-icon-card .material-symbols-outlined,
+            .menu-icon-card svg { font-size: 28px !important; width: 28px !important; height: 28px !important; }
+        }
+        /* ── Photo strip: más compacto en mobile ── */
+        @media (max-width: 639px) {
+            .lc-strip-track img { height: 130px !important; }
+        }
 
         /* ── Lightbox ── */
         #lc-lightbox {
@@ -591,7 +605,7 @@
 <span class="font-caption text-caption uppercase tracking-widest text-primary mb-2 block">Los Clásicos</span>
 <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-on-background">Nuestras Especialidades</h2>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-gutter auto-rows-[240px] md:auto-rows-[310px]">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-gutter md:auto-rows-[310px]">
 
 <!-- ── Izquierda vertical ── -->
 <div class="hidden md:block md:col-start-1 md:col-span-3 md:row-start-1 md:row-span-2 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10">
@@ -603,7 +617,7 @@
 </div>
 
 <!-- ── Medialunas Bañadas (destacada) ── -->
-<div class="md:col-start-4 md:col-span-4 md:row-start-1 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10">
+<div class="md:col-start-4 md:col-span-4 md:row-start-1 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10 aspect-[4/3] md:aspect-auto">
   <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_9003.PNG"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
   <div class="absolute bottom-0 left-0 p-8 w-full">
@@ -613,7 +627,7 @@
 </div>
 
 <!-- ── Alfajores de Maicena ── -->
-<div class="md:col-start-8 md:col-span-2 md:row-start-1 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10">
+<div class="md:col-start-8 md:col-span-2 md:row-start-1 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10 aspect-[4/3] md:aspect-auto">
   <img class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_0429.png"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
   <div class="absolute bottom-0 left-0 p-5">
@@ -631,7 +645,7 @@
 </div>
 
 <!-- ── Bocadillos de la Casa ── -->
-<div class="md:col-start-4 md:col-span-3 md:row-start-2 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10">
+<div class="md:col-start-4 md:col-span-3 md:row-start-2 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10 aspect-[4/3] md:aspect-auto">
   <img class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_9723.PNG"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
   <div class="absolute bottom-0 left-0 p-6">
@@ -640,7 +654,7 @@
 </div>
 
 <!-- ── Tartaletas de Fruta ── -->
-<div class="md:col-start-7 md:col-span-3 md:row-start-2 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10">
+<div class="md:col-start-7 md:col-span-3 md:row-start-2 relative rounded-lg overflow-hidden group cursor-pointer border border-outline-variant/10 aspect-[4/3] md:aspect-auto">
   <img class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_5589.JPG"/>
   <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
   <div class="absolute bottom-0 left-0 p-6">
@@ -675,7 +689,7 @@
     </p>
 
     <!-- Category cards -->
-    <div class="flex flex-wrap justify-center gap-3 mb-10 md:mb-20">
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 md:mb-20">
       <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm menu-icon-card" style="min-width:108px;">
         <span class="material-symbols-outlined text-primary" style="font-size:34px;">local_cafe</span>
         <span class="font-caption text-caption text-on-surface-variant">Cafetería</span>
@@ -739,7 +753,7 @@
 <span class="font-body-md">Catering Salado (Empanadas, Sandwiches de Miga)</span>
 </div>
 </div>
-<a class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-DEFAULT font-label-md text-label-md hover:bg-[#1DA851] transition-colors w-fit" href="https://wa.me/34667952560" target="_blank" rel="noopener noreferrer">
+<a class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-DEFAULT font-label-md text-label-md hover:bg-[#1DA851] transition-colors w-full sm:w-fit" href="https://wa.me/34667952560" target="_blank" rel="noopener noreferrer">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
@@ -768,7 +782,7 @@
     <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
 
       <!-- Featured: Tarta Chajá -->
-      <div class="sm:col-span-2 relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md h-80">
+      <div class="sm:col-span-2 relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[16/9] sm:aspect-auto sm:h-80">
         <img class="w-full h-full object-cover object-[50%_40%] transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_5623.JPG" alt="Tarta Chajá"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-6">
@@ -778,7 +792,7 @@
       </div>
 
       <!-- Lemon Pie -->
-      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md h-56">
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[4/3] sm:aspect-auto sm:h-56">
         <img class="w-full h-full object-cover object-bottom transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_5594.JPG" alt="Lemon Pie"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-5">
@@ -788,7 +802,7 @@
       </div>
 
       <!-- Brownie de Merengue -->
-      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md h-56">
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[4/3] sm:aspect-auto sm:h-56">
         <img class="w-full h-full object-cover object-[50%_65%] transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_5599.JPG" alt="Brownie de Merengue"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-5">
@@ -800,10 +814,10 @@
     </div>
 
     <!-- Right section (1/3): 3 stacked cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+    <div class="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:gap-4">
 
       <!-- Croissants Gourmands -->
-      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[4/3] sm:aspect-auto sm:h-44">
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[4/3] lg:aspect-auto lg:h-44">
         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_9639.png" alt="Croissants Gourmands"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-4">
@@ -813,7 +827,7 @@
       </div>
 
       <!-- Empanadas -->
-      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[4/3] sm:aspect-auto sm:h-44">
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[4/3] lg:aspect-auto lg:h-44">
         <img class="w-full h-full object-cover object-[50%_70%] transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_8805.png" alt="Empanadas"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-4">
@@ -823,7 +837,7 @@
       </div>
 
       <!-- Cookies Red Velvet -->
-      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[4/3] sm:aspect-auto sm:h-44">
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer card-lift shadow-md aspect-[4/3] lg:aspect-auto lg:h-44">
         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="Fotos/IMG_8721.jpg" alt="Cookies Red Velvet"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-4">
@@ -913,9 +927,9 @@
         Elaboradas con ingredientes de calidad y mucho cariño. Pídelas por WhatsApp con antelación y las preparamos especialmente para vos.
       </p>
     </div>
-    <div class="sm:flex-shrink-0">
+    <div class="sm:flex-shrink-0 w-full sm:w-auto">
       <a href="https://wa.me/34667952560?text=Hola%21+Me+gustar%C3%ADa+hacer+un+encargo+de+tarta."
-         class="inline-flex items-center gap-3 bg-inverse-surface text-inverse-on-surface text-[12px] font-bold uppercase tracking-wider px-8 py-4 rounded-DEFAULT hover:opacity-90 transition-opacity">
+         class="inline-flex items-center justify-center sm:justify-start gap-3 bg-inverse-surface text-inverse-on-surface text-[12px] font-bold uppercase tracking-wider px-8 py-4 rounded-DEFAULT hover:opacity-90 transition-opacity w-full sm:w-auto">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
