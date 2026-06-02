@@ -149,8 +149,8 @@
             to   { opacity: 1; transform: none; }
         }
         @keyframes _floatBob {
-            0%, 100% { transform: translateY(0); }
-            50%       { transform: translateY(-6px); }
+            0%, 55%, 100% { transform: translateY(0); }
+            28%            { transform: translateY(-5px); }
         }
 
         #main-nav {
@@ -159,10 +159,10 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition:
-              opacity  .65s cubic-bezier(.16,1,.3,1),
-              transform .65s cubic-bezier(.16,1,.3,1);
+              opacity  .55s cubic-bezier(.16,1,.3,1),
+              transform .55s cubic-bezier(.16,1,.3,1);
         }
         .reveal.in {
             opacity: 1;
@@ -171,12 +171,19 @@
 
         .card-lift {
             transition:
-              transform .28s cubic-bezier(.34,1.56,.64,1),
-              box-shadow .28s ease;
+              transform .22s cubic-bezier(.23,1,.32,1),
+              box-shadow .22s ease;
         }
-        .card-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 44px rgba(122,53,32,.13);
+        @media (hover: hover) and (pointer: fine) {
+            .card-lift:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 14px 36px rgba(122,53,32,.14);
+            }
+        }
+        .card-lift:active {
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 10px rgba(122,53,32,.08) !important;
+            transition-duration: 80ms !important;
         }
 
         .btn-shine {
@@ -193,21 +200,28 @@
         }
         .btn-shine:hover::after {
             transform: skewX(-20deg) translateX(500%);
-            transition: transform .55s ease;
+            transition: transform .38s cubic-bezier(.23,1,.32,1);
         }
 
         .btn-grow {
-            transition: transform .32s cubic-bezier(.34,1.56,.64,1), box-shadow .32s ease,
-                        background-color .2s ease, color .2s ease, border-color .2s ease !important;
+            transition: transform .18s cubic-bezier(.23,1,.32,1), box-shadow .18s ease,
+                        background-color .18s ease, color .18s ease, border-color .18s ease !important;
         }
-        .btn-grow:hover {
-            transform: scale(1.1);
-            box-shadow: 0 26px 58px rgba(122,53,32,.26);
+        @media (hover: hover) and (pointer: fine) {
+            .btn-grow:hover {
+                transform: scale(1.04);
+                box-shadow: 0 8px 28px rgba(122,53,32,.20);
+            }
+        }
+        .btn-grow:active {
+            transform: scale(0.97) !important;
+            box-shadow: none !important;
+            transition-duration: 100ms !important;
         }
 
         main a[href*="wa.me"],
         section a[href*="wa.me"] {
-            animation: _floatBob 3.5s ease-in-out infinite;
+            animation: _floatBob 4s ease-in-out infinite;
         }
 
         /* ── Hero entrance stagger ── */
@@ -243,6 +257,80 @@
             transition: opacity .38s ease, transform .45s cubic-bezier(.34,1.56,.64,1);
         }
         .chip-in.in { opacity: 1; transform: none; }
+
+        /* ── Category icon cards ── */
+        .menu-icon-card {
+            transition: transform .18s cubic-bezier(.23,1,.32,1),
+                        box-shadow .18s ease,
+                        border-color .18s ease,
+                        opacity .32s ease-out;
+        }
+        .menu-icon-card.card-hidden {
+            opacity: 0;
+            transform: translateY(14px) !important;
+            pointer-events: none;
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .menu-icon-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(122,53,32,.09);
+                border-color: rgba(122,53,32,.28) !important;
+            }
+            .menu-icon-card:hover .material-symbols-outlined {
+                animation: _iconPop .32s cubic-bezier(.34,1.56,.64,1);
+            }
+        }
+        .menu-icon-card:active {
+            transform: scale(0.96) !important;
+            transition-duration: 80ms !important;
+        }
+        @keyframes _iconPop {
+            0%   { transform: scale(1)    translateY(0); }
+            45%  { transform: scale(1.2)  translateY(-3px); }
+            100% { transform: scale(1)    translateY(0); }
+        }
+
+        /* ── Product card label lift on hover ── */
+        @media (hover: hover) and (pointer: fine) {
+            .card-lift .absolute span[class*="tracking-wider"],
+            .group .absolute span[class*="tracking-wider"] {
+                transition: transform .2s cubic-bezier(.23,1,.32,1), opacity .2s ease-out;
+                transform: translateY(4px);
+                opacity: 0.55;
+            }
+            .card-lift:hover .absolute span[class*="tracking-wider"],
+            .group:hover .absolute span[class*="tracking-wider"] {
+                transform: none;
+                opacity: 0.85;
+            }
+            .card-lift .absolute h3,
+            .group .absolute h3 {
+                transition: transform .22s cubic-bezier(.23,1,.32,1);
+            }
+            .card-lift:hover .absolute h3,
+            .group:hover .absolute h3 {
+                transform: translateY(-2px);
+            }
+        }
+
+        /* ── Reduced motion ── */
+        @media (prefers-reduced-motion: reduce) {
+            #main-nav { animation: none; }
+            .hero-line { animation: none !important; opacity: 1 !important; filter: none !important; }
+            .reveal, .reveal.in { transition: opacity .15s ease; transform: none !important; }
+            .card-lift { transition: box-shadow .15s ease; }
+            .card-lift:hover { transform: none; }
+            .btn-grow { transition: background-color .15s ease, color .15s ease !important; }
+            .btn-grow:hover, .btn-grow:active { transform: none !important; box-shadow: none !important; }
+            .chip-in { transition: opacity .15s ease; transform: none !important; }
+            .chip-in.in { opacity: 1; }
+            main a[href*="wa.me"], section a[href*="wa.me"] { animation: none; }
+            .btn-shine::after { display: none; }
+            .menu-icon-card, .menu-icon-card:hover { transform: none !important; }
+            .card-lift .absolute span[class*="tracking-wider"],
+            .group .absolute span[class*="tracking-wider"],
+            .card-lift .absolute h3, .group .absolute h3 { transition: none; transform: none !important; opacity: 1; }
+        }
 
         /* ── Mobile overrides ── */
         @media (max-width: 767px) {
@@ -322,6 +410,85 @@
         }
         #lc-lightbox-close:hover { background: rgba(255,255,255,.22); }
         img:not([src="/logo.png"]) { cursor: zoom-in; }
+
+        /* ── iOS Encargar Action Sheet ── */
+        #encargar-backdrop {
+          position: fixed; inset: 0;
+          background: rgba(0,0,0,0.45);
+          z-index: 200;
+          opacity: 0; pointer-events: none;
+          transition: opacity 0.28s ease;
+          backdrop-filter: blur(2px);
+          -webkit-backdrop-filter: blur(2px);
+        }
+        #encargar-backdrop.open { opacity: 1; pointer-events: auto; }
+        #encargar-sheet {
+          position: fixed; bottom: 0; left: 0; right: 0;
+          z-index: 201;
+          padding: 0 8px calc(12px + env(safe-area-inset-bottom));
+          transform: translateY(calc(100% + 20px));
+          transition: transform 0.38s cubic-bezier(0.32,0.72,0,1);
+          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+        }
+        #encargar-sheet.open { transform: translateY(0); }
+        .sheet-group {
+          background: rgba(255,255,255,0.97);
+          border-radius: 13px;
+          overflow: hidden;
+          margin-bottom: 8px;
+          -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+        }
+        .sheet-header {
+          padding: 14px 16px 12px;
+          text-align: center;
+          border-bottom: 0.5px solid rgba(60,60,67,0.29);
+        }
+        .sheet-title {
+          font-size: 13px; font-weight: 600;
+          color: rgba(60,60,67,0.6);
+          margin: 0 0 3px; letter-spacing: -0.08px;
+        }
+        .sheet-message {
+          font-size: 12px; color: rgba(60,60,67,0.45);
+          margin: 0; line-height: 1.4;
+        }
+        .sheet-option {
+          display: flex; align-items: center;
+          padding: 0 20px; height: 60px;
+          text-decoration: none;
+          border-bottom: 0.5px solid rgba(60,60,67,0.2);
+          transition: background 0.12s;
+          gap: 14px; cursor: pointer;
+        }
+        .sheet-option:last-of-type { border-bottom: none; }
+        .sheet-option:active { background: rgba(0,0,0,0.06); }
+        .sheet-option-icon {
+          width: 34px; height: 34px; border-radius: 8px;
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0;
+        }
+        .sheet-option-icon.wa-icon { background: #25D366; }
+        .sheet-option-icon.call-icon { background: #34C759; }
+        .sheet-option-text { display: flex; flex-direction: column; gap: 1px; flex: 1; }
+        .sheet-option-label {
+          font-size: 20px; font-weight: 400;
+          color: #007AFF; line-height: 1.15;
+        }
+        .sheet-option-sublabel {
+          font-size: 13px; color: rgba(60,60,67,0.55); line-height: 1.2;
+        }
+        .sheet-cancel {
+          width: 100%; height: 57px; border-radius: 13px;
+          background: rgba(255,255,255,0.97);
+          border: none; font-size: 20px; font-weight: 600;
+          color: #007AFF; cursor: pointer;
+          font-family: inherit;
+          transition: background 0.12s;
+          -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+        }
+        .sheet-cancel:active { background: rgba(0,0,0,0.06); }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
@@ -339,7 +506,7 @@
 </ul>
 <div class="flex items-center gap-3">
 <a class="border border-primary text-primary px-6 py-2.5 rounded-DEFAULT font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors" href="/carta.html">Carta</a>
-<a class="bg-primary text-on-primary px-6 py-2.5 rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" href="#pedidos">Encargar</a>
+<a class="bg-primary text-on-primary px-6 py-2.5 rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" href="#" onclick="event.preventDefault(); openEncargarSheet();">Encargar</a>
 </div>
 </div>
 <!-- Mobile Menu Toggle -->
@@ -360,7 +527,7 @@
 <li><a class="mobile-link text-on-surface hover:text-primary transition-colors" href="#visitanos">Visítanos</a></li>
 <li><a class="mobile-link text-primary font-bold border-b-2 border-primary pb-1 transition-colors" href="/carta.html">Carta</a></li>
 </ul>
-<a class="mt-12 bg-primary text-on-primary px-8 py-4 rounded-DEFAULT font-label-md text-label-md tracking-wider w-3/4 text-center" href="#pedidos">
+<a class="mt-12 bg-primary text-on-primary px-8 py-4 rounded-DEFAULT font-label-md text-label-md tracking-wider w-3/4 text-center" href="#" onclick="event.preventDefault(); openEncargarSheet();">
             ENCARGAR AHORA
         </a>
 </div>
@@ -509,23 +676,23 @@
 
     <!-- Category cards -->
     <div class="flex flex-wrap justify-center gap-3 mb-10 md:mb-20">
-      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm" style="min-width:108px;">
+      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm menu-icon-card" style="min-width:108px;">
         <span class="material-symbols-outlined text-primary" style="font-size:34px;">local_cafe</span>
         <span class="font-caption text-caption text-on-surface-variant">Cafetería</span>
       </div>
-      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm" style="min-width:108px;">
+      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm menu-icon-card" style="min-width:108px;">
         <span class="material-symbols-outlined text-primary" style="font-size:34px;">bakery_dining</span>
         <span class="font-caption text-caption text-on-surface-variant">Bollería</span>
       </div>
-      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm" style="min-width:108px;">
+      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm menu-icon-card" style="min-width:108px;">
         <span class="material-symbols-outlined text-primary" style="font-size:34px;">lunch_dining</span>
         <span class="font-caption text-caption text-on-surface-variant">Bocadillos</span>
       </div>
-      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm" style="min-width:108px;">
+      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm menu-icon-card" style="min-width:108px;">
         <span class="material-symbols-outlined text-primary" style="font-size:34px;">pie_chart</span>
         <span class="font-caption text-caption text-on-surface-variant">Empanadas</span>
       </div>
-      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm" style="min-width:108px;">
+      <div class="flex flex-col items-center gap-3 bg-surface-container-lowest rounded-2xl px-7 py-7 border border-outline-variant/25 shadow-sm menu-icon-card" style="min-width:108px;">
         <span class="material-symbols-outlined text-primary" style="font-size:34px;">cake</span>
         <span class="font-caption text-caption text-on-surface-variant">Pastelería</span>
       </div>
@@ -902,7 +1069,7 @@
 <a class="bg-primary text-on-primary px-8 py-3.5 rounded-DEFAULT font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary-container transition-all shadow-sm" href="#reservar">
   Reservar Mesa
 </a>
-<a class="bg-surface border border-outline px-8 py-3.5 rounded-DEFAULT font-label-md text-label-md text-on-surface text-center hover:bg-surface-container-high transition-all" href="#pedidos">
+<a class="bg-surface border border-outline px-8 py-3.5 rounded-DEFAULT font-label-md text-label-md text-on-surface text-center hover:bg-surface-container-high transition-all" href="#" onclick="event.preventDefault(); openEncargarSheet();">
   Encargar
 </a>
 </div>
@@ -1052,6 +1219,22 @@
             obs.observe(chipWrap);
         })();
 
+        /* ── Category card stagger ── */
+        (function () {
+            const cards = Array.from(document.querySelectorAll('.menu-icon-card'));
+            if (!cards.length) return;
+            const wrap = cards[0].closest('.flex.flex-wrap') || cards[0].parentElement;
+            cards.forEach(c => c.classList.add('card-hidden'));
+            const obs = new IntersectionObserver(function (entries) {
+                if (!entries[0].isIntersecting) return;
+                cards.forEach(function (c, i) {
+                    setTimeout(function () { c.classList.remove('card-hidden'); }, i * 65);
+                });
+                obs.disconnect();
+            }, { threshold: 0.25 });
+            if (wrap) obs.observe(wrap);
+        })();
+
         /* ── Lightbox ── */
         document.addEventListener('DOMContentLoaded', function () {
             const overlay = document.getElementById('lc-lightbox');
@@ -1092,6 +1275,63 @@
     <img id="lc-lightbox-img" src="" alt=""/>
     <span id="lc-lightbox-caption"></span>
 </div>
+
+
+<!-- iOS Action Sheet: Encargar -->
+<div id="encargar-backdrop" aria-hidden="true"></div>
+<div id="encargar-sheet" role="dialog" aria-modal="true" aria-label="Contactar con La Cuadra">
+  <div class="sheet-group">
+    <div class="sheet-header">
+      <p class="sheet-title">La Cuadra · Patraix, Valencia</p>
+      <p class="sheet-message">¿Cómo prefieres contactarnos para tu encargo?</p>
+    </div>
+    <a href="https://wa.me/34667952560?text=Hola%21+Me+gustar%C3%ADa+hacer+un+encargo." class="sheet-option" target="_blank" rel="noopener">
+      <span class="sheet-option-icon wa-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </span>
+      <span class="sheet-option-text">
+        <span class="sheet-option-label">WhatsApp</span>
+        <span class="sheet-option-sublabel">Escribir un mensaje</span>
+      </span>
+    </a>
+    <a href="tel:+34667952560" class="sheet-option">
+      <span class="sheet-option-icon call-icon">
+        <span class="material-symbols-outlined" style="color:white;font-size:20px;font-variation-settings:'FILL' 1,'wght' 400" aria-hidden="true">call</span>
+      </span>
+      <span class="sheet-option-text">
+        <span class="sheet-option-label">Llamar</span>
+        <span class="sheet-option-sublabel">667 95 25 60</span>
+      </span>
+    </a>
+  </div>
+  <button id="encargar-cancel" class="sheet-cancel">Cancelar</button>
+</div>
+
+<script>
+/* ── Encargar action sheet ── */
+(function () {
+  var sheet    = document.getElementById('encargar-sheet');
+  var backdrop = document.getElementById('encargar-backdrop');
+
+  function openSheet() {
+    sheet.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSheet() {
+    sheet.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  window.openEncargarSheet = openSheet;
+  window.closeEncargarSheet = closeSheet;
+
+  backdrop.addEventListener('click', closeSheet);
+  document.getElementById('encargar-cancel').addEventListener('click', closeSheet);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSheet(); });
+})();
+</script>
 
 </body></html>
 
