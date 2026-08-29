@@ -8,6 +8,10 @@
 > La sección 3 es el bloque que copias y pegas tal cual en Google Stitch.
 > La sección 5 es lo que Stitch **no** te va a resolver y tienes que hacer a mano.
 >
+> **Alcance:** el prompt cubre únicamente la **página de inicio**, con todo el contenido real de
+> La Cuadra (productos, precios, horarios, teléfono, historia). La carta la montaremos aparte,
+> partiendo de `carta.html`, que ya tiene las 7 categorías y ~110 productos con precio y traducción.
+>
 > La dirección visual del prompt está calcada de la referencia que pasaste: **editorial oscuro**
 > (fondo espresso, fotografía a sangre con luz dramática, serif ligera en versales muy espaciadas,
 > iconos de línea, acento oro y bloques crema alternos). Todos los pares de color del sistema
@@ -175,51 +179,80 @@ a lo actual (todo crema plano, sin jerarquía) y encaja mucho mejor con "pastele
 
 ---
 
-## 3. PROMPT MAESTRO PARA GOOGLE STITCH
+## 3. PROMPT MAESTRO PARA GOOGLE STITCH — PÁGINA DE INICIO
 
 > Copia **todo** el bloque siguiente y pégalo en Stitch como primer mensaje (modo *Experimental* si lo tienes:
-> respeta mejor los sistemas de diseño largos). Sube además la imagen de referencia y 4–6 fotos reales
-> del obrador **antes** de enviarlo.
+> respeta mejor los sistemas de diseño largos). Sube antes la imagen de referencia y 6–8 fotos reales
+> del obrador y del local.
+>
+> Este prompt cubre **sólo la página de inicio**. La carta la montaremos aparte, partiendo de
+> `carta.html`, que ya tiene las 7 categorías, los ~110 productos con precio y la traducción al inglés.
+>
+> ⚠ Antes de enviarlo, confirma dos datos que **hoy se contradicen en tu propio código**:
+> los horarios (`code.html` dice L–V 07:00–21:00 / S 08:00–21:00 / D 08:00–14:00; `carta.html` dice
+> L–V 7:30–20:00 / S–D 8:00–21:00) y el año de llegada a Valencia (el texto dice "hace cinco años").
+> Están marcados en el prompt como `[CONFIRMAR]`.
 
 ```
 Eres un diseñador de producto senior especializado en marcas gastronómicas premium.
-Rediseña la web de "La Cuadra", pastelería y cafetería argentina artesanal en
-Patraix (Valencia, España). Público: vecinos del barrio (30–55), oficinistas de la
-zona y turistas. Objetivos, por orden: (1) que entren a la tienda física,
-(2) que encarguen tartas y catering, (3) que reserven mesa.
+Diseña la PÁGINA DE INICIO (sólo la home, ninguna otra pantalla) de la web de
+"La Cuadra", pastelería y cafetería argentina artesanal en el barrio de Patraix,
+Valencia (España).
+Público: vecinos del barrio (30–55 años), oficinistas de la zona y turistas.
+Objetivos, por orden: (1) que entren a la tienda física, (2) que encarguen tartas y
+catering, (3) que reserven mesa.
 Idioma de toda la interfaz: español de España. Diseño mobile-first.
+Usa los textos literales que te doy: no inventes copy ni pongas lorem ipsum.
 
+═══════════════════════════════════════════
+DATOS REALES DEL NEGOCIO (úsalos tal cual)
+═══════════════════════════════════════════
+Nombre: La Cuadra
+Descriptor: Pastelería & Cafetería · Valencia
+Dirección: C/ dels Campaners, 17 · Patraix · 46014 Valencia
+Teléfono / WhatsApp: 667 95 25 60  (enlace: https://wa.me/34667952560)
+Instagram: @lacuadravalencia  (https://instagram.com/lacuadravalencia)
+Horarios [CONFIRMAR]: Lunes a viernes 07:00–21:00 · Sábado 08:00–21:00 ·
+                      Domingo 08:00–14:00
+Servicios del local: Terraza · Wi-Fi gratis · Kids Corner · Local accesible
+Avisos importantes que deben aparecer en la web:
+  · "Precios con IVA incluido"
+  · "No realizamos envíos a domicilio"
+  · "Encargos con 48 h de antelación"
+  · "Elaboración diaria en nuestro obrador · sin conservantes ni aditivos"
+Origen: obrador familiar en Argentina desde 1992. Llegada a Valencia: [CONFIRMAR año].
+Qué se elabora cada día en el obrador: medialunas, alfajores, tartas, empanadas
+y bocadillos. Todo artesanal, sin conservantes ni aditivos.
+
+═══════════════════════════════════════════
 DIRECCIÓN VISUAL
+═══════════════════════════════════════════
 Editorial oscuro y apetitoso, como la carta de un obrador de autor impresa en papel
 grueso. Fondo espresso casi negro como base de la marca, alternando con bloques
 crema y beige para marcar el ritmo de lectura. La fotografía manda: planos cerrados
-de producto, luz lateral cálida y dramática, fondos oscuros, mucho contraste entre
-la miga dorada y la sombra. Iconografía de línea fina dibujada a mano alzada, nunca
-iconos rellenos ni de librería genérica. Sensación: cálido, artesano, caro sin ser
-pretencioso. Nada de degradados de moda, glassmorphism, neón ni sombras duras.
+de producto, luz lateral cálida y dramática, fondos en penumbra, mucho contraste
+entre la miga dorada y la sombra. Iconografía de línea fina dibujada a mano alzada,
+nunca iconos rellenos ni de librería genérica. Sensación: cálido, artesano, caro sin
+ser pretencioso. Nada de degradados de moda, glassmorphism, neón ni sombras duras.
 
 Aplica ESTE sistema de diseño de forma estricta:
 
 ---
 name: La Cuadra — Obrador Nocturno
 colors:
-  # Base oscura (la identidad)
   espresso: '#1A120C'            # fondo principal oscuro
   espresso-soft: '#2A1D14'       # bloques oscuros secundarios
   espresso-line: '#3D2C20'       # separadores sobre oscuro
-  # Base clara (bloques alternos)
   cream: '#F7F1E7'               # fondo claro principal
-  sand: '#EDE2D3'                # fondo claro secundario ("Hoy en La Cuadra")
+  sand: '#EDE2D3'                # fondo claro secundario
   white-pure: '#FFFFFF'          # sólo tarjetas elevadas sobre crema
-  # Texto
   on-dark: '#F7F1E7'             # 16.5:1 sobre espresso
   on-dark-muted: '#C9B9A5'       # 9.7:1 sobre espresso
   on-light: '#2A1D14'            # 14.6:1 sobre cream
   on-light-muted: '#5B4636'      # 7.9:1 sobre cream / 6.9:1 sobre sand
-  # Acento
   gold: '#C9A227'                # 7.6:1 sobre espresso — filetes, "&", detalles
   gold-bright: '#D9A441'         # 8.2:1 sobre espresso — hover de enlaces
-  siena: '#7A3520'               # marrón de marca heredado, para botones sobre crema
+  siena: '#7A3520'               # marrón de marca heredado
   on-siena: '#F7F1E7'            # 7.9:1
   success: '#4EA97B'             # chip "Abierto ahora" sobre oscuro
 typography:
@@ -249,22 +282,22 @@ spacing:
 ---
 
 REGLAS DE COLOR
-- La página alterna bloques: oscuro (espresso) → claro (cream) → beige (sand) →
-  oscuro → oscuro → claro. Nunca dos bloques claros seguidos.
+- La página alterna bloques: oscuro → claro → beige → oscuro → oscuro → claro →
+  oscuro → claro. Nunca dos bloques claros seguidos.
 - Un solo acento: oro. Se usa en filetes finos bajo los títulos de sección, en el
-  "&" del claim, en la flecha de los enlaces y en detalles de la ilustración.
-  Nunca como fondo de un botón grande ni como color de párrafo largo.
+  "&" del claim, en la flecha de los enlaces, en el día actual de los horarios y en
+  detalles de la ilustración. Nunca como fondo de un botón grande ni en párrafos.
 - Sobre foto, el texto va siempre sobre un velo sólido oscuro (rgba(26,18,12,.62))
-  o sobre la zona ya oscura de la imagen, nunca sobre luces.
-- Los botones de WhatsApp llevan texto OSCURO (#12271C) sobre verde, nunca blanco.
+  o sobre la zona ya oscura de la imagen, nunca sobre las luces.
+- El botón de WhatsApp lleva texto OSCURO (#12271C) sobre verde, nunca blanco.
 - Prohibido cualquier azul de sistema (#007AFF y similares).
 
 TIPOGRAFÍA
 Serif ligera en VERSALES con tracking amplio (0.10–0.14em) para el logotipo, los
 titulares y los títulos de sección: es la firma de la marca. Nunca uses la serif en
-párrafos largos. Sans ligera (Jost, peso 300) para todo el texto corrido, con líneas
-cortas (máx. 62 caracteres). Etiquetas y enlaces en versales pequeñas muy espaciadas,
-del tipo "VER MÁS →" con la flecha separada por un espacio. Precios en cifras
+párrafos largos. Sans ligera (Jost, peso 300) para todo el texto corrido, líneas de
+máximo 62 caracteres. Etiquetas y enlaces en versales pequeñas muy espaciadas, del
+tipo "VER MÁS →", con la flecha separada por un espacio. Precios en cifras
 tabulares. Bajo cada título de sección, un filete oro centrado de 40px × 1px.
 
 COMPONENTES
@@ -275,107 +308,187 @@ COMPONENTES
   crece de izquierda a derecha en hover.
 - Icono de categoría: dibujo de línea de 1,25px, 48px, sin relleno, color heredado.
 - Tarjeta de categoría: icono → nombre en versales serif → dos líneas de texto →
-  foto 4:3 → enlace "VER MÁS →". Sin caja, sin borde, sin sombra: la separan el aire
-  y la retícula.
-- Tarjeta "de hoy": overline en oro ("RECIÉN HORNEADO"), nombre en serif, precio,
-  foto 4:3. Máximo cuatro por fila.
+  "DESDE X,XX €" en oro → foto 4:3 → enlace "VER MÁS →". Sin caja, sin borde, sin
+  sombra: la separan el aire y la retícula.
+- Tarjeta "de hoy": overline en oro, nombre en serif, precio, foto 4:3.
 - Chip de estado: pill, punto verde + "ABIERTO AHORA · CIERRA A LAS 21:00".
-- Tabla de horarios: día en versales pequeñas, horas en sans, el día actual en oro.
+- Tabla de horarios: día en versales pequeñas, horas en sans, día actual en oro.
 - Ilustración de marca: dibujo de línea de la fachada de la cafetería, a una tinta,
-  para el pie de página. Es el remate de la identidad, no un adorno opcional.
+  para el pie. Es el remate de la identidad, no un adorno opcional.
 - Foco de teclado: outline 2px oro con offset 2px. Obligatorio y visible sobre los
   dos fondos.
+- Todas las áreas táctiles, mínimo 48×48 px.
 
 MOVIMIENTO
 Discreto. Fade + 16px de subida al entrar en viewport, 400 ms, una sola vez.
 Nada de parallax, nada de carruseles en bucle infinito, nada de elementos que se
 mueven solos de forma permanente. Respeta prefers-reduced-motion.
 
-ESTRUCTURA (una sola página, en este orden exacto — no añadas secciones)
+═══════════════════════════════════════════
+ESTRUCTURA DE LA HOME — 10 bloques, en este orden exacto.
+No añadas ni quites secciones.
+═══════════════════════════════════════════
 
-1. BARRA SUPERIOR sobre el hero, transparente, sin borde. Izquierda: enlaces en
-   versales espaciadas (INICIO · CARTA · SOBRE LA CUADRA), el activo con filete oro
-   debajo. Centro: logotipo "LA CUADRA" en serif versales con "VALENCIA" debajo en
-   micro-versales. Derecha: botón fantasma "CÓMO LLEGAR" con icono de pin.
-   Al hacer scroll se vuelve sólida espresso y reduce a 64px.
-   En móvil: logo centrado, hamburguesa a la derecha, panel a pantalla completa
-   sobre espresso con los enlaces en serif grande y dos botones al fondo:
-   "RESERVAR MESA" y "ENCARGAR".
+BLOQUE 1 — BARRA SUPERIOR
+Sobre el hero, transparente, sin borde, 80px de alto.
+Izquierda: enlaces en versales espaciadas — INICIO · LA CARTA · SOBRE NOSOTROS ·
+ENCARGOS · VISÍTANOS. El activo lleva filete oro de 1px debajo.
+Centro: logotipo "LA CUADRA" en serif versales, y debajo "VALENCIA" en
+micro-versales con tracking 0.3em.
+Derecha: botón fantasma "CÓMO LLEGAR" con icono de pin de línea.
+Al hacer scroll pasa a fondo espresso sólido y se reduce a 64px.
+Móvil: logotipo centrado, hamburguesa a la derecha; el panel se abre a pantalla
+completa sobre espresso, con los enlaces en serif grande centrados y, al fondo,
+dos botones: "RESERVAR MESA" (relleno crema) y "ENCARGAR" (fantasma), más el
+teléfono 667 95 25 60 en versales pequeñas.
 
-2. HERO oscuro a pantalla casi completa (85vh). Foto a sangre: plano cerrado de un
-   croissant/medialuna dorada con una taza de café al fondo, luz lateral cálida,
-   fondo en penumbra. El texto ocupa el tercio izquierdo, sobre la zona oscura:
-   logotipo enorme "LA CUADRA" en serif versales espaciadas, debajo
-   "PASTELERÍA & CAFETERÍA / EN VALENCIA" con el "&" en oro.
-   Dos botones: "VER LA CARTA" (relleno crema) y "CÓMO LLEGAR" (fantasma, con pin).
-   Abajo centrado, un círculo fino con una flecha hacia abajo que invita al scroll.
-   Añade, en micro-versales bajo los botones: "ABIERTO AHORA · CIERRA A LAS 21:00"
-   con punto verde.
+BLOQUE 2 — HERO
+Alto 85vh. Una sola foto fija a sangre (NO vídeo): plano cerrado de una medialuna
+o croissant dorado recién horneado, con una taza de café al fondo desenfocada,
+luz lateral cálida y fondo en penumbra.
+Velo oscuro sólido en el tercio izquierdo para legibilidad.
+Contenido, alineado a la izquierda:
+  · Logotipo enorme: LA CUADRA (serif versales, tracking 0.14em)
+  · Claim en dos líneas: "PASTELERÍA & CAFETERÍA" / "EN VALENCIA", con el "&" en oro
+  · Bajo el claim, una línea fina en sans: "Obrador artesanal argentino en Patraix"
+  · Dos botones: "VER LA CARTA" (relleno crema) y "CÓMO LLEGAR" (fantasma, con pin)
+  · Debajo, chip de estado: punto verde + "ABIERTO AHORA · CIERRA A LAS 21:00"
+Abajo centrado: un círculo fino de 40px con una flecha hacia abajo que invita
+al scroll.
 
-3. CATEGORÍAS, fondo crema. Cinco columnas iguales: BOLLERÍA · EMPANADAS ·
-   PASTELERÍA · CAFÉ · PARA COMER. Cada una: icono de línea dibujado a mano,
-   nombre en serif versales, dos líneas de descripción en sans pequeña, foto 4:3
-   del producto real y enlace "VER MÁS →". En móvil: carrusel horizontal de dos
-   columnas y media, con scroll-snap.
+BLOQUE 3 — CATEGORÍAS (fondo crema)
+Cinco columnas iguales, sin cajas. Cada una: icono de línea + nombre en serif
+versales + dos líneas de descripción + "DESDE X,XX €" en oro + foto 4:3 real del
+producto + enlace "VER MÁS →". Contenido literal:
 
-4. HOY EN LA CUADRA, fondo beige (sand). Título centrado en serif versales con
-   filete oro debajo. Cuatro productos del día en fila: overline en oro con el
-   estado ("RECIÉN HORNEADO", "SALIÓ DEL HORNO", "ALGO DULCE", "PARA ACOMPAÑAR"),
-   nombre del producto en serif, PRECIO, y foto 4:3.
-   Botón oscuro centrado abajo: "VER LO QUE TENEMOS HOY →".
-   Bajo el botón, en micro-versales: "ELABORACIÓN DIARIA · SIN CONSERVANTES".
+  BOLLERÍA — icono croissant
+  "Medialunas, croissants, napolitanas y facturas. Horneadas cada mañana."
+  DESDE 0,90 €
 
-5. ARGENTINA / VALENCIA, bloque oscuro partido en dos mitades a sangre. Izquierda:
-   foto de calle de Buenos Aires en penumbra, título "ARGENTINA" en serif versales,
-   dos líneas: "Medialunas, alfajores, empanadas. Sabores de infancia y tradición."
-   Derecha: foto de Valencia, título "VALENCIA", dos líneas: "Café, barrio, producto
-   local y la vida mediterránea que nos inspira."
-   Debajo de cada una, una cifra en serif: "1992 · NUESTRO ORIGEN" y
-   "2020 · LLEGAMOS A PATRAIX". Un enlace por mitad, no dos botones iguales.
+  EMPANADAS — icono empanada
+  "Nueve variedades artesanales al horno: criolla, humita, verdura, campo."
+  DESDE 2,20 €
 
-6. RESEÑAS, fondo espresso-soft. A la izquierda la nota media enorme en serif
-   ("4,8"), cinco estrellas finas en oro y "SOBRE N RESEÑAS EN GOOGLE".
-   A la derecha, tres opiniones reales en columnas separadas por filetes verticales
-   de 1px, texto en sans ligera, firma en versales pequeñas. Sin comillas gigantes,
-   sin tarjetas con borde.
+  PASTELERÍA — icono porción de tarta
+  "Alfajores, chocotorta, rogel, lemon pie y tartas por porción."
+  DESDE 2,50 €
 
-7. ENCARGOS Y CATERING, fondo crema. Tres columnas con icono de línea:
-   "TARTAS POR ENCARGO" / "BANDEJAS PARA LA OFICINA" / "CATERING DE EVENTOS".
-   Dos líneas de texto cada una y su propio botón oscuro:
-   "PEDIR TARTA →", "PEDIR BANDEJA →", "CONSULTAR CATERING →".
-   Aviso en micro-versales: "RESERVA CON 48 H DE ANTELACIÓN".
+  CAFÉ — icono taza
+  "Café de especialidad, café con leche argentino, submarino y cremaet."
+  DESDE 1,20 €
 
-8. PASA POR LA CUADRA, bloque oscuro. A la izquierda, sobre espresso: título en
-   serif versales, dos líneas ("Síguenos en Instagram y descubre nuestro día a día"),
-   el handle @lacuadravalencia y un botón fantasma "VER INSTAGRAM →".
-   A la derecha, rejilla de 4×2 fotos cuadradas reales del local y del producto,
-   separadas por 8px, sin texto encima.
+  PARA COMER — icono sándwich
+  "Bocadillos XL, tostas, tortilla, paella y cocina casera del día."
+  DESDE 2,50 €
 
-9. VISÍTANOS Y PIE, fondo crema, tres columnas separadas por filetes verticales:
-   (a) ilustración de línea de la fachada de La Cuadra con el rótulo, más el
-       logotipo debajo;
-   (b) dirección completa "C/ dels Campaners, 17 · 46014 Valencia", enlaces a
-       Instagram y WhatsApp con iconos de línea, y teléfono pulsable;
-   (c) icono de reloj y la tabla de horarios completa (LUNES–VIERNES 07:00–21:00 /
-       SÁBADO 08:00–21:00 / DOMINGO 08:00–14:00), con el día actual resaltado en oro,
-       y botón oscuro "CÓMO LLEGAR →".
-   Barra final sobre espresso: logotipo pequeño a la izquierda; a la derecha, en
-   micro-versales: CARTA · SOBRE LA CUADRA · TRABAJA CON NOSOTROS · CONTACTO ·
-   AVISO LEGAL · PRIVACIDAD · ALÉRGENOS, y el copyright.
+Móvil: carrusel horizontal de dos columnas y media con scroll-snap.
 
-PANTALLA SECUNDARIA — CARTA
-Fondo crema, cabecera oscura corta con el logotipo y el título "CARTA".
-Barra de categorías fija bajo la cabecera, con scroll horizontal en móvil
-(CAFETERÍA · BOLLERÍA · BOCADILLOS · EMPANADAS · PASTELERÍA); la categoría activa
-se marca con filete oro al hacer scroll.
-Cada categoría es una LISTA, no una rejilla de fotos: nombre en serif versales a la
-izquierda, filete de puntos, precio a la derecha en cifras tabulares. Bajo el nombre,
-una línea de descripción en sans y su traducción al inglés en cursiva más pequeña y
-en on-light-muted. Iconos de alérgenos de línea al final de cada fila.
-Al pie: leyenda de alérgenos y "PRECIOS CON IVA INCLUIDO".
-En móvil, botón flotante inferior "ENCARGAR →" sobre espresso.
+BLOQUE 4 — HOY EN LA CUADRA (fondo beige / sand)
+Título centrado en serif versales "HOY EN LA CUADRA" con filete oro debajo, y una
+línea de apoyo: "Lo que acaba de salir del horno."
+Cuatro productos en fila. Cada uno: overline en oro + nombre en serif + precio +
+foto 4:3. Contenido literal:
 
+  RECIÉN HORNEADO   · Medialunas de manteca      · 1,60 €
+  SALIÓ DEL HORNO   · Empanada criolla           · 2,70 €
+  ALGO DULCE        · Alfajor de maicena         · 2,50 €
+  PARA ACOMPAÑAR    · Café con leche argentino   · 1,80 €
+
+Botón oscuro centrado: "VER LA CARTA COMPLETA →"
+Bajo el botón, micro-versales: "ELABORACIÓN DIARIA · SIN CONSERVANTES · PRECIOS
+CON IVA INCLUIDO"
+
+BLOQUE 5 — ARGENTINA / VALENCIA (bloque oscuro partido en dos mitades a sangre)
+Izquierda, foto de calle porteña en penumbra:
+  Título "ARGENTINA" en serif versales.
+  Texto: "Nuestro obrador nació en 1992 entre masas, recetas de familia y el gusto
+  por hacer las cosas despacio. De allí venimos: medialunas, alfajores, empanadas."
+  Dato en serif: "1992 · DONDE EMPEZÓ TODO"
+Derecha, foto de Valencia:
+  Título "VALENCIA" en serif versales.
+  Texto: "En Patraix encontramos un barrio que sentimos nuestro. Hoy fusionamos las
+  dos orillas: producto local, café de especialidad y la misma masa de siempre."
+  Dato en serif: "[CONFIRMAR año] · LLEGAMOS A PATRAIX"
+Bajo las dos mitades, centrado sobre espresso, una sola frase en serif itálica,
+tamaño title, con filete oro corto encima:
+  "La Cuadra es una pausa en medio del día: un café bien hecho, una conversación
+  tranquila y un sitio donde siempre hay lugar."
+Y tres cifras en fila, en serif con etiqueta en micro-versales:
+  "1992 · NUESTRO ORIGEN"   "100% · ELABORACIÓN PROPIA"   "0 · CONSERVANTES"
+
+BLOQUE 6 — RESEÑAS (fondo espresso-soft)
+Izquierda: nota media enorme en serif ("4,8"), cinco estrellas finas en oro y, en
+micro-versales, "SOBRE [N] RESEÑAS EN GOOGLE".
+Derecha: tres opiniones en columnas separadas por filetes verticales de 1px; texto
+en sans ligera, firma en versales pequeñas con el nombre y la inicial en un círculo
+fino. Deja los tres textos como campos vacíos etiquetados "RESEÑA REAL 1/2/3": los
+rellenaremos con opiniones reales de Google. Sin comillas gigantes, sin tarjetas
+con borde, sin sombras.
+
+BLOQUE 7 — ENCARGOS Y CATERING (fondo crema)
+Título "ENCARGOS Y CATERING" con filete oro. Línea de apoyo:
+"Tartas enteras, bandejas para la oficina y catering salado. Con 48 h de antelación."
+Tres columnas con icono de línea, dos líneas de texto, precio orientativo y su
+propio botón oscuro (cada botón, su propio mensaje de WhatsApp, no uno genérico):
+
+  TARTAS POR ENCARGO — icono tarta
+  "Chocotorta, Rogel, Chajá, Lemon Pie, Cheesecake, Red Velvet, Carrot, Fresita,
+  Pastafrola, Tarta La Cuadra y tartas a medida."
+  DESDE 14,00 € (tamaño M) · HASTA 43,00 € (XL)
+  Botón: "PEDIR TARTA →"
+
+  BANDEJAS PARA LA OFICINA — icono bandeja
+  "Bandejas de bollería y medialunas para desayunos de empresa y reuniones."
+  Botón: "PEDIR BANDEJA →"
+
+  CATERING SALADO — icono empanada
+  "Empanadas, sándwiches de miga, tortilla y bocadillos para eventos."
+  Botón: "CONSULTAR CATERING →"
+
+Bajo las tres columnas, una franja de aviso en micro-versales sobre fondo sand:
+"RESERVA CON 48 H DE ANTELACIÓN · NO REALIZAMOS ENVÍOS A DOMICILIO ·
+LLÁMANOS AL 667 95 25 60"
+
+BLOQUE 8 — PASA POR LA CUADRA (bloque oscuro)
+Izquierda, sobre espresso: título en serif versales "PASA POR LA CUADRA", dos
+líneas ("Síguenos en Instagram y mira lo que sale del horno cada día."), el handle
+@lacuadravalencia en versales espaciadas y un botón fantasma "VER INSTAGRAM →".
+Derecha: rejilla de 4×2 fotos cuadradas reales del local y del producto, separadas
+por 8px, sin texto encima, con un leve oscurecido al pasar el ratón.
+
+BLOQUE 9 — VISÍTANOS (fondo crema)
+Título "VISÍTANOS" con filete oro. Dos columnas:
+Izquierda: mapa embebido real centrado en C/ dels Campaners 17, en tono sepia para
+que no rompa la paleta, con un pin oro. Debajo, foto apaisada de la fachada.
+Derecha, en filas separadas por filetes de 1px:
+  · Icono de pin + "DÓNDE ESTAMOS" + "C/ dels Campaners, 17 · Patraix · 46014
+    Valencia"
+  · Icono de reloj + "HORARIOS" + tabla:
+      LUNES A VIERNES   07:00 – 21:00
+      SÁBADO            08:00 – 21:00
+      DOMINGO           08:00 – 14:00
+    (el día actual, resaltado en oro)
+  · Icono de teléfono + "RESERVAS Y ENCARGOS" + "667 95 25 60" pulsable
+  · Chips en pill: TERRAZA · WI-FI · KIDS CORNER · ACCESIBLE
+Dos botones al pie de la columna: "CÓMO LLEGAR →" (relleno espresso) y
+"RESERVAR MESA →" (fantasma con borde espresso).
+
+BLOQUE 10 — PIE (fondo crema, remate sobre espresso)
+Tres columnas separadas por filetes verticales:
+  (a) Ilustración de línea de la fachada de La Cuadra con su rótulo, y debajo el
+      logotipo "LA CUADRA / VALENCIA".
+  (b) "C/ dels Campaners, 17 · 46014 Valencia" · iconos de línea de Instagram y
+      WhatsApp con sus enlaces · teléfono 667 95 25 60 pulsable.
+  (c) Icono de reloj y la tabla de horarios repetida, más el botón oscuro
+      "CÓMO LLEGAR →".
+Barra final sobre espresso: a la izquierda el logotipo pequeño; a la derecha, en
+micro-versales: LA CARTA · SOBRE NOSOTROS · ENCARGOS · TRABAJA CON NOSOTROS ·
+AVISO LEGAL · PRIVACIDAD · ALÉRGENOS. Y el copyright:
+"© 2026 La Cuadra · Patraix, Valencia".
+
+═══════════════════════════════════════════
 QUÉ NO QUIERO (errores de la versión actual — no los repitas)
+═══════════════════════════════════════════
 - Nada de cuatro galerías seguidas con las mismas fotos repetidas.
 - Ninguna foto puede aparecer dos veces en la misma página.
 - Nada de tiras de fotos animadas en bucle infinito.
@@ -383,10 +496,44 @@ QUÉ NO QUIERO (errores de la versión actual — no los repitas)
 - Nada de textura de ruido sobre todas las secciones.
 - Nada de action sheet estilo iOS con azul de sistema.
 - Ninguna sección puede ser sólo fotos sin texto ni precio.
-- Ningún botón puede llevar a un WhatsApp genérico: cada CTA, su mensaje.
+- Ningún botón puede llevar a un WhatsApp genérico: cada CTA, su propio mensaje.
 - Cero texto claro al 60% de opacidad sobre foto.
 - Ningún icono relleno ni de set genérico: todos de línea fina.
+- Nada de "Reservar mesa" y "Encargar" llevando al mismo sitio: son dos intenciones
+  distintas y necesitan destinos distintos.
 ```
+
+---
+
+## 3 bis. Datos reales para rellenar (extraídos de `carta.html`)
+
+Por si Stitch te pide más contenido o quieres afinar los bloques 3, 4 y 7:
+
+**Precios de entrada por categoría (reales):**
+Café 1,20 € · Bollería 0,90 € · Empanadas 2,20 € · Cocina casera 2,50 € ·
+Pastelería por porción 3,00 € · Bocadillos 3,50 € · Tartas enteras 14,00 €
+
+**Los productos más "de marca" (para fotos y destacados):**
+Croissant de dulce de leche 2,50 € · Alfajor choco/maicena 2,50 € ·
+Café con leche argentino 1,80 € · Submarino argentino 3,00 € ·
+Empanada criolla 2,70 € · Empanada humita 2,30 € · Empanada de campo 3,30 € ·
+Chocotorta (porción) 3,00 € · Tarta La Cuadra 4,00 € · Rogel · Chajá ·
+Milanesa de pollo XL 5,50 € · Paella valenciana 4,50 €
+
+**Tartas enteras por encargo (rango real):**
+Brazo Gitano 14 € · Coco y dulce de leche 20 € · Pastafrola 20 € · Chocotorta 22 € ·
+Ricota / Brownie 22 € · Lemon Pie 24 € · Rogel / Chajá / Mousse 28 € ·
+Carrot / Selva Negra / Red Velvet 28 € · La Cuadra / Oreo / Fresita 28 € ·
+Cheesecake M 35 € · Ricota / Lemon Pie XL 38 € · Frutal XL 38 € ·
+Oreo / Red Velvet / Carrot XL 40 € · Pistacho M 40 € · Cheesecake XL 43 €
+
+**Incoherencias que hay que resolver antes de publicar:**
+- Horarios: `code.html` dice L–V 07:00–21:00 / S 08:00–21:00 / D 08:00–14:00.
+  `carta.html` dice L–V 7:30–20:00 / S–D 8:00–21:00. **No pueden ser los dos.**
+- "Hace cinco años llegamos a Valencia" es una frase que caduca sola: hay que
+  sustituirla por un año fijo.
+- La carta indica "No realizamos envíos a domicilio", pero la home no lo dice en
+  ningún sitio. Debe decirlo, o recibirás pedidos de envío por WhatsApp.
 
 ---
 
@@ -394,13 +541,14 @@ QUÉ NO QUIERO (errores de la versión actual — no los repitas)
 
 Stitch trabaja mejor a golpe pequeño. Tras el prompt maestro, itera **de uno en uno**:
 
-1. `Rehaz sólo el hero: foto oscura a sangre de una medialuna con café al fondo, texto en el tercio izquierdo, logotipo "LA CUADRA" en serif versales con tracking 0.14em, claim "PASTELERÍA & CAFETERÍA EN VALENCIA" con el "&" en oro, dos botones y chip verde de "abierto ahora".`
+1. `Rehaz sólo el hero: foto oscura a sangre de una medialuna con café al fondo, texto en el tercio izquierdo, logotipo "LA CUADRA" en serif versales con tracking 0.14em, claim "PASTELERÍA & CAFETERÍA EN VALENCIA" con el "&" en oro, dos botones y chip verde "ABIERTO AHORA · CIERRA A LAS 21:00".`
 2. `Diseña los cinco iconos de categoría como dibujos de línea de 1,25px, misma familia gráfica: croissant, empanada, porción de tarta, taza de café, sándwich. Sin relleno.`
-3. `Rehaz "Hoy en La Cuadra" sobre fondo beige: cuatro productos con overline en oro, nombre en serif y PRECIO visible. Añade filete oro de 40px bajo el título de sección.`
-4. `Diseña la ilustración de línea de la fachada de la cafetería para el pie: una tinta, trazo fino, con el rótulo "LA CUADRA VALENCIA" y dos plantas a los lados.`
-5. `Dame la versión móvil completa: hero a 85vh, categorías en carrusel con scroll-snap, y el panel de menú a pantalla completa sobre espresso.`
-6. `Añade estados: hover, foco de teclado con outline oro de 2px, y el estado "hoy agotado" de una tarjeta de producto.`
-7. `Diseña el modal de encargo: selección de tarta, número de raciones, fecha de recogida y nota. Botón final "ENVIAR POR WHATSAPP". Estilo de la marca, sin azul de sistema.`
+3. `Rehaz "Hoy en La Cuadra" sobre fondo beige con los cuatro productos y sus precios reales: Medialunas de manteca 1,60 €, Empanada criolla 2,70 €, Alfajor de maicena 2,50 €, Café con leche argentino 1,80 €. Overline en oro y filete oro bajo el título.`
+4. `Diseña el bloque Argentina/Valencia: dos mitades a sangre sobre fondo oscuro, con las cifras "1992 · DONDE EMPEZÓ TODO" y "[año] · LLEGAMOS A PATRAIX" en serif.`
+5. `Diseña la ilustración de línea de la fachada para el pie: una tinta, trazo fino, rótulo "LA CUADRA VALENCIA" y dos plantas a los lados.`
+6. `Dame la versión móvil completa de la home: hero a 85vh, categorías en carrusel con scroll-snap y panel de menú a pantalla completa sobre espresso.`
+7. `Añade estados: hover, foco de teclado con outline oro de 2px, y el estado "agotado por hoy" de una tarjeta de producto.`
+8. `Diseña el modal de encargo de tarta: selección de tarta, tamaño (M / XL), número de raciones, fecha de recogida y nota. Botón final "ENVIAR POR WHATSAPP". Estilo de la marca, sin azul de sistema.`
 
 **Truco:** si Stitch te devuelve algo genérico, no discutas en prosa — reenvía el bloque `---` del sistema de diseño y escribe `aplica esto literalmente, especialmente los radios, el tracking de las versales y la alternancia de fondos`.
 
