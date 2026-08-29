@@ -1,0 +1,6 @@
+{
+  "_comentario": "Rellena estos campos con reseñas REALES de Google y la home las pintará sola. Mientras rating sea null, la sección muestra el estado 'pendiente'.",
+  "rating": null,
+  "total": null,
+  "reviews": []
+}
