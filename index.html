@@ -28,7 +28,7 @@
 
 <link rel="preload" as="font" type="font/woff2" href="fonts/CormorantGaramond-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/Jost-latin.woff2" crossorigin>
-<link rel="preload" as="image" href="img/hero-1200.webp" imagesrcset="img/hero-800.webp 800w, img/hero-1200.webp 1200w, img/hero-1800.webp 1800w" imagesizes="100vw" media="(min-width:721px)">
+<link rel="preload" as="image" href="img/hero-video-poster.webp">
 <link rel="stylesheet" href="fonts/fonts.css">
 
 <script type="application/ld+json">
@@ -302,8 +302,8 @@ a,button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 .cat{ display:flex; flex-direction:column; }
 .cat .ico{ color:var(--on-light); margin-bottom:14px; }
 .cat .ico svg{ width:44px; height:44px; }
-.cat h3{ text-transform:uppercase; letter-spacing:.09em; font-size:1.1rem; margin-bottom:8px; }
-.cat p{ font-size:.83rem; color:var(--on-light-muted); min-height:3.4em; }
+.cat h3{ text-transform:uppercase; letter-spacing:.09em; font-size:1.1rem; line-height:1.25; min-height:2.5em; margin-bottom:8px; }
+.cat p{ font-size:.83rem; line-height:1.5; color:var(--on-light-muted); min-height:4.5em; }
 .cat .from{ color:#7A5426; font-size:.63rem; text-transform:uppercase; letter-spacing:.2em; margin:12px 0 14px; }
 .cat{ transition:translate .5s var(--ease-spring-soft); }
 .cat figure{ margin:0 0 14px; overflow:hidden; border-radius:var(--r-lg); background:var(--sand); box-shadow:0 1px 1px rgba(0,0,0,.04); }
@@ -492,13 +492,13 @@ a,button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 
 <!-- ══════════ 2 · HERO ══════════ -->
 <section class="hero" aria-label="La Cuadra, pastelería y cafetería argentina en Valencia">
-  <picture>
-    <source media="(max-width:720px)" srcset="img/hero-m-640.webp 640w, img/hero-m-900.webp 900w" sizes="100vw">
-    <img class="hero-img" src="img/hero-1200.webp"
-         srcset="img/hero-800.webp 800w, img/hero-1200.webp 1200w, img/hero-1800.webp 1800w" sizes="100vw"
-         width="1800" height="1013" fetchpriority="high" decoding="async"
-         alt="Medialunas rellenas de dulce de leche recién horneadas en el mostrador de La Cuadra">
-  </picture>
+  <video class="hero-img" id="heroVideo" style="object-position:50% 78%" poster="img/hero-video-poster.webp" width="720" height="1280"
+         autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="img/hero-video.webm" type="video/webm">
+    <source src="img/hero-video.mp4" type="video/mp4">
+    <img class="hero-img" src="img/hero-video-poster.webp" width="720" height="1280" decoding="async"
+         alt="Manos elaborando pastelería artesanal en el obrador de La Cuadra">
+  </video>
   <span class="hero-veil" aria-hidden="true"></span>
   <div class="wrap hero-in"><div class="hero-copy">
     <h1 class="wordmark">La Cuadra</h1>
@@ -1004,8 +1004,15 @@ a,button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
     });
   }
 
-  /* ── Reveal al entrar en pantalla ── */
+  /* ── Vídeo del hero: pausado si el usuario prefiere menos movimiento ── */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var heroVideo = document.getElementById('heroVideo');
+  if(heroVideo && reduce){
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.pause();
+  }
+
+  /* ── Reveal al entrar en pantalla ── */
   var rvs = document.querySelectorAll('.rv');
   if(reduce || !('IntersectionObserver' in window)){
     rvs.forEach(function(el){ el.classList.add('in'); });
