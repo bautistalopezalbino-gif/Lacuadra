@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Cuadra · Pastelería y cafetería artesanal argentina en Patraix, Valencia</title>
-<meta name="description" content="Obrador artesanal argentino en Patraix, Valencia. Medialunas, alfajores, empanadas, tartas y café de especialidad, elaborados cada día sin conservantes. C/ dels Campaners 17.">
+<meta name="description" content="Obrador artesanal argentino en Patraix, Valencia. Medialunas, alfajores, empanadas, tartas y café de especialidad, elaborados cada día sin conservantes. C/ dels Campaners 16.">
 <link rel="canonical" href="https://lacuadravalencia.es/">
-<meta name="theme-color" content="#1A120C">
+<meta name="theme-color" content="#3E2519">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="Obrador artesanal en Patraix. Medialunas, alfajores, empanadas y tartas hechas cada día.">
 <meta name="twitter:image" content="https://lacuadravalencia.es/img/og.jpg">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231A120C'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23C9A227' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%233E2519'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23C98A3C' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="/logo.png">
 
 <link rel="preload" as="font" type="font/woff2" href="fonts/CormorantGaramond-latin.woff2" crossorigin>
@@ -47,16 +47,16 @@
   "currenciesAccepted": "EUR",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "C/ dels Campaners, 17",
+    "streetAddress": "C/ dels Campaners, 16",
     "addressLocality": "Valencia",
     "addressRegion": "Comunidad Valenciana",
     "postalCode": "46014",
     "addressCountry": "ES"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": 39.4592, "longitude": -0.3936 },
-  "hasMap": "https://www.google.com/maps/search/?api=1&query=Calle+dels+Campaners+17+Valencia",
+  "geo": { "@type": "GeoCoordinates", "latitude": 39.457698, "longitude": -0.400208 },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Calle+dels+Campaners+16+Valencia",
   "sameAs": ["https://www.instagram.com/lacuadravalencia/"],
-  "hasMenu": "https://lacuadravalencia.es/carta.html",
+  "hasMenu": "https://lacuadravalencia.es/carta",
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "21:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "21:00" },
@@ -74,13 +74,16 @@
 <style>
 /* ══════════ SISTEMA ══════════ */
 :root{
-  --espresso:#1A120C; --espresso-soft:#2A1D14; --espresso-line:#3D2C20;
-  --cream:#F7F1E7; --sand:#EDE2D3; --white:#FFFFFF;
-  --on-dark:#F7F1E7; --on-dark-muted:#C9B9A5;
-  --on-light:#2A1D14; --on-light-muted:#5B4636;
-  --gold:#C9A227; --gold-bright:#D9A441; --success:#4EA97B;
-  --r-sm:2px; --r-md:4px; --r-lg:6px;
+  --espresso:#3E2519; --espresso-soft:#4A2E1F; --espresso-line:#5E402D;
+  --cream:#FBF4E9; --sand:#F3E5D2; --white:#FFFFFF;
+  --on-dark:#FBF4E9; --on-dark-muted:#E0CDB4;
+  --on-light:#3A2519; --on-light-muted:#6B4A31;
+  --gold:#C98A3C; --gold-bright:#DCA05A; --success:#6FBF8F;
+  --r-sm:2px; --r-md:4px; --r-lg:6px; --r-pill:999px;
   --gutter:20px; --mx:20px; --gap:56px; --maxw:1320px;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --ease-spring-soft:cubic-bezier(.16,1.24,.38,1);
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --sans:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
 }
@@ -101,6 +104,7 @@ p{ margin:0; }
 ul{ margin:0; padding:0; list-style:none; }
 button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
 [hidden]{ display:none !important; }
+a,button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 
 :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; border-radius:var(--r-sm); }
 .skip{ position:absolute; left:-9999px; top:0; z-index:200; background:var(--espresso); color:var(--on-dark); padding:12px 20px; }
@@ -128,26 +132,53 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .price{ font-family:var(--sans); font-weight:500; font-variant-numeric:tabular-nums; }
 .gold{ color:var(--gold); }
 
+/* ══════════ REVEAL ══════════ */
+.rv{ opacity:0; translate:0 20px; scale:.98; }
+.rv.in{ opacity:1; translate:0 0; scale:1; transition:opacity .5s var(--ease-out), translate .7s var(--ease-spring-soft), scale .7s var(--ease-spring-soft); }
+@media (prefers-reduced-motion:reduce){
+  .rv,.rv.in{ opacity:1; transform:none; transition:none; }
+  .cat,.cat img,.hoy article,.hoy img,.ig-grid img,.btn,.btn::after,
+  .hdr,.hdr-in,.mob,.mob a.ml,.burger,.mob-close,.map-cta,.scroll-cue,.dot{ transition:none; animation:none; }
+  .rv,.cat,.hoy article,.btn,.mob,.mob a.ml,.burger,.mob-close,.map-cta{ translate:none; scale:none; }
+}
+
 .head-c{ text-align:center; margin-bottom:44px; }
 .head-c .over{ color:var(--gold); display:block; margin-bottom:10px; }
 .head-c p{ margin-top:18px; }
 
 /* ══════════ BOTONES / ENLACES ══════════ */
 .btn{
+  position:relative; overflow:hidden; isolation:isolate;
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  min-height:48px; padding:0 26px; border-radius:var(--r-md);
-  font-size:.75rem; font-weight:400; text-transform:uppercase; letter-spacing:.18em;
-  text-decoration:none; transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+  min-height:48px; padding:0 28px; border-radius:var(--r-pill);
+  font-size:.75rem; font-weight:500; text-transform:uppercase; letter-spacing:.18em;
+  text-decoration:none; -webkit-backdrop-filter:blur(20px) saturate(160%); backdrop-filter:blur(20px) saturate(160%);
+  box-shadow:0 1px 1px rgba(0,0,0,.05), 0 10px 24px -14px rgba(20,10,4,.45);
+  transition:translate .5s var(--ease-spring), scale .5s var(--ease-spring), box-shadow .35s var(--ease-out),
+             background-color .3s var(--ease-out), color .3s var(--ease-out), border-color .3s var(--ease-out);
 }
-.btn:active{ transform:translateY(1px); }
-.btn-cream{ background:var(--cream); color:var(--espresso); }
+.btn::before{ /* brillo especular superior, propio del vidrio */
+  content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:linear-gradient(180deg, rgba(255,255,255,.30) 0%, rgba(255,255,255,0) 48%);
+  mix-blend-mode:overlay;
+}
+.btn::after{ /* realce de presión, se tiñe con el color del propio botón */
+  content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:currentColor; opacity:0; transition:opacity .2s var(--ease-out);
+}
+.btn:active::after{ opacity:.14; }
+.btn:active{ scale:.94; transition-duration:.16s; }
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{ translate:0 -1px; box-shadow:0 1px 1px rgba(0,0,0,.06), 0 16px 32px -14px rgba(20,10,4,.5); }
+}
+.btn-cream{ background:rgba(251,244,233,.92); color:var(--espresso); }
 .btn-cream:hover{ background:#fff; }
-.btn-ghost{ border:1px solid rgba(247,241,231,.45); color:var(--on-dark); }
-.btn-ghost:hover{ border-color:var(--on-dark); background:rgba(247,241,231,.08); }
-.btn-dark{ background:var(--espresso); color:var(--cream); }
+.btn-ghost{ background:rgba(251,244,233,.14); border:1px solid rgba(251,244,233,.32); color:var(--on-dark); box-shadow:none; }
+.btn-ghost:hover{ border-color:rgba(251,244,233,.5); background:rgba(251,244,233,.22); }
+.btn-dark{ background:rgba(62,37,25,.94); color:var(--cream); }
 .btn-dark:hover{ background:var(--espresso-soft); }
-.btn-outline{ border:1px solid var(--espresso); color:var(--espresso); }
-.btn-outline:hover{ background:var(--espresso); color:var(--cream); }
+.btn-outline{ background:rgba(255,255,255,.5); border:1px solid rgba(62,37,25,.4); color:var(--espresso); box-shadow:0 6px 18px -12px rgba(58,37,25,.3); }
+.btn-outline:hover{ background:var(--espresso); color:var(--cream); border-color:var(--espresso); }
 .btn svg{ width:16px; height:16px; flex:none; }
 
 .tlink{
@@ -155,17 +186,22 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   font-size:.72rem; text-transform:uppercase; letter-spacing:.18em;
   padding-bottom:3px; position:relative;
 }
-.tlink::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .3s ease; }
+.tlink::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .35s var(--ease-out); }
 .tlink:hover::after{ width:100%; }
-.tlink svg{ width:15px; height:9px; }
+.tlink svg{ width:15px; height:9px; transition:transform .4s var(--ease-spring); }
+.tlink:hover svg{ transform:translateX(3px); }
 
 /* ══════════ CABECERA ══════════ */
 .hdr{
   position:fixed; inset:0 0 auto 0; z-index:100; color:var(--on-dark);
-  transition:background .3s ease, box-shadow .3s ease;
+  transition:background-color .4s var(--ease-out), box-shadow .4s var(--ease-out), -webkit-backdrop-filter .4s var(--ease-out), backdrop-filter .4s var(--ease-out);
 }
-.hdr-in{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:80px; transition:height .3s ease; }
-.hdr.solid{ background:var(--espresso); box-shadow:0 1px 0 var(--espresso-line); }
+.hdr-in{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:80px; transition:height .4s var(--ease-out); }
+.hdr.solid{
+  background:rgba(62,37,25,.68);
+  -webkit-backdrop-filter:blur(22px) saturate(160%); backdrop-filter:blur(22px) saturate(160%);
+  box-shadow:0 1px 0 rgba(251,244,233,.08), 0 16px 40px -26px rgba(10,5,2,.6);
+}
 .hdr.solid .hdr-in{ height:64px; }
 .nav-d{ display:none; }
 @media (min-width:1040px){ .nav-d{ display:flex; gap:26px; flex:1; } }
@@ -177,31 +213,52 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .brand .micro{ font-size:.55rem; letter-spacing:.34em; color:var(--on-dark-muted); display:block; margin-top:3px; }
 .hdr-r{ display:none; }
 @media (min-width:1040px){ .hdr-r{ display:flex; flex:1; justify-content:flex-end; } .hdr-r .btn{ min-height:42px; padding:0 20px; } }
-.burger{ display:flex; align-items:center; justify-content:center; width:48px; height:48px; margin-right:-12px; }
+.burger{
+  display:flex; align-items:center; justify-content:center; width:48px; height:48px; margin-right:-12px;
+  border-radius:50%; background:rgba(251,244,233,.10);
+  -webkit-backdrop-filter:blur(14px) saturate(150%); backdrop-filter:blur(14px) saturate(150%);
+  transition:background-color .25s var(--ease-out), scale .4s var(--ease-spring);
+}
 .burger svg{ width:24px; height:24px; }
+.burger:active{ scale:.88; }
+@media (hover:hover) and (pointer:fine){ .burger:hover{ background:rgba(251,244,233,.18); } }
 @media (min-width:1040px){ .burger{ display:none; } }
 .hdr-l-mob{ width:48px; }
 @media (min-width:1040px){ .hdr-l-mob{ display:none; } }
 
 /* menú móvil */
 .mob{
-  position:fixed; inset:0; z-index:150; background:var(--espresso); color:var(--on-dark);
+  position:fixed; inset:0; z-index:150; color:var(--on-dark);
+  background:rgba(62,37,25,.80);
+  -webkit-backdrop-filter:blur(34px) saturate(160%); backdrop-filter:blur(34px) saturate(160%);
   display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px;
-  padding:80px 24px 32px; opacity:0; visibility:hidden; transition:opacity .25s ease,visibility .25s;
+  padding:80px 24px 32px; opacity:0; visibility:hidden; scale:1.035;
+  transition:opacity .4s var(--ease-out), visibility .4s, scale .55s var(--ease-spring-soft);
 }
-.mob.open{ opacity:1; visibility:visible; }
-.mob a.ml{ font-family:var(--serif); font-size:1.9rem; text-transform:uppercase; letter-spacing:.09em; text-decoration:none; padding:9px 0; }
+.mob.open{ opacity:1; visibility:visible; scale:1; }
+.mob a.ml{
+  font-family:var(--serif); font-size:1.9rem; text-transform:uppercase; letter-spacing:.09em;
+  text-decoration:none; padding:9px 0;
+  transition:scale .3s var(--ease-spring), opacity .2s var(--ease-out);
+}
+.mob a.ml:active{ scale:.94; opacity:.7; }
 .mob .mob-cta{ display:flex; flex-direction:column; gap:12px; width:100%; max-width:320px; margin-top:32px; }
-.mob-close{ position:absolute; top:18px; right:14px; width:48px; height:48px; display:flex; align-items:center; justify-content:center; }
+.mob-close{
+  position:absolute; top:18px; right:14px; width:48px; height:48px; display:flex; align-items:center; justify-content:center;
+  border-radius:50%; background:rgba(251,244,233,.08);
+  transition:background-color .25s var(--ease-out), scale .4s var(--ease-spring);
+}
 .mob-close svg{ width:22px; height:22px; }
+.mob-close:active{ scale:.88; }
+@media (hover:hover) and (pointer:fine){ .mob-close:hover{ background:rgba(251,244,233,.16); } }
 
 /* ══════════ HERO ══════════ */
 .hero{ position:relative; min-height:88svh; display:flex; align-items:flex-end; color:var(--on-dark); overflow:hidden; }
 .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .half img,.map-box img{ height:100%; }
 .hero-veil{ position:absolute; inset:0;
-  background:linear-gradient(100deg, rgba(26,18,12,.93) 0%, rgba(26,18,12,.80) 36%, rgba(26,18,12,.30) 64%, rgba(26,18,12,.58) 100%); }
-@media (max-width:720px){ .hero-veil{ background:linear-gradient(180deg, rgba(26,18,12,.72) 0%, rgba(26,18,12,.55) 40%, rgba(26,18,12,.90) 100%); } }
+  background:linear-gradient(100deg, rgba(62,37,25,.93) 0%, rgba(62,37,25,.80) 36%, rgba(62,37,25,.30) 64%, rgba(62,37,25,.58) 100%); }
+@media (max-width:720px){ .hero-veil{ background:linear-gradient(180deg, rgba(62,37,25,.72) 0%, rgba(62,37,25,.55) 40%, rgba(62,37,25,.90) 100%); } }
 .hero-in{ position:relative; padding-block:132px 92px; }
 @media (max-width:720px){ .hero-in{ padding-block:120px 56px; } .hero{ min-height:82svh; } }
 .hero-copy{ max-width:640px; }
@@ -212,16 +269,35 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .hero-btns{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:26px; }
 @media (max-width:480px){ .hero-btns .btn{ width:100%; } }
 .chip{
-  display:inline-flex; align-items:center; gap:9px; padding:7px 15px; border-radius:999px;
-  border:1px solid rgba(247,241,231,.28); font-size:.63rem; text-transform:uppercase; letter-spacing:.18em;
+  display:inline-flex; align-items:center; gap:9px; padding:7px 15px; border-radius:var(--r-pill);
+  background:rgba(251,244,233,.12);
+  -webkit-backdrop-filter:blur(18px) saturate(160%); backdrop-filter:blur(18px) saturate(160%);
+  border:1px solid rgba(251,244,233,.24); font-size:.63rem; text-transform:uppercase; letter-spacing:.18em;
+  box-shadow:0 10px 26px -16px rgba(10,5,2,.5);
 }
 .dot{ width:7px; height:7px; border-radius:50%; background:var(--success); flex:none; }
-.dot.off{ background:#B4552F; }
-.scroll-cue{ position:absolute; left:50%; bottom:24px; transform:translateX(-50%);
-  width:42px; height:42px; border:1px solid rgba(247,241,231,.35); border-radius:50%;
-  display:flex; align-items:center; justify-content:center; color:var(--on-dark); }
+.dot.off{ background:#D2703F; }
+@media (prefers-reduced-motion:no-preference){
+  .dot:not(.off){ animation:dotPulse 2.6s var(--ease-out) infinite; }
+}
+@keyframes dotPulse{
+  0%,100%{ box-shadow:0 0 0 0 rgba(111,191,143,.55); }
+  60%{ box-shadow:0 0 0 6px rgba(111,191,143,0); }
+}
+.scroll-cue{
+  position:absolute; left:50%; bottom:24px; transform:translateX(-50%);
+  width:42px; height:42px; border-radius:50%;
+  background:rgba(251,244,233,.08);
+  -webkit-backdrop-filter:blur(14px) saturate(150%); backdrop-filter:blur(14px) saturate(150%);
+  border:1px solid rgba(251,244,233,.3);
+  display:flex; align-items:center; justify-content:center; color:var(--on-dark);
+}
 .scroll-cue svg{ width:14px; height:14px; }
 @media (max-width:720px){ .scroll-cue{ display:none; } }
+@media (prefers-reduced-motion:no-preference){
+  .scroll-cue{ animation:cueFloat 2.4s var(--ease-out) infinite; }
+}
+@keyframes cueFloat{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(5px); } }
 
 /* ══════════ CATEGORÍAS ══════════ */
 .cats{ display:grid; gap:34px 22px; grid-template-columns:repeat(2,1fr); }
@@ -232,20 +308,27 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .cat .ico svg{ width:44px; height:44px; }
 .cat h3{ text-transform:uppercase; letter-spacing:.09em; font-size:1.1rem; margin-bottom:8px; }
 .cat p{ font-size:.83rem; color:var(--on-light-muted); min-height:3.4em; }
-.cat .from{ color:#765916; font-size:.63rem; text-transform:uppercase; letter-spacing:.2em; margin:12px 0 14px; }
-.cat figure{ margin:0 0 14px; overflow:hidden; border-radius:var(--r-lg); background:var(--sand); }
-.cat img{ width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .6s ease; }
-.cat:hover img{ transform:scale(1.04); }
+.cat .from{ color:#7A5426; font-size:.63rem; text-transform:uppercase; letter-spacing:.2em; margin:12px 0 14px; }
+.cat{ transition:translate .5s var(--ease-spring-soft); }
+.cat figure{ margin:0 0 14px; overflow:hidden; border-radius:var(--r-lg); background:var(--sand); box-shadow:0 1px 1px rgba(0,0,0,.04); }
+.cat img{ width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .6s var(--ease-spring-soft); }
 .cat .tlink{ margin-top:auto; color:var(--on-light); }
+@media (hover:hover) and (pointer:fine){
+  .cat:hover{ translate:0 -4px; }
+  .cat:hover img{ transform:scale(1.05); }
+}
 
 /* ══════════ HOY ══════════ */
 .hoy{ display:grid; gap:26px 20px; grid-template-columns:repeat(2,1fr); }
 @media (min-width:900px){ .hoy{ grid-template-columns:repeat(4,1fr); } }
-.hoy article{ display:flex; flex-direction:column; }
+.hoy article{ display:flex; flex-direction:column; transition:translate .5s var(--ease-spring-soft); }
 .hoy figure{ margin:0 0 14px; overflow:hidden; border-radius:var(--r-lg); background:#e2d6c5; }
-.hoy img{ width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .6s ease; }
-.hoy article:hover img{ transform:scale(1.04); }
-.hoy .over{ color:#765916; font-size:.62rem; margin-bottom:7px; }
+.hoy img{ width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .6s var(--ease-spring-soft); }
+@media (hover:hover) and (pointer:fine){
+  .hoy article:hover{ translate:0 -4px; }
+  .hoy article:hover img{ transform:scale(1.05); }
+}
+.hoy .over{ color:#7A5426; font-size:.62rem; margin-bottom:7px; }
 .hoy .row{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
 .hoy .price{ font-size:.95rem; }
 .hoy-foot{ text-align:center; margin-top:46px; }
@@ -256,7 +339,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 @media (min-width:860px){ .halves{ grid-template-columns:1fr 1fr; } }
 .half{ position:relative; min-height:430px; display:flex; align-items:flex-end; color:var(--on-dark); overflow:hidden; }
 .half img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.half::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(26,18,12,.42) 0%,rgba(26,18,12,.74) 42%,rgba(26,18,12,.95) 100%); }
+.half::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(62,37,25,.42) 0%,rgba(62,37,25,.74) 42%,rgba(62,37,25,.95) 100%); }
 .half-in{ position:relative; z-index:1; padding:40px 32px 44px; max-width:440px; }
 @media (min-width:860px){ .half-in{ padding:56px 48px 56px; } }
 .half h3{ text-transform:uppercase; letter-spacing:.12em; font-size:clamp(1.5rem,3vw,2.1rem); font-weight:300; margin-bottom:14px; }
@@ -292,7 +375,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .enc .ico svg{ width:40px; height:40px; }
 .enc h3{ text-transform:uppercase; letter-spacing:.09em; font-size:1.15rem; margin-bottom:10px; }
 .enc p{ font-size:.85rem; color:var(--on-light-muted); margin-bottom:14px; }
-.enc .from{ color:#765916; font-size:.62rem; text-transform:uppercase; letter-spacing:.2em; margin-bottom:20px; }
+.enc .from{ color:#7A5426; font-size:.62rem; text-transform:uppercase; letter-spacing:.2em; margin-bottom:20px; }
 .enc .btn{ margin-top:auto; }
 .avisos{ margin-top:52px; background:var(--sand); border-radius:var(--r-md); padding:20px 24px; text-align:center; }
 .avisos .micro{ color:var(--on-light-muted); line-height:2; }
@@ -301,8 +384,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 /* ══════════ INSTAGRAM ══════════ */
 .ig-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
 .ig-grid a{ display:block; overflow:hidden; border-radius:var(--r-sm); background:var(--espresso-soft); }
-.ig-grid img{ width:100%; aspect-ratio:1; object-fit:cover; transition:opacity .25s ease,transform .6s ease; }
-.ig-grid a:hover img{ opacity:.78; transform:scale(1.05); }
+.ig-grid img{ width:100%; aspect-ratio:1; object-fit:cover; transition:opacity .3s var(--ease-out), transform .6s var(--ease-spring-soft); }
+.ig-grid a:hover img{ opacity:.82; transform:scale(1.06); }
 .ig-wrap{ display:grid; gap:36px; grid-template-columns:1fr; align-items:center; }
 @media (min-width:960px){ .ig-wrap{ grid-template-columns:340px 1fr; gap:56px; } }
 .ig-handle{ font-size:.72rem; text-transform:uppercase; letter-spacing:.2em; color:var(--gold); margin:16px 0 26px; display:block; }
@@ -313,35 +396,49 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .map-box{ position:relative; border-radius:var(--r-lg); overflow:hidden; background:var(--sand); aspect-ratio:16/11; }
 .map-box img{ width:100%; height:100%; object-fit:cover; filter:sepia(.22) saturate(.9); }
 .map-box iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
-.map-cta{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
-  background:rgba(26,18,12,.55); color:var(--on-dark); }
+.map-cta{
+  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+  background:rgba(62,37,25,.5); color:var(--on-dark);
+  -webkit-backdrop-filter:blur(3px) saturate(120%); backdrop-filter:blur(3px) saturate(120%);
+  transition:background-color .35s var(--ease-out), -webkit-backdrop-filter .35s var(--ease-out), backdrop-filter .35s var(--ease-out), scale .4s var(--ease-spring);
+}
+@media (hover:hover) and (pointer:fine){
+  .map-cta:hover{ background:rgba(62,37,25,.38); -webkit-backdrop-filter:blur(1.5px) saturate(130%); backdrop-filter:blur(1.5px) saturate(130%); }
+}
+.map-cta:active{ scale:.98; }
 .map-cta .micro{ letter-spacing:.2em; }
-.vis-list li{ display:flex; gap:16px; padding:20px 0; border-bottom:1px solid rgba(42,29,20,.14); }
+.vis-list li{ display:flex; gap:16px; padding:20px 0; border-bottom:1px solid rgba(58,37,25,.14); }
 .vis-list li:first-child{ padding-top:0; }
 .vis-list .ico{ flex:none; color:var(--on-light); }
 .vis-list .ico svg{ width:22px; height:22px; }
 .vis-list h3{ font-size:.66rem; font-family:var(--sans); font-weight:500; text-transform:uppercase; letter-spacing:.2em; color:var(--on-light-muted); margin-bottom:8px; }
-.vis-list a{ text-decoration:none; border-bottom:1px solid rgba(42,29,20,.25); }
+.vis-list a{ text-decoration:none; border-bottom:1px solid rgba(58,37,25,.25); }
 .hours{ width:100%; border-collapse:collapse; }
 .hours th,.hours td{ text-align:left; padding:3px 0; font-weight:300; font-size:.88rem; }
 .hours th{ font-size:.62rem; text-transform:uppercase; letter-spacing:.18em; color:var(--on-light-muted); font-weight:400; padding-right:24px; }
-.hours tr.today th,.hours tr.today td{ color:#765916; font-weight:500; }
+.hours tr.today th,.hours tr.today td{ color:#7A5426; font-weight:500; }
 .hours td{ font-variant-numeric:tabular-nums; }
 .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
-.tag{ display:inline-flex; align-items:center; gap:7px; border:1px solid rgba(42,29,20,.2); border-radius:999px; padding:7px 14px; font-size:.62rem; text-transform:uppercase; letter-spacing:.16em; }
+.tag{
+  display:inline-flex; align-items:center; gap:7px; border-radius:var(--r-pill); padding:7px 14px;
+  font-size:.62rem; text-transform:uppercase; letter-spacing:.16em;
+  background:rgba(255,255,255,.55); border:1px solid rgba(58,37,25,.12);
+  -webkit-backdrop-filter:blur(14px) saturate(140%); backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 4px 14px -9px rgba(58,37,25,.3);
+}
 .tag svg{ width:14px; height:14px; }
 .vis-btns{ display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
 
 /* ══════════ PIE ══════════ */
 .ftr{ background:var(--cream); color:var(--on-light); }
 .ftr-grid{ display:grid; gap:40px; grid-template-columns:1fr; padding-block:var(--gap); }
-@media (min-width:860px){ .ftr-grid{ grid-template-columns:1.1fr 1fr 1fr; gap:0; } .ftr-col+.ftr-col{ padding-left:44px; border-left:1px solid rgba(42,29,20,.14); } }
+@media (min-width:860px){ .ftr-grid{ grid-template-columns:1.1fr 1fr 1fr; gap:0; } .ftr-col+.ftr-col{ padding-left:44px; border-left:1px solid rgba(58,37,25,.14); } }
 .ftr .wordmark{ font-size:1.25rem; }
 .ftr .micro{ color:var(--on-light-muted); }
 .ftr h3{ font-size:.66rem; font-family:var(--sans); font-weight:500; text-transform:uppercase; letter-spacing:.2em; color:var(--on-light-muted); margin-bottom:18px; }
 .ftr-links{ display:flex; flex-direction:column; gap:11px; font-size:.88rem; }
 .ftr-links a{ text-decoration:none; display:inline-flex; align-items:center; gap:10px; }
-.ftr-links a:hover{ color:#765916; }
+.ftr-links a:hover{ color:#7A5426; }
 .ftr-links svg{ width:17px; height:17px; flex:none; }
 .storefront{ width:100%; max-width:280px; color:var(--on-light); }
 .ftr-bar{ background:var(--espresso); color:var(--on-dark-muted); }
@@ -352,13 +449,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .ftr-bar a:hover{ color:var(--gold-bright); }
 .legal-note{ font-size:.62rem; text-transform:uppercase; letter-spacing:.16em; color:var(--on-light-muted); margin-top:20px; }
 
-/* ══════════ REVEAL ══════════ */
-.rv{ opacity:0; transform:translateY(16px); }
-.rv.in{ opacity:1; transform:none; transition:opacity .45s ease,transform .45s ease; }
-@media (prefers-reduced-motion:reduce){
-  .rv,.rv.in{ opacity:1; transform:none; transition:none; }
-  .cat img,.hoy img,.ig-grid img{ transition:none; }
-}
 </style>
 </head>
 <body>
@@ -370,7 +460,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
     <div class="hdr-l-mob"></div>
     <nav class="nav-d" aria-label="Principal">
       <a href="#main" aria-current="page">Inicio</a>
-      <a href="/carta.html">La carta</a>
+      <a href="/carta">La carta</a>
       <a href="#origen">Sobre nosotros</a>
       <a href="#encargos">Encargos</a>
       <a href="#visitanos">Visítanos</a>
@@ -380,7 +470,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
       <span class="micro">Valencia</span>
     </a>
     <div class="hdr-r">
-      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+17+Valencia" target="_blank" rel="noopener">
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+16+Valencia" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
         Cómo llegar
       </a>
@@ -395,7 +485,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   <button class="mob-close" id="mobclose" aria-label="Cerrar menú">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
   </button>
-  <a class="ml" href="/carta.html">La carta</a>
+  <a class="ml" href="/carta">La carta</a>
   <a class="ml" href="#origen">Sobre nosotros</a>
   <a class="ml" href="#encargos">Encargos</a>
   <a class="ml" href="#visitanos">Visítanos</a>
@@ -423,8 +513,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
     <p class="hero-claim">Pastelería <span class="gold">&amp;</span> Cafetería<br>en Valencia</p>
     <p class="hero-sub">Obrador artesanal argentino en el barrio de Patraix. Todo lo que servimos se hace aquí, cada mañana.</p>
     <div class="hero-btns">
-      <a class="btn btn-cream" href="/carta.html">Ver la carta</a>
-      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+17+Valencia" target="_blank" rel="noopener">
+      <a class="btn btn-cream" href="/carta">Ver la carta</a>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+16+Valencia" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
         Cómo llegar
       </a>
@@ -452,7 +542,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
         <p>Medialunas, croissants, napolitanas y facturas. Horneadas cada mañana.</p>
         <span class="from">Desde 0,90 €</span>
         <figure><img src="img/cat-bolleria-460.webp" srcset="img/cat-bolleria-460.webp 460w, img/cat-bolleria-760.webp 760w" sizes="(min-width:1100px) 22vw, (min-width:760px) 30vw, 45vw" width="760" height="570" loading="lazy" decoding="async" alt="Croissants rellenos con cobertura de chocolate y pistacho"></figure>
-        <a class="tlink" href="/carta.html#bolleria">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
+        <a class="tlink" href="/carta#bolleria">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
       </article>
 
       <article class="cat rv">
@@ -461,7 +551,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
         <p>Nueve variedades artesanales al horno: criolla, humita, verdura, campo.</p>
         <span class="from">Desde 2,20 €</span>
         <figure><img src="img/cat-empanadas-460.webp" srcset="img/cat-empanadas-460.webp 460w, img/cat-empanadas-760.webp 760w" sizes="(min-width:1100px) 22vw, (min-width:760px) 30vw, 45vw" width="760" height="570" loading="lazy" decoding="async" alt="Empanadas argentinas recién horneadas en una bandeja"></figure>
-        <a class="tlink" href="/carta.html#empanadas">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
+        <a class="tlink" href="/carta#empanadas">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
       </article>
 
       <article class="cat rv">
@@ -470,7 +560,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
         <p>Alfajores, chocotorta, rogel, lemon pie y tartas por porción.</p>
         <span class="from">Desde 2,50 €</span>
         <figure><img src="img/cat-pasteleria-460.webp" srcset="img/cat-pasteleria-460.webp 460w, img/cat-pasteleria-760.webp 760w" sizes="(min-width:1100px) 22vw, (min-width:760px) 30vw, 45vw" width="760" height="570" loading="lazy" decoding="async" alt="Tarta Chajá con merengue, melocotón y virutas de chocolate"></figure>
-        <a class="tlink" href="/carta.html#pasteleria">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
+        <a class="tlink" href="/carta#pasteleria">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
       </article>
 
       <article class="cat rv">
@@ -479,7 +569,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
         <p>Café de especialidad, café con leche argentino, submarino y cremaet.</p>
         <span class="from">Desde 1,20 €</span>
         <figure><img src="img/cat-cafe-460.webp" srcset="img/cat-cafe-460.webp 460w, img/cat-cafe-760.webp 760w" sizes="(min-width:1100px) 22vw, (min-width:760px) 30vw, 45vw" width="760" height="570" loading="lazy" decoding="async" alt="Café con leche servido en vaso junto a un croissant"></figure>
-        <a class="tlink" href="/carta.html#cafeteria">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
+        <a class="tlink" href="/carta#cafeteria">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
       </article>
 
       <article class="cat rv">
@@ -488,7 +578,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
         <p>Bocadillos XL, tostas, tortilla, paella y cocina casera del día.</p>
         <span class="from">Desde 2,50 €</span>
         <figure><img src="img/cat-comer-460.webp" srcset="img/cat-comer-460.webp 460w, img/cat-comer-760.webp 760w" sizes="(min-width:1100px) 22vw, (min-width:760px) 30vw, 45vw" width="760" height="570" loading="lazy" decoding="async" alt="Tostas de aguacate, salmón y queso preparadas en bandeja"></figure>
-        <a class="tlink" href="/carta.html#bocadillos">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
+        <a class="tlink" href="/carta#bocadillos">Ver más <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg></a>
       </article>
 
     </div>
@@ -527,7 +617,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
       </article>
     </div>
     <div class="hoy-foot rv">
-      <a class="btn btn-dark" href="/carta.html">
+      <a class="btn btn-dark" href="/carta">
         Ver la carta completa
         <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg>
       </a>
@@ -577,7 +667,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
       <h2 id="rev-h" class="h-sec">Lo que dicen en el barrio</h2>
       <hr class="rule">
       <p class="muted-d" style="max-width:46ch;margin:20px auto 26px">Nuestros clientes nos puntúan en Google. Conecta aquí las reseñas reales para mostrarlas en la web.</p>
-      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=La+Cuadra+Campaners+17+Valencia" target="_blank" rel="noopener">
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=La+Cuadra+Campaners+16+Valencia" target="_blank" rel="noopener">
         Ver reseñas en Google <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg>
       </a>
     </div>
@@ -693,7 +783,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
             <div>
               <h3>Dónde estamos</h3>
-              <p>C/ dels Campaners, 17 · Patraix<br>46014 Valencia</p>
+              <p>C/ dels Campaners, 16 · Patraix<br>46014 Valencia</p>
             </div>
           </li>
           <li>
@@ -724,7 +814,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
           <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M9 9h6M12 9v6h5M8 12a5.5 5.5 0 1 0 7 7"/></svg> Accesible</span>
         </div>
         <div class="vis-btns">
-          <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+17+Valencia" target="_blank" rel="noopener">
+          <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+16+Valencia" target="_blank" rel="noopener">
             Cómo llegar <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg>
           </a>
           <a class="btn btn-outline" href="https://wa.me/34667952560?text=Hola%21%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20La%20Cuadra.%0APersonas%3A%20___%0AD%C3%ADa%20y%20hora%3A%20___" target="_blank" rel="noopener">
@@ -764,9 +854,9 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
     <div class="ftr-col">
       <h3>Contacto</h3>
       <div class="ftr-links">
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+17+Valencia" target="_blank" rel="noopener">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+16+Valencia" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-          C/ dels Campaners, 17 · 46014 Valencia
+          C/ dels Campaners, 16 · 46014 Valencia
         </a>
         <a href="tel:+34667952560">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6.5 3.5h3l1.6 4-2 1.4a12 12 0 0 0 6 6l1.4-2 4 1.6v3c0 1-.8 1.8-1.8 1.7C10.6 19.5 4.5 13.4 3.8 5.3 3.7 4.3 4.5 3.5 5.5 3.5Z"/></svg>
@@ -793,7 +883,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
         </tbody>
       </table>
       <p style="margin-top:26px">
-        <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+17+Valencia" target="_blank" rel="noopener">
+        <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+dels+Campaners+16+Valencia" target="_blank" rel="noopener">
           Cómo llegar <svg viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5"/></svg>
         </a>
       </p>
@@ -805,7 +895,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
     <div class="wrap">
       <span class="micro">© <span id="yr">2026</span> La Cuadra · Patraix, Valencia</span>
       <nav class="micro" aria-label="Pie de página">
-        <a href="/carta.html">La carta</a>
+        <a href="/carta">La carta</a>
         <a href="#origen">Sobre nosotros</a>
         <a href="#encargos">Encargos</a>
         <a href="#visitanos">Visítanos</a>
@@ -922,8 +1012,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   if(mapBtn){
     mapBtn.addEventListener('click', function(){
       var f = document.createElement('iframe');
-      f.src = 'https://www.google.com/maps?q=Carrer%20dels%20Campaners%2017%2C%2046014%20Val%C3%A8ncia&output=embed';
-      f.title = 'Mapa de La Cuadra, C/ dels Campaners 17, Valencia';
+      f.src = 'https://www.google.com/maps?q=39.457698,-0.400208&output=embed';
+      f.title = 'Mapa de La Cuadra, C/ dels Campaners 16, Valencia';
       f.loading = 'lazy';
       f.referrerPolicy = 'no-referrer-when-downgrade';
       document.getElementById('mapBox').appendChild(f);
