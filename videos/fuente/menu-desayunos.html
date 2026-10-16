@@ -92,12 +92,13 @@ const LISTA = [
   ['Promo croissant','2,70 €'], ['Promo tostada','2,90 €'],
 ];
 
-// Tiempos (segundos). Cada escena entra en fundido sobre la anterior durante XF.
-const XF = 0.5, INTRO = 3.2, PLATO = 3.0, OUTRO = 6.3;
+// Tiempos (segundos): lo que cada escena está en pantalla hasta que empieza la siguiente.
+// Cada escena entra en fundido sobre la anterior durante XF.
+const XF = 0.5, INTRO = 2.7, PLATO = 5, OUTRO = 5;
 const stage = document.getElementById('stage');
 const scenes = [];
 let t0 = 0;
-function add(el, dur, anim){ stage.appendChild(el); scenes.push({ el, start:t0, dur, anim }); t0 += dur - XF; }
+function add(el, slot, anim){ stage.appendChild(el); scenes.push({ el, start:t0, dur:slot + XF, anim }); t0 += slot; }
 function h(html){ const d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstChild; }
 
 add(h(`<section class="scene intro">
@@ -132,9 +133,9 @@ add(h(`<section class="scene outro">
     <p class="foot"><b>C/ dels Campaners, 16</b><br>Patraix, Valencia · @lacuadravalencia</p>
   </div>
   <div class="sep"></div>
-  <ul>${LISTA.map(([n, pr]) => `<li><span>${n}</span><span class="dots"></span><span class="pr">${pr}</span></li>`).join('')}</ul></section>`), OUTRO + XF, animOutro);
+  <ul>${LISTA.map(([n, pr]) => `<li><span>${n}</span><span class="dots"></span><span class="pr">${pr}</span></li>`).join('')}</ul></section>`), OUTRO, animOutro);
 
-window.DURATION = t0 + XF;
+window.DURATION = t0;
 
 // Utilidades de animación
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
