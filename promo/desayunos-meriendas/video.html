@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>La Cuadra · Desayunos y meriendas</title>
+<link rel="stylesheet" href="../../fonts/fonts.css">
+<style>
+:root{
+  --sand:#F3E5D2; --cream:#FBF4E9; --esp:#432919; --ink:#3A2519; --muted:#6B4A31;
+  --gold:#C98A3C; --goldb:#DCA05A;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--sand)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--sand)}
+.scene{position:absolute;inset:0;overflow:hidden}
+.abs{position:absolute}
+.ln{display:block;overflow:hidden;padding:0 .04em .1em}
+.ln>span{display:block}
+.kicker{font-family:var(--sans);font-weight:500;font-size:28px;letter-spacing:.34em;text-transform:uppercase}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+.ph{position:absolute;inset:0;background-size:cover;background-position:center;will-change:transform}
+.frame{position:absolute;overflow:hidden;border-radius:6px}
+.shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(38,22,12,.92) 0%,rgba(38,22,12,.62) 34%,rgba(38,22,12,0) 62%)}
+
+/* Carta */
+.menu{list-style:none}
+.menu li{display:flex;align-items:flex-end;height:98px;padding-bottom:24px;border-bottom:1.5px solid rgba(67,41,25,.13)}
+.menu .nm{font-family:var(--serif);font-weight:500;font-size:50px;line-height:1;color:var(--ink);white-space:nowrap}
+.menu .dots{flex:1;margin:0 20px 9px;border-bottom:3px dotted rgba(67,41,25,.38);transform-origin:left center}
+.menu .pr{font-family:var(--sans);font-weight:500;font-size:42px;line-height:1;color:var(--esp);white-space:nowrap}
+
+/* Promos */
+.card{position:absolute;background:#fff;padding:18px;border-radius:8px;box-shadow:0 40px 90px rgba(120,70,30,.28),0 6px 18px rgba(67,41,25,.12)}
+.card .in{position:relative;width:100%;height:100%;overflow:hidden;border-radius:3px}
+.badge{position:absolute;width:300px;height:300px;border-radius:50%;background:var(--gold);color:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(67,41,25,.3)}
+.badge small{font-family:var(--sans);font-weight:500;font-size:26px;letter-spacing:.34em;text-indent:.34em;margin-bottom:6px}
+.badge b{font-family:var(--sans);font-weight:500;font-size:80px;line-height:1;letter-spacing:-.01em}
+.badge::after{content:"";position:absolute;inset:12px;border-radius:50%;border:2px solid rgba(251,244,233,.45)}
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 1 · Intro -->
+  <section class="scene" id="s1" style="background:var(--sand)">
+    <div id="s1in" class="abs" style="inset:0">
+      <img id="s1logo" class="abs" src="assets/logo_dark.png" style="left:240px;top:300px;width:600px">
+      <div id="s1k" class="kicker abs" style="top:930px;width:100%;text-align:center;color:var(--muted)">Pastelería · Cafetería argentina</div>
+      <h1 class="serif abs" style="top:1010px;width:100%;text-align:center;font-size:170px;line-height:.95;color:var(--esp)">
+        <span class="ln"><span>Desayunos</span></span>
+        <span class="ln"><span style="color:var(--gold)">&amp; meriendas</span></span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- 2 · Foto mesa -->
+  <section class="scene" id="s2">
+    <div class="ph" id="s2ph" style="background-image:url(assets/latte.jpg);background-position:76% 100%;transform-origin:66% 85%"></div>
+    <div class="shade" style="background:linear-gradient(to bottom,rgba(38,22,12,.94) 0%,rgba(38,22,12,.8) 30%,rgba(38,22,12,.25) 50%,rgba(38,22,12,0) 60%)"></div>
+    <div class="abs" style="left:90px;right:90px;top:300px;color:var(--cream)">
+      <div id="s2k" class="kicker" style="color:var(--goldb);margin-bottom:26px">Buenos días, Patraix</div>
+      <h2 class="serif" style="font-size:140px;line-height:1">
+        <span class="ln"><span>Empieza el día</span></span>
+        <span class="ln"><span style="color:var(--goldb)">con algo rico.</span></span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- 3 · Carta desayunos -->
+  <section class="scene" id="s3" style="background:var(--sand)">
+    <div class="frame" style="left:90px;right:90px;top:250px;height:480px">
+      <div class="ph" id="s3ph" style="background-image:url(assets/jyq.jpg);background-position:50% 58%"></div>
+    </div>
+    <div id="s3k" class="kicker abs" style="left:90px;top:792px;color:var(--gold)">Desayunos y tostadas</div>
+    <div id="s3rule" class="abs" style="left:90px;right:90px;top:848px;height:2px;background:rgba(67,41,25,.25);transform-origin:left center"></div>
+    <ul class="menu abs" id="s3menu" style="left:90px;right:90px;top:862px">
+      <li><span class="nm">Tortilla francesa</span><span class="dots"></span><span class="pr">2,20 €</span></li>
+      <li><span class="nm">Tosta de esgarraet y queso</span><span class="dots"></span><span class="pr">4,50 €</span></li>
+      <li><span class="nm">Huevo revuelto</span><span class="dots"></span><span class="pr">2,50 €</span></li>
+      <li><span class="nm">2 huevos revueltos o francesa</span><span class="dots"></span><span class="pr">4,40 €</span></li>
+      <li><span class="nm">Medialuna de jamón y queso</span><span class="dots"></span><span class="pr">1,50 €</span></li>
+      <li><span class="nm">Mini chips de jamón y queso</span><span class="dots"></span><span class="pr">1,50 €</span></li>
+      <li><span class="nm">Extra de aceite</span><span class="dots"></span><span class="pr">0,70 €</span></li>
+    </ul>
+  </section>
+
+  <!-- 4 · Puente merienda -->
+  <section class="scene" id="s4" style="background:var(--esp)">
+    <svg class="abs" style="left:90px;top:510px" width="900" height="900" viewBox="0 0 900 900">
+      <circle id="s4ring" cx="450" cy="450" r="430" fill="none" stroke="#DCA05A" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" transform="rotate(-90 450 450)"/>
+      <circle id="s4ring2" cx="450" cy="450" r="400" fill="none" stroke="#FBF4E9" stroke-opacity=".18" stroke-width="2" stroke-linecap="round" transform="rotate(90 450 450)"/>
+    </svg>
+    <div id="s4k" class="kicker abs" style="top:740px;width:100%;text-align:center;color:var(--goldb)">Promociones y merienda</div>
+    <h2 class="serif abs" style="top:810px;width:100%;text-align:center;font-size:190px;line-height:.95;color:var(--cream)">
+      <span class="ln"><span>¿Y para</span></span>
+      <span class="ln"><span style="color:var(--goldb)">merendar?</span></span>
+    </h2>
+  </section>
+
+  <!-- 5 · Promo croissant -->
+  <section class="scene" id="s5" style="background:var(--sand)">
+    <div id="s5k" class="kicker abs" style="top:210px;width:100%;text-align:center;color:var(--gold)">Promo · 01</div>
+    <div class="card" id="s5card" style="left:170px;top:290px;width:740px;height:960px">
+      <div class="in"><div class="ph" id="s5ph" style="background-image:url(assets/cafecroissant.jpg);background-position:50% 62%"></div></div>
+    </div>
+    <div class="badge" id="s5b" style="left:700px;top:1040px"><small>PROMO</small><b>2,70 €</b></div>
+    <h2 class="serif abs" style="top:1330px;width:100%;text-align:center;font-size:124px;line-height:1;color:var(--esp)">
+      <span class="ln"><span>Promo croissant</span></span>
+    </h2>
+  </section>
+
+  <!-- 6 · Promo tostada -->
+  <section class="scene" id="s6" style="background:var(--cream)">
+    <div id="s6k" class="kicker abs" style="top:210px;width:100%;text-align:center;color:var(--gold)">Promo · 02</div>
+    <div class="card" id="s6card" style="left:170px;top:290px;width:740px;height:960px">
+      <div class="in"><div class="ph" id="s6ph" style="background-image:url(assets/tostas.jpg);background-position:50% 45%"></div></div>
+    </div>
+    <div class="badge" id="s6b" style="left:80px;top:1040px"><small>PROMO</small><b>2,90 €</b></div>
+    <h2 class="serif abs" style="top:1330px;width:100%;text-align:center;font-size:124px;line-height:1;color:var(--esp)">
+      <span class="ln"><span>Promo tostada</span></span>
+    </h2>
+  </section>
+
+  <!-- 7 · Promo horchata -->
+  <section class="scene" id="s7" style="background:var(--esp)">
+    <div id="s7k" class="kicker abs" style="top:420px;width:100%;text-align:center;color:var(--goldb)">Promo · 03 · El clásico valenciano</div>
+    <h2 class="serif abs" style="top:500px;width:100%;text-align:center;line-height:.9;color:var(--cream)">
+      <span class="ln" style="font-size:130px"><span>Promo</span></span>
+      <span class="ln" style="font-size:240px"><span style="color:var(--goldb)">horchata</span></span>
+    </h2>
+    <svg class="abs" style="left:330px;top:1000px" width="420" height="420" viewBox="0 0 420 420">
+      <circle id="s7ring" cx="210" cy="210" r="200" fill="none" stroke="#DCA05A" stroke-width="3" stroke-linecap="round" transform="rotate(-90 210 210)"/>
+    </svg>
+    <div class="badge" id="s7b" style="left:390px;top:1060px;background:var(--sand);color:var(--esp)"><small>PROMO</small><b>3,80 €</b></div>
+  </section>
+
+  <!-- 8 · Cierre -->
+  <section class="scene" id="s8" style="background:var(--sand)">
+    <img id="s8logo" class="abs" src="assets/logo_dark.png" style="left:280px;top:290px;width:520px">
+    <h2 class="serif abs" style="top:810px;width:100%;text-align:center;font-size:140px;line-height:1;color:var(--esp)">
+      <span class="ln"><span>Te esperamos</span></span>
+    </h2>
+    <div id="s8rule" class="abs" style="left:420px;width:240px;top:1000px;height:2px;background:var(--gold)"></div>
+    <div class="abs" style="top:1050px;width:100%;text-align:center;font-family:var(--sans);font-size:44px;line-height:1.65;color:var(--muted)">
+      <div class="s8i">C/ dels Campaners, 16 · Patraix</div>
+      <div class="s8i">Abierto todos los días</div>
+      <div class="s8i" style="color:var(--gold);font-weight:500">@lacuadravalencia</div>
+    </div>
+  </section>
+
+</div>
+
+<script src="gsap.min.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const lines = sel => $$(sel + ' .ln > span');
+
+// Estado inicial: escenas 2..8 ocultas tras su máscara
+gsap.set('#s2,#s3,#s7', {clipPath:'inset(100% 0% 0% 0%)'});
+gsap.set('#s4,#s8', {clipPath:'circle(0% at 50% 50%)'});
+gsap.set('#s5', {clipPath:'inset(0% 0% 0% 100%)'});
+gsap.set('#s6', {clipPath:'inset(0% 100% 0% 0%)'});
+gsap.set('.ln > span', {yPercent:115});
+['#s4ring','#s4ring2','#s7ring'].forEach(id => {
+  const c = $(id), L = c.getTotalLength();
+  gsap.set(c, {strokeDasharray:L, strokeDashoffset:L});
+});
+
+const tl = gsap.timeline({paused:true, defaults:{ease:'power3.out'}});
+const WIPE = {duration:.95, ease:'power4.inOut'};
+const reveal = (sel, at, stagger=.14) => tl.to(lines(sel), {yPercent:0, duration:1, ease:'power4.out', stagger}, at);
+
+// 1 · Intro (0 – 3.0)
+tl.from('#s1logo', {opacity:0, scale:.84, rotation:-10, duration:1.3}, .15)
+  .from('#s1k', {opacity:0, y:24, duration:.8}, .75);
+reveal('#s1', .95, .16);
+tl.to('#s1in', {y:-220, duration:1, ease:'power3.inOut'}, 3.0);
+
+// 2 · Foto mesa (3.0 – 6.4)
+tl.to('#s2', {clipPath:'inset(0% 0% 0% 0%)', ...WIPE}, 3.0)
+  .fromTo('#s2ph', {scale:1.28}, {scale:1.04, duration:4.4, ease:'sine.out'}, 3.0)
+  .from('#s2k', {opacity:0, y:20, duration:.7}, 3.65);
+reveal('#s2', 3.7, .16);
+
+// 3 · Carta desayunos (6.4 – 13.2)
+tl.to('#s3', {clipPath:'inset(0% 0% 0% 0%)', ...WIPE}, 6.4)
+  .fromTo('#s3ph', {scale:1.22}, {scale:1, duration:7.2, ease:'sine.out'}, 6.4)
+  .from('#s3k', {opacity:0, y:18, duration:.7}, 7.0)
+  .from('#s3rule', {scaleX:0, duration:.9, ease:'power2.inOut'}, 7.05);
+$$('#s3menu li').forEach((li, i) => {
+  const t = 7.3 + i * .2;
+  tl.from(li, {opacity:0, y:34, duration:.65}, t)
+    .from(li.querySelector('.dots'), {scaleX:0, duration:.6, ease:'power2.out'}, t + .15)
+    .from(li.querySelector('.pr'), {opacity:0, x:24, duration:.55}, t + .32);
+});
+
+// 4 · Puente (13.2 – 15.2)
+tl.to('#s4', {clipPath:'circle(75% at 50% 50%)', duration:1.05, ease:'power3.inOut'}, 13.2)
+  .to('#s4ring', {strokeDashoffset:0, duration:1.9, ease:'power2.inOut'}, 13.45)
+  .to('#s4ring2', {strokeDashoffset:0, duration:1.9, ease:'power2.inOut'}, 13.6)
+  .from('#s4k', {opacity:0, y:18, duration:.7}, 13.65);
+reveal('#s4', 13.7, .16);
+
+// 5 · Promo croissant (15.2 – 18.4)
+tl.to('#s5', {clipPath:'inset(0% 0% 0% 0%)', ...WIPE}, 15.2)
+  .fromTo('#s5card', {x:360, rotation:9}, {x:0, rotation:-2.5, duration:1.1}, 15.35)
+  .fromTo('#s5ph', {scale:1.18}, {scale:1, duration:3.4, ease:'sine.out'}, 15.3)
+  .from('#s5k', {opacity:0, y:18, duration:.7}, 15.85)
+  .fromTo('#s5b', {scale:0, rotation:-40}, {scale:1, rotation:-8, duration:.8, ease:'back.out(1.8)'}, 16.05);
+reveal('#s5', 16.1);
+
+// 6 · Promo tostada (18.4 – 21.6)
+tl.to('#s6', {clipPath:'inset(0% 0% 0% 0%)', ...WIPE}, 18.4)
+  .fromTo('#s6card', {x:-360, rotation:-9}, {x:0, rotation:2.5, duration:1.1}, 18.55)
+  .fromTo('#s6ph', {scale:1.18}, {scale:1, duration:3.4, ease:'sine.out'}, 18.5)
+  .from('#s6k', {opacity:0, y:18, duration:.7}, 19.05)
+  .fromTo('#s6b', {scale:0, rotation:40}, {scale:1, rotation:8, duration:.8, ease:'back.out(1.8)'}, 19.25);
+reveal('#s6', 19.3);
+
+// 7 · Promo horchata (21.6 – 24.8)
+tl.to('#s7', {clipPath:'inset(0% 0% 0% 0%)', ...WIPE}, 21.6)
+  .from('#s7k', {opacity:0, y:18, duration:.7}, 22.1);
+reveal('#s7', 22.2, .18);
+tl.from('#s7b', {scale:0, duration:.8, ease:'back.out(1.8)'}, 22.75)
+  .to('#s7ring', {strokeDashoffset:0, duration:1.2, ease:'power2.inOut'}, 22.85);
+
+// 8 · Cierre (24.8 – 29.0)
+tl.to('#s8', {clipPath:'circle(75% at 50% 50%)', duration:1.1, ease:'power3.inOut'}, 24.8)
+  .from('#s8logo', {opacity:0, scale:.84, rotation:-10, duration:1.3}, 25.15);
+reveal('#s8', 25.6);
+tl.from('#s8rule', {scaleX:0, duration:.8, ease:'power2.inOut'}, 25.95)
+  .from('.s8i', {opacity:0, y:22, duration:.7, stagger:.16}, 26.05)
+  .to({}, {duration:.01}, 29.0);
+
+window.DURATION = 29.0;
+window.seek = t => { tl.seek(t, false); };
+window.ready = Promise.all([
+  document.fonts.ready,
+  ...['latte','jyq','cafecroissant','tostas'].map(n => new Promise(r => { const i = new Image(); i.onload = i.onerror = r; i.src = `assets/${n}.jpg`; })),
+  ...$$('img').map(i => i.decode().catch(() => {}))
+]);
+// Vista previa en navegador: reproducir en tiempo real con ?play
+if (location.search.includes('play')) tl.play(0);
+</script>
+</body>
+</html>
