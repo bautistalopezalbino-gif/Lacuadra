@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>La Cuadra · Desayunos y meriendas (TV 16:9, bucle)</title>
+<link rel="stylesheet" href="../../fonts/fonts.css">
+<style>
+:root{
+  --sand:#F3E5D2; --cream:#FBF4E9; --esp:#432919; --ink:#3A2519; --muted:#6B4A31;
+  --gold:#C98A3C; --goldb:#DCA05A;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--cream)}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden}
+#strip{position:absolute;left:0;top:0;width:7680px;height:1080px;will-change:transform}
+.panel{position:absolute;top:0;width:1920px;height:1080px;overflow:hidden}
+.abs{position:absolute}
+.kicker{font-family:var(--sans);font-weight:500;font-size:26px;letter-spacing:.34em;text-transform:uppercase}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+/* Foto con ventana: .pw recorta, .par lleva el paralaje, .ph el zoom lento */
+.pw{position:absolute;overflow:hidden}
+.par{position:absolute;inset:0}
+.ph{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.15)}
+
+/* Carta */
+.menu{list-style:none}
+.menu li{display:flex;align-items:flex-end;height:88px;padding-bottom:22px;border-bottom:1.5px solid rgba(67,41,25,.13)}
+.menu .nm{font-family:var(--serif);font-weight:500;font-size:48px;line-height:1;color:var(--ink);white-space:nowrap}
+.menu .dots{flex:1;margin:0 22px 9px;border-bottom:3px dotted rgba(67,41,25,.38)}
+.menu .pr{font-family:var(--sans);font-weight:500;font-size:42px;line-height:1;color:var(--esp);white-space:nowrap}
+
+/* Promos */
+.card{position:absolute;top:320px;width:500px;height:600px;background:var(--cream);border-radius:10px;
+  box-shadow:0 30px 70px rgba(0,0,0,.28)}
+.cimg{position:absolute;left:16px;right:16px;top:16px;height:380px;overflow:hidden;border-radius:6px}
+.cimg .ph{transform:none}
+.ctext{position:absolute;left:36px;right:36px;top:430px}
+.ctext .kicker{font-size:20px;color:var(--gold);margin-bottom:14px}
+.cname{font-size:60px;line-height:1;color:var(--esp)}
+.cbadge{position:absolute;right:-24px;top:236px;width:176px;height:176px;border-radius:50%;background:var(--gold);color:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,0,0,.25);transform:rotate(-8deg)}
+.cbadge::after{content:"";position:absolute;inset:9px;border-radius:50%;border:2px solid rgba(251,244,233,.45)}
+.cbadge small{font-family:var(--sans);font-weight:500;font-size:16px;letter-spacing:.3em;text-indent:.3em;margin-bottom:4px}
+.cbadge b{font-family:var(--sans);font-weight:500;font-size:50px;line-height:1}
+.horchata{position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,#F7EBDA 0%,var(--sand) 70%);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:78px}
+.horchata .w{font-family:var(--serif);font-weight:500;font-size:104px;line-height:1;color:var(--gold);margin-top:14px}
+.horchata .k{font-family:var(--sans);font-weight:500;font-size:18px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+</style>
+</head>
+<body>
+<div id="stage"><div id="strip">
+
+  <!-- Panel 1 · Marca (inicio y fin del bucle: se clona como panel 4) -->
+  <section class="panel" id="p1" style="left:0;background:var(--cream)">
+    <div class="pw" style="left:960px;top:0;width:960px;height:1080px">
+      <div class="par"><div class="ph kb-a" style="background-image:url(assets/latte.jpg);background-position:50% 72%"></div></div>
+    </div>
+    <img class="abs" src="assets/logo_dark.png" style="left:280px;top:140px;width:400px">
+    <div class="kicker abs" style="left:0;width:960px;top:556px;text-align:center;color:var(--muted)">Pastelería · Cafetería argentina</div>
+    <h1 class="serif abs" style="left:0;width:960px;top:604px;text-align:center;font-size:126px;line-height:.95;color:var(--esp)">Desayunos<br><span style="color:var(--gold)">&amp; meriendas</span></h1>
+    <div class="abs" style="left:0;width:960px;top:888px;text-align:center;font-family:var(--sans);font-size:32px;letter-spacing:.02em;color:var(--muted)">Del obrador a tu mesa</div>
+  </section>
+
+  <!-- Panel 2 · Desayunos y tostadas -->
+  <section class="panel" id="p2" style="left:1920px;background:var(--sand)">
+    <div class="pw" style="left:0;top:0;width:800px;height:1080px">
+      <div class="par">
+        <div class="ph" id="kb-b1" style="background-image:url(assets/croissants.jpg);background-position:58% 50%"></div>
+        <div class="ph" id="kb-b2" style="background-image:url(assets/tostas-salmon.jpg);background-position:50% 50%;opacity:0"></div>
+      </div>
+    </div>
+    <div class="kicker abs" style="left:910px;top:148px;color:var(--gold)">Desayunos y tostadas</div>
+    <h2 class="serif abs" style="left:910px;top:190px;font-size:84px;line-height:1;color:var(--esp)">Para empezar el día</h2>
+    <div class="abs" style="left:910px;width:900px;top:306px;height:2px;background:rgba(67,41,25,.25)"></div>
+    <ul class="menu abs" id="menu" style="left:910px;width:900px;top:318px">
+      <li><span class="nm">Tortilla francesa</span><span class="dots"></span><span class="pr">2,20 €</span></li>
+      <li><span class="nm">Tosta de esgarraet y queso</span><span class="dots"></span><span class="pr">4,50 €</span></li>
+      <li><span class="nm">Huevo revuelto</span><span class="dots"></span><span class="pr">2,50 €</span></li>
+      <li><span class="nm">2 huevos revueltos o francesa</span><span class="dots"></span><span class="pr">4,40 €</span></li>
+      <li><span class="nm">Medialuna de jamón y queso</span><span class="dots"></span><span class="pr">1,50 €</span></li>
+      <li><span class="nm">Mini chips de jamón y queso</span><span class="dots"></span><span class="pr">1,50 €</span></li>
+      <li><span class="nm">Extra de aceite</span><span class="dots"></span><span class="pr">0,70 €</span></li>
+    </ul>
+  </section>
+
+  <!-- Panel 3 · Promociones y merienda -->
+  <section class="panel" id="p3" style="left:3840px;background:var(--esp)">
+    <div class="kicker abs" style="top:118px;width:100%;text-align:center;color:var(--goldb)">Promociones y merienda</div>
+    <h2 class="serif abs" style="top:160px;width:100%;text-align:center;font-size:100px;line-height:1;color:var(--cream)">¿Y para merendar?</h2>
+
+    <div class="card" style="left:140px">
+      <div class="cimg"><div class="ph kb-c" style="background-image:url(assets/cafecroissant.jpg);background-position:50% 60%"></div></div>
+      <div class="ctext"><div class="kicker">Promo · 01</div><div class="serif cname">Promo croissant</div></div>
+      <div class="cbadge"><small>PROMO</small><b>2,70 €</b></div>
+    </div>
+    <div class="card" style="left:710px">
+      <div class="cimg"><div class="ph kb-c" style="background-image:url(assets/tostas.jpg);background-position:50% 48%"></div></div>
+      <div class="ctext"><div class="kicker">Promo · 02</div><div class="serif cname">Promo tostada</div></div>
+      <div class="cbadge"><small>PROMO</small><b>2,90 €</b></div>
+    </div>
+    <div class="card" style="left:1280px">
+      <div class="cimg"><div class="horchata"><div class="k">El clásico valenciano</div><div class="w">horchata</div></div></div>
+      <div class="ctext"><div class="kicker">Promo · 03</div><div class="serif cname">Promo horchata</div></div>
+      <div class="cbadge"><small>PROMO</small><b>3,80 €</b></div>
+    </div>
+
+    <div class="kicker abs" style="top:968px;width:100%;text-align:center;font-size:22px;color:rgba(251,244,233,.62)">Pídela en barra</div>
+  </section>
+
+</div></div>
+
+<script src="gsap.min.js"></script>
+<script>
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const strip = document.getElementById('strip');
+
+// Panel 4 = copia exacta del panel 1, para que el final enlace con el inicio sin salto
+const p4 = document.getElementById('p1').cloneNode(true);
+p4.id = 'p4'; p4.style.left = '5760px';
+strip.appendChild(p4);
+const panels = $$('.panel');
+
+// ── Tiempos (s) ──
+const T = 47;                       // duración del bucle
+const SLIDE = 2.2;                  // deslizamiento entre paneles
+const S1 = 6.5, S2 = 24.5, S3 = 41; // inicio de cada deslizamiento
+const ease = 'power2.inOut';
+
+const cam = {x: 0};
+const tl = gsap.timeline({paused: true});
+
+// Cámara: avanza siempre hacia la izquierda y termina en el panel 4 (= panel 1)
+tl.to(cam, {x: 1920, duration: SLIDE, ease}, S1)
+  .to(cam, {x: 3840, duration: SLIDE, ease}, S2)
+  .to(cam, {x: 5760, duration: SLIDE, ease}, S3)
+  .to({}, {duration: 0}, T);
+
+// Zoom lento y lineal. El del panel 4 acaba en t=T con el mismo valor y ritmo con que empieza el panel 1.
+const R = .004, A0 = 1.18;
+tl.fromTo('#p1 .kb-a', {scale: A0}, {scale: A0 + R * (S1 + SLIDE), duration: S1 + SLIDE, ease: 'none'}, 0)
+  .fromTo('#p4 .kb-a', {scale: A0 - R * (T - S3)}, {scale: A0, duration: T - S3, ease: 'none'}, S3);
+
+// Panel 2: entrada suave de la carta y fundido lento entre dos fotos
+tl.fromTo('#kb-b1', {scale: 1.15}, {scale: 1.22, duration: 12, ease: 'none'}, S1)
+  .fromTo('#kb-b2', {scale: 1.15}, {scale: 1.2, duration: 10.5, ease: 'none'}, 16.2)
+  .fromTo('#kb-b2', {opacity: 0}, {opacity: 1, duration: 1.8, ease: 'sine.inOut'}, 16.4);
+$$('#menu li').forEach((li, i) => {
+  tl.fromTo(li, {opacity: 0, y: 26}, {opacity: 1, y: 0, duration: 1.1, ease: 'power2.out'}, S1 + 1.7 + i * .14);
+});
+
+// Panel 3: tarjetas que suben, y después se destacan una a una con calma
+const cards = $$('#p3 .card');
+tl.fromTo('.kb-c', {scale: 1.0}, {scale: 1.08, duration: T - S2, ease: 'none'}, S2);
+cards.forEach((c, i) => {
+  tl.fromTo(c, {opacity: 0, y: 46}, {opacity: 1, y: 0, duration: 1.2, ease: 'power2.out'}, S2 + 1.7 + i * .22);
+  const h = 29.2 + i * 2.8;
+  tl.fromTo(c, {y: 0}, {y: -16, duration: 1.3, ease: 'sine.inOut'}, h)
+    .to(c, {y: 0, duration: 1.3, ease: 'sine.inOut'}, h + 1.3)
+    .fromTo(c.querySelector('.cbadge'), {scale: 1, rotation: -8}, {scale: 1.1, rotation: -2, duration: 1.3, ease: 'sine.inOut'}, h)
+    .to(c.querySelector('.cbadge'), {scale: 1, rotation: -8, duration: 1.3, ease: 'sine.inOut'}, h + 1.3);
+});
+
+// Paralaje: las fotos se desplazan un 3 % menos que su panel al deslizar
+const pars = $$('.par').map(el => ({el, base: panels.indexOf(el.closest('.panel')) * 1920}));
+function applyCam() {
+  strip.style.transform = `translate3d(${-cam.x}px,0,0)`;
+  for (const p of pars) p.el.style.transform = `translate3d(${-(p.base - cam.x) * .03}px,0,0)`;
+}
+
+window.DURATION = T;
+window.seek = t => { tl.seek(t, false); applyCam(); };
+window.ready = Promise.all([
+  document.fonts.ready,
+  ...['latte', 'croissants', 'tostas-salmon', 'cafecroissant', 'tostas'].map(n => new Promise(r => { const i = new Image(); i.onload = i.onerror = r; i.src = `assets/${n}.jpg`; })),
+  ...$$('img').map(i => i.decode().catch(() => {}))
+]);
+seek(0);
+// Vista previa en navegador: ?play reproduce en bucle a tiempo real
+if (location.search.includes('play')) {
+  const t0 = performance.now();
+  (function loop() { seek(((performance.now() - t0) / 1000) % T); requestAnimationFrame(loop); })();
+}
+</script>
+</body>
+</html>
