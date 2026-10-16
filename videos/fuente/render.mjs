@@ -1,4 +1,4 @@
-// Renderiza videos/menu-desayunos.mp4 a partir de menu-desayunos.html.
+// Renderiza videos/menu-desayunos.mp4 (16:9, 1920x1080) a partir de menu-desayunos.html.
 // Uso, desde la raíz del repo:  node videos/fuente/render.mjs
 // Necesita playwright (Chromium) y ffmpeg en el PATH.
 // Para revisar fotogramas sueltos sin renderizar todo:  node videos/fuente/render.mjs --still=1.5,4.2 --dir=/tmp
@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
 const port = server.address().port;
 
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
+const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
 await page.goto(`http://localhost:${port}/videos/fuente/menu-desayunos.html`);
 await page.evaluate(() => window.ready);
 const duration = await page.evaluate(() => window.DURATION);

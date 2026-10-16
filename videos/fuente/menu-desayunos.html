@@ -15,56 +15,53 @@
   --sans:'Jost',Helvetica,Arial,sans-serif;
 }
 *{ margin:0; padding:0; box-sizing:border-box; }
-html,body{ width:1080px; height:1920px; overflow:hidden; background:var(--espresso); }
-#stage{ position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--espresso); color:var(--cream); font-family:var(--sans); }
+html,body{ width:1920px; height:1080px; overflow:hidden; background:var(--espresso); }
+#stage{ position:relative; width:1920px; height:1080px; overflow:hidden; background:var(--espresso); color:var(--cream); font-family:var(--sans); }
 .scene{ position:absolute; inset:0; overflow:hidden; visibility:hidden; background:var(--espresso); }
 
 .logo{ display:block; background:var(--cream);
   -webkit-mask:url(logo-video.png) center/contain no-repeat; mask:url(logo-video.png) center/contain no-repeat; aspect-ratio:824/722; }
-.kicker{ font:500 30px/1 var(--sans); letter-spacing:.28em; text-transform:uppercase; color:var(--gold-bright); }
-.rule{ height:3px; background:var(--gold); }
+.kicker{ font:500 24px/1 var(--sans); letter-spacing:.3em; text-transform:uppercase; color:var(--gold-bright); }
+.rule{ height:3px; background:var(--gold); transform-origin:left; }
 
 /* Intro */
 .intro .bg{ position:absolute; inset:0; background:center/cover no-repeat; filter:brightness(.3) saturate(1.05) blur(3px); }
-.intro .col{ position:absolute; left:0; right:0; top:470px; display:flex; flex-direction:column; align-items:center; text-align:center; }
-.intro .logo{ width:380px; }
-.intro .kicker{ margin-top:70px; }
-.intro h1{ font:500 214px/1 var(--serif); letter-spacing:-.015em; margin-top:26px; }
-.intro .rule{ width:180px; margin-top:44px; }
-.intro .sub{ font:300 38px/1.3 var(--sans); color:var(--on-dark-muted); margin-top:40px; letter-spacing:.02em; }
+.intro .col{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.intro .logo{ width:250px; }
+.intro .kicker{ margin-top:46px; }
+.intro h1{ font:500 188px/1 var(--serif); letter-spacing:-.015em; margin-top:16px; }
+.intro .rule{ width:160px; margin-top:34px; transform-origin:center; }
+.intro .sub{ font:300 32px/1.3 var(--sans); color:var(--on-dark-muted); margin-top:30px; letter-spacing:.02em; }
 
-/* Platos */
-.dish .bg{ position:absolute; inset:-60px; background:center/cover no-repeat; filter:blur(38px) brightness(.68) saturate(1.1); }
-.dish .photo{ position:absolute; will-change:transform; }
-/* Las verticales suben para que el plato quede por encima del texto; abajo funden con el fondo desenfocado */
-.dish.vert .photo{ left:0; top:-210px; width:1080px; height:1935px; object-fit:cover; transform-origin:50% 40%;
-  -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent 100%); mask-image:linear-gradient(to bottom,#000 82%,transparent 100%); }
-.dish.land .photo{ left:-80px; top:470px; width:1240px; height:676px; object-fit:cover;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 78%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);
-  -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 78%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);
-  mask-composite:intersect; }
+/* Platos: texto a la izquierda, plato a la derecha fundiéndose con el panel */
+.dish .bg{ position:absolute; inset:-60px; background:center/cover no-repeat; filter:blur(40px) brightness(.6) saturate(1.1); }
+.dish .photo{ position:absolute; top:0; height:1080px; object-fit:cover; object-position:35% 50%; transform-origin:62% 50%; will-change:transform;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 26%); mask-image:linear-gradient(to right,transparent 0,#000 26%); }
+.dish.land .photo{ left:620px; width:1300px; }
+.dish.vert .photo{ left:740px; width:1180px; transform-origin:50% 50%; }
 .dish .shade{ position:absolute; inset:0;
-  background:linear-gradient(to bottom,rgba(43,26,16,.6) 0,rgba(43,26,16,0) 20%),
-             linear-gradient(to top,rgba(43,26,16,.94) 0,rgba(43,26,16,.8) 26%,rgba(43,26,16,0) 52%); }
-.dish .logo{ position:absolute; top:210px; left:50%; width:200px; margin-left:-100px; }
-.dish .txt{ position:absolute; left:84px; right:120px; bottom:330px; }
-.dish h2{ font:500 126px/.98 var(--serif); letter-spacing:-.01em; margin-top:26px; text-wrap:balance; }
-.dish .rule{ width:120px; margin-top:34px; }
-.dish .price{ font:400 72px/1 var(--sans); color:var(--gold-bright); margin-top:30px; letter-spacing:.01em; }
-.dish .extra{ font:300 36px/1.3 var(--sans); color:var(--on-dark-muted); margin-top:18px; }
+  background:linear-gradient(to right,rgba(43,26,16,.96) 0,rgba(43,26,16,.88) 30%,rgba(43,26,16,.2) 52%,rgba(43,26,16,0) 62%); }
+.dish .logo{ position:absolute; top:90px; left:120px; width:150px; }
+.dish .txt{ position:absolute; left:120px; width:660px; top:0; bottom:0; padding-top:90px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+.dish h2{ font:500 104px/1 var(--serif); letter-spacing:-.01em; margin-top:22px; text-wrap:balance; }
+.dish .rule{ width:110px; margin-top:32px; }
+.dish .price{ font:400 60px/1 var(--sans); color:var(--gold-bright); margin-top:28px; letter-spacing:.01em; }
+.dish .extra{ font:300 30px/1.3 var(--sans); color:var(--on-dark-muted); margin-top:14px; }
 
-/* Cierre: la lista */
-.outro{ background:radial-gradient(120% 80% at 50% 40%,#4F3221 0,var(--espresso) 55%,var(--espresso-deep) 100%); }
-.outro .logo{ position:absolute; top:200px; left:50%; width:230px; margin-left:-115px; }
-.outro .head{ position:absolute; top:500px; left:0; right:0; text-align:center; }
-.outro h2{ font:500 150px/1 var(--serif); letter-spacing:-.01em; margin-top:20px; }
-.outro ul{ position:absolute; top:800px; left:96px; right:96px; list-style:none; }
-.outro li{ display:flex; align-items:baseline; gap:18px; font:300 42px/1 var(--sans); height:82px; }
+/* Cierre: título a la izquierda, lista a la derecha */
+.outro{ background:radial-gradient(90% 120% at 30% 45%,#4F3221 0,var(--espresso) 55%,var(--espresso-deep) 100%); }
+.outro .left{ position:absolute; left:120px; top:0; bottom:0; width:620px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+.outro .logo{ width:170px; }
+.outro .kicker{ margin-top:60px; }
+.outro h2{ font:500 140px/1 var(--serif); letter-spacing:-.01em; margin-top:16px; }
+.outro .rule{ width:110px; margin-top:32px; }
+.outro .foot{ font:300 30px/1.5 var(--sans); color:var(--on-dark-muted); margin-top:44px; }
+.outro .foot b{ font-weight:500; color:var(--cream); }
+.outro .sep{ position:absolute; left:830px; top:200px; bottom:200px; width:1px; background:rgba(201,138,60,.35); transform-origin:top; }
+.outro ul{ position:absolute; left:930px; right:120px; top:50%; margin-top:-300px; list-style:none; }
+.outro li{ display:flex; align-items:baseline; gap:18px; font:300 38px/1 var(--sans); height:75px; }
 .outro li .dots{ flex:1; border-bottom:3px dotted rgba(224,205,180,.45); transform:translateY(-8px); }
 .outro li .pr{ font-weight:500; color:var(--gold-bright); }
-.outro .foot{ position:absolute; left:0; right:0; bottom:300px; text-align:center; font:300 36px/1.5 var(--sans); color:var(--on-dark-muted); }
-.outro .foot b{ font-weight:500; color:var(--cream); }
 </style>
 </head>
 <body>
@@ -82,12 +79,12 @@ const IMG = {
 
 // Nombres y precios tal cual aparecen en carta.html (sección Desayunos y meriendas).
 const PLATOS = [
-  { nombre:'Tortilla francesa',           precio:'2,20 €', img:IMG.tortilla,  vert:true },
+  { nombre:'Tortilla francesa',           precio:'2,20 €', img:IMG.tortilla,  vert:true, pos:'50% 44%' },
   { nombre:'Huevo revuelto',              precio:'2,50 €', img:IMG.revuelto,  extra:'2 huevos revueltos o francesa · 4,40 €' },
   { nombre:'Croissant york y queso',      precio:'2,80 €', img:IMG.croissant },
-  { nombre:'Tosta de esgarraet y queso',  precio:'4,50 €', img:IMG.esgarraet, vert:true },
+  { nombre:'Tosta de esgarraet y queso',  precio:'4,50 €', img:IMG.esgarraet, vert:true, pos:'50% 57%' },
   { nombre:'Mini chips de jamón y queso', precio:'1,50 €', img:IMG.chips },
-  { nombre:'Promo croissant',             precio:'2,70 €', img:IMG.promo },
+  { nombre:'Promo croissant',             precio:'2,70 €', img:IMG.promo, pos:'75% 50%' },
 ];
 const LISTA = [
   ['Tortilla francesa','2,20 €'], ['Huevo revuelto','2,50 €'], ['2 huevos revueltos o francesa','4,40 €'],
@@ -115,7 +112,7 @@ add(h(`<section class="scene intro">
 
 PLATOS.forEach((p, i) => add(h(`<section class="scene dish ${p.vert ? 'vert' : 'land'}">
   <div class="bg" style="background-image:url('${p.img}')"></div>
-  <img class="photo" src="${p.img}" alt="">
+  <img class="photo" src="${p.img}" alt=""${p.pos ? ` style="object-position:${p.pos}"` : ''}>
   <div class="shade"></div>
   <span class="logo"></span>
   <div class="txt">
@@ -127,10 +124,15 @@ PLATOS.forEach((p, i) => add(h(`<section class="scene dish ${p.vert ? 'vert' : '
   </div></section>`), PLATO, (el, lt, d) => animDish(el, lt, d, i)));
 
 add(h(`<section class="scene outro">
-  <span class="logo"></span>
-  <div class="head"><p class="kicker">La carta</p><h2>Desayunos</h2></div>
-  <ul>${LISTA.map(([n, pr]) => `<li><span>${n}</span><span class="dots"></span><span class="pr">${pr}</span></li>`).join('')}</ul>
-  <p class="foot"><b>C/ dels Campaners, 16</b> · Patraix, Valencia<br>@lacuadravalencia</p></section>`), OUTRO + XF, animOutro);
+  <div class="left">
+    <span class="logo"></span>
+    <p class="kicker">La carta</p>
+    <h2>Desayunos</h2>
+    <div class="rule"></div>
+    <p class="foot"><b>C/ dels Campaners, 16</b><br>Patraix, Valencia · @lacuadravalencia</p>
+  </div>
+  <div class="sep"></div>
+  <ul>${LISTA.map(([n, pr]) => `<li><span>${n}</span><span class="dots"></span><span class="pr">${pr}</span></li>`).join('')}</ul></section>`), OUTRO + XF, animOutro);
 
 window.DURATION = t0 + XF;
 
@@ -163,7 +165,7 @@ function animDish(el, lt, d, i){
   q('.logo').style.opacity = easeOut((lt - .1) / .6);
   rise(q('.kicker'), lt, .25);
   rise(q('h2'), lt, .35, .7, 40);
-  q('.rule').style.transformOrigin = 'left'; q('.rule').style.transform = `scaleX(${easeOut((lt - .55) / .6)})`;
+  q('.rule').style.transform = `scaleX(${easeOut((lt - .55) / .6)})`;
   rise(q('.price'), lt, .6);
   if (q('.extra')) rise(q('.extra'), lt, .8);
   // El texto se va justo antes del fundido para no solaparse con el del plato siguiente
@@ -175,8 +177,10 @@ function animOutro(el, lt){
   q('.logo').style.opacity = easeOut((lt - .2) / .6);
   rise(q('.kicker'), lt, .3);
   rise(q('h2'), lt, .4, .7, 40);
-  el.querySelectorAll('li').forEach((li, j) => rise(li, lt, .7 + j * .12, .5, 22));
-  rise(q('.foot'), lt, 1.9);
+  q('.rule').style.transform = `scaleX(${easeOut((lt - .7) / .6)})`;
+  rise(q('.foot'), lt, .9);
+  q('.sep').style.transform = `scaleY(${easeOut((lt - .5) / 1.2)})`;
+  el.querySelectorAll('li').forEach((li, j) => rise(li, lt, .8 + j * .12, .5, 22));
 }
 
 window.render = t => {
