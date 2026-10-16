@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Vídeo menú de desayunos</title>
+<!-- Escena del vídeo. La pinta fotograma a fotograma render.mjs llamando a window.render(t). -->
+<link rel="stylesheet" href="../../fonts/fonts.css">
+<!-- logo-video.png es logo.png recortado al dibujo (sin el margen ni la marca suelta de la esquina) -->
+<style>
+:root{
+  --espresso:#432919; --espresso-deep:#2B1A10;
+  --cream:#FBF4E9; --on-dark-muted:#E0CDB4;
+  --gold:#C98A3C; --gold-bright:#DCA05A;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',Helvetica,Arial,sans-serif;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ width:1080px; height:1920px; overflow:hidden; background:var(--espresso); }
+#stage{ position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--espresso); color:var(--cream); font-family:var(--sans); }
+.scene{ position:absolute; inset:0; overflow:hidden; visibility:hidden; background:var(--espresso); }
+
+.logo{ display:block; background:var(--cream);
+  -webkit-mask:url(logo-video.png) center/contain no-repeat; mask:url(logo-video.png) center/contain no-repeat; aspect-ratio:824/722; }
+.kicker{ font:500 30px/1 var(--sans); letter-spacing:.28em; text-transform:uppercase; color:var(--gold-bright); }
+.rule{ height:3px; background:var(--gold); }
+
+/* Intro */
+.intro .bg{ position:absolute; inset:0; background:center/cover no-repeat; filter:brightness(.3) saturate(1.05) blur(3px); }
+.intro .col{ position:absolute; left:0; right:0; top:470px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.intro .logo{ width:380px; }
+.intro .kicker{ margin-top:70px; }
+.intro h1{ font:500 214px/1 var(--serif); letter-spacing:-.015em; margin-top:26px; }
+.intro .rule{ width:180px; margin-top:44px; }
+.intro .sub{ font:300 38px/1.3 var(--sans); color:var(--on-dark-muted); margin-top:40px; letter-spacing:.02em; }
+
+/* Platos */
+.dish .bg{ position:absolute; inset:-60px; background:center/cover no-repeat; filter:blur(38px) brightness(.68) saturate(1.1); }
+.dish .photo{ position:absolute; will-change:transform; }
+/* Las verticales suben para que el plato quede por encima del texto; abajo funden con el fondo desenfocado */
+.dish.vert .photo{ left:0; top:-210px; width:1080px; height:1935px; object-fit:cover; transform-origin:50% 40%;
+  -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent 100%); mask-image:linear-gradient(to bottom,#000 82%,transparent 100%); }
+.dish.land .photo{ left:-80px; top:470px; width:1240px; height:676px; object-fit:cover;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 78%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 78%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);
+  mask-composite:intersect; }
+.dish .shade{ position:absolute; inset:0;
+  background:linear-gradient(to bottom,rgba(43,26,16,.6) 0,rgba(43,26,16,0) 20%),
+             linear-gradient(to top,rgba(43,26,16,.94) 0,rgba(43,26,16,.8) 26%,rgba(43,26,16,0) 52%); }
+.dish .logo{ position:absolute; top:210px; left:50%; width:200px; margin-left:-100px; }
+.dish .txt{ position:absolute; left:84px; right:120px; bottom:330px; }
+.dish h2{ font:500 126px/.98 var(--serif); letter-spacing:-.01em; margin-top:26px; text-wrap:balance; }
+.dish .rule{ width:120px; margin-top:34px; }
+.dish .price{ font:400 72px/1 var(--sans); color:var(--gold-bright); margin-top:30px; letter-spacing:.01em; }
+.dish .extra{ font:300 36px/1.3 var(--sans); color:var(--on-dark-muted); margin-top:18px; }
+
+/* Cierre: la lista */
+.outro{ background:radial-gradient(120% 80% at 50% 40%,#4F3221 0,var(--espresso) 55%,var(--espresso-deep) 100%); }
+.outro .logo{ position:absolute; top:200px; left:50%; width:230px; margin-left:-115px; }
+.outro .head{ position:absolute; top:500px; left:0; right:0; text-align:center; }
+.outro h2{ font:500 150px/1 var(--serif); letter-spacing:-.01em; margin-top:20px; }
+.outro ul{ position:absolute; top:800px; left:96px; right:96px; list-style:none; }
+.outro li{ display:flex; align-items:baseline; gap:18px; font:300 42px/1 var(--sans); height:82px; }
+.outro li .dots{ flex:1; border-bottom:3px dotted rgba(224,205,180,.45); transform:translateY(-8px); }
+.outro li .pr{ font-weight:500; color:var(--gold-bright); }
+.outro .foot{ position:absolute; left:0; right:0; bottom:300px; text-align:center; font:300 36px/1.5 var(--sans); color:var(--on-dark-muted); }
+.outro .foot b{ font-weight:500; color:var(--cream); }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+
+<script>
+const IMG = {
+  tortilla:  '../../pomelli_photoshoot_image_9_16_1016.png',
+  esgarraet: '../../pomelli_photoshoot_image_9_16_1016%20(1).png',
+  revuelto:  '../../Gemini_Generated_Image_mpkp7umpkp7umpkp.jfif',
+  croissant: '../../Gemini_Generated_Image_kjrrpckjrrpckjrr.jfif',
+  chips:     '../../Gemini_Generated_Image_cpj345cpj345cpj3.jfif',
+  promo:     '../../Gemini_Generated_Image_u4mhazu4mhazu4mh.jfif',
+};
+
+// Nombres y precios tal cual aparecen en carta.html (sección Desayunos y meriendas).
+const PLATOS = [
+  { nombre:'Tortilla francesa',           precio:'2,20 €', img:IMG.tortilla,  vert:true },
+  { nombre:'Huevo revuelto',              precio:'2,50 €', img:IMG.revuelto,  extra:'2 huevos revueltos o francesa · 4,40 €' },
+  { nombre:'Croissant york y queso',      precio:'2,80 €', img:IMG.croissant },
+  { nombre:'Tosta de esgarraet y queso',  precio:'4,50 €', img:IMG.esgarraet, vert:true },
+  { nombre:'Mini chips de jamón y queso', precio:'1,50 €', img:IMG.chips },
+  { nombre:'Promo croissant',             precio:'2,70 €', img:IMG.promo },
+];
+const LISTA = [
+  ['Tortilla francesa','2,20 €'], ['Huevo revuelto','2,50 €'], ['2 huevos revueltos o francesa','4,40 €'],
+  ['Croissant york y queso','2,80 €'], ['Tosta de esgarraet y queso','4,50 €'], ['Mini chips de jamón y queso','1,50 €'],
+  ['Promo croissant','2,70 €'], ['Promo tostada','2,90 €'],
+];
+
+// Tiempos (segundos). Cada escena entra en fundido sobre la anterior durante XF.
+const XF = 0.5, INTRO = 3.2, PLATO = 3.0, OUTRO = 6.3;
+const stage = document.getElementById('stage');
+const scenes = [];
+let t0 = 0;
+function add(el, dur, anim){ stage.appendChild(el); scenes.push({ el, start:t0, dur, anim }); t0 += dur - XF; }
+function h(html){ const d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstChild; }
+
+add(h(`<section class="scene intro">
+  <div class="bg" style="background-image:url('${IMG.promo}')"></div>
+  <div class="col">
+    <span class="logo"></span>
+    <p class="kicker">Cafetería · Pastelería</p>
+    <h1>Desayunos</h1>
+    <div class="rule"></div>
+    <p class="sub">Obrador propio desde 1992 · Patraix</p>
+  </div></section>`), INTRO, animIntro);
+
+PLATOS.forEach((p, i) => add(h(`<section class="scene dish ${p.vert ? 'vert' : 'land'}">
+  <div class="bg" style="background-image:url('${p.img}')"></div>
+  <img class="photo" src="${p.img}" alt="">
+  <div class="shade"></div>
+  <span class="logo"></span>
+  <div class="txt">
+    <p class="kicker">Desayunos · 0${i + 1}</p>
+    <h2>${p.nombre}</h2>
+    <div class="rule"></div>
+    <p class="price">${p.precio}</p>
+    ${p.extra ? `<p class="extra">${p.extra}</p>` : ''}
+  </div></section>`), PLATO, (el, lt, d) => animDish(el, lt, d, i)));
+
+add(h(`<section class="scene outro">
+  <span class="logo"></span>
+  <div class="head"><p class="kicker">La carta</p><h2>Desayunos</h2></div>
+  <ul>${LISTA.map(([n, pr]) => `<li><span>${n}</span><span class="dots"></span><span class="pr">${pr}</span></li>`).join('')}</ul>
+  <p class="foot"><b>C/ dels Campaners, 16</b> · Patraix, Valencia<br>@lacuadravalencia</p></section>`), OUTRO + XF, animOutro);
+
+window.DURATION = t0 + XF;
+
+// Utilidades de animación
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const easeOut = x => 1 - Math.pow(1 - clamp(x), 4);
+const easeInOut = x => { x = clamp(x); return x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; };
+// Aparece desde abajo: progreso entre a y a+len segundos.
+function rise(el, lt, a, len = .6, dy = 28){
+  const k = easeOut((lt - a) / len);
+  el.style.opacity = k; el.style.transform = `translateY(${(1 - k) * dy}px)`;
+}
+
+function animIntro(el, lt, d){
+  const q = s => el.querySelector(s);
+  q('.bg').style.transform = `scale(${1.14 - .1 * easeInOut(lt / d)})`;
+  const k = easeOut(lt / .9);
+  q('.logo').style.opacity = k; q('.logo').style.transform = `scale(${.9 + .1 * k})`;
+  rise(q('.kicker'), lt, .55);
+  rise(q('h1'), lt, .7, .8, 40);
+  q('.rule').style.transform = `scaleX(${easeOut((lt - 1.0) / .7)})`;
+  rise(q('.sub'), lt, 1.15);
+}
+
+function animDish(el, lt, d, i){
+  const q = s => el.querySelector(s);
+  // Zoom lento alternando acercar / alejar
+  const z = easeInOut(lt / d), s = i % 2 ? 1.1 - .08 * z : 1.02 + .08 * z;
+  q('.photo').style.transform = `scale(${s})`;
+  q('.logo').style.opacity = easeOut((lt - .1) / .6);
+  rise(q('.kicker'), lt, .25);
+  rise(q('h2'), lt, .35, .7, 40);
+  q('.rule').style.transformOrigin = 'left'; q('.rule').style.transform = `scaleX(${easeOut((lt - .55) / .6)})`;
+  rise(q('.price'), lt, .6);
+  if (q('.extra')) rise(q('.extra'), lt, .8);
+  // El texto se va justo antes del fundido para no solaparse con el del plato siguiente
+  q('.txt').style.opacity = 1 - easeInOut((lt - (d - XF - .3)) / .35);
+}
+
+function animOutro(el, lt){
+  const q = s => el.querySelector(s);
+  q('.logo').style.opacity = easeOut((lt - .2) / .6);
+  rise(q('.kicker'), lt, .3);
+  rise(q('h2'), lt, .4, .7, 40);
+  el.querySelectorAll('li').forEach((li, j) => rise(li, lt, .7 + j * .12, .5, 22));
+  rise(q('.foot'), lt, 1.9);
+}
+
+window.render = t => {
+  scenes.forEach((sc, k) => {
+    const lt = t - sc.start, next = scenes[k + 1];
+    // Oculta lo que aún no ha entrado y lo que ya queda tapado por la siguiente escena
+    const visible = lt >= 0 && !(next && t >= next.start + XF);
+    sc.el.style.visibility = visible ? 'visible' : 'hidden';
+    if (!visible) return;
+    sc.el.style.opacity = k === 0 ? 1 : easeInOut(lt / XF);
+    sc.anim(sc.el, lt, sc.dur);
+  });
+};
+
+window.ready = (async () => {
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+  await Promise.all(Object.values(IMG).map(src => { const im = new Image(); im.src = src; return im.decode().catch(() => {}); }));
+  render(0);
+})();
+</script>
+</body>
+</html>
