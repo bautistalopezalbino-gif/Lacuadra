@@ -38,6 +38,9 @@ html,body{ width:1920px; height:1080px; overflow:hidden; background:var(--espres
   -webkit-mask-image:linear-gradient(to right,transparent 0,#000 26%); mask-image:linear-gradient(to right,transparent 0,#000 26%); }
 .dish.land .photo{ left:620px; width:1300px; }
 .dish.vert .photo{ left:740px; width:1180px; transform-origin:50% 50%; }
+/* Fotos de móvil pequeñas: enteras a toda altura, sin ampliarlas, sobre su propio fondo desenfocado */
+.dish.fit .photo{ left:1030px; width:610px; transform-origin:50% 50%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%); mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%); }
 .dish .shade{ position:absolute; inset:0;
   background:linear-gradient(to right,rgba(43,26,16,.96) 0,rgba(43,26,16,.88) 30%,rgba(43,26,16,.2) 52%,rgba(43,26,16,0) 62%); }
 .dish .logo{ position:absolute; top:90px; left:120px; width:150px; }
@@ -73,7 +76,9 @@ const IMG = {
   revuelto:  '../../Gemini_Generated_Image_mpkp7umpkp7umpkp.jfif',
   croissant: '../../Gemini_Generated_Image_kjrrpckjrrpckjrr.jfif',
   chips:     '../../Gemini_Generated_Image_cpj345cpj345cpj3.jfif',
-  promo:     '../../Gemini_Generated_Image_u4mhazu4mhazu4mh.jfif',
+  // Fotos reales de la carpeta «Fotos La Cuadra» de Drive
+  promo:     '../../Fotos/EAB9B55D-4DE6-4698-82A0-7E4E36BC36E1.jpg',
+  intro:     '../../Fotos/IMG_2586.PNG',
 };
 
 // Nombres y precios tal cual aparecen en carta.html (sección Desayunos y meriendas).
@@ -83,7 +88,7 @@ const PLATOS = [
   { nombre:'Croissant york y queso',      precio:'2,80 €', img:IMG.croissant },
   { nombre:'Tosta de esgarraet y queso',  precio:'4,50 €', img:IMG.esgarraet, vert:true, pos:'50% 57%' },
   { nombre:'Mini chips de jamón y queso', precio:'1,50 €', img:IMG.chips },
-  { nombre:'Promo croissant',             precio:'2,70 €', img:IMG.promo, pos:'75% 50%' },
+  { nombre:'Promo croissant',             precio:'2,70 €', img:IMG.promo, fit:true },
 ];
 const LISTA = [
   ['Tortilla francesa','2,20 €'], ['Huevo revuelto','2,50 €'], ['2 huevos revueltos o francesa','4,40 €'],
@@ -101,7 +106,7 @@ function add(el, slot, anim){ stage.appendChild(el); scenes.push({ el, start:t0,
 function h(html){ const d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstChild; }
 
 add(h(`<section class="scene intro">
-  <div class="bg" style="background-image:url('${IMG.promo}')"></div>
+  <div class="bg" style="background-image:url('${IMG.intro}')"></div>
   <div class="col">
     <span class="logo"></span>
     <p class="kicker">Cafetería · Pastelería</p>
@@ -109,7 +114,7 @@ add(h(`<section class="scene intro">
     <div class="rule"></div>
   </div></section>`), INTRO, animIntro);
 
-PLATOS.forEach((p, i) => add(h(`<section class="scene dish ${p.vert ? 'vert' : 'land'}">
+PLATOS.forEach((p, i) => add(h(`<section class="scene dish ${p.fit ? 'fit' : p.vert ? 'vert' : 'land'}">
   <div class="bg" style="background-image:url('${p.img}')"></div>
   <img class="photo" src="${p.img}" alt=""${p.pos ? ` style="object-position:${p.pos}"` : ''}>
   <div class="shade"></div>

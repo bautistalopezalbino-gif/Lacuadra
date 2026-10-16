@@ -14,7 +14,7 @@ const arg = name => process.argv.find(a => a.startsWith(`--${name}=`))?.split('=
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const OUT = path.join(ROOT, 'videos/menu-desayunos.mp4');
 const FPS = 30;
-const TYPES = { '.html':'text/html', '.css':'text/css', '.woff2':'font/woff2', '.png':'image/png', '.jfif':'image/jpeg' };
+const TYPES = { '.html':'text/html', '.css':'text/css', '.woff2':'font/woff2', '.png':'image/png', '.jpg':'image/jpeg', '.jfif':'image/jpeg' };
 
 // Servidor estático mínimo: las fuentes no cargan bien desde file://
 const server = http.createServer((req, res) => {
