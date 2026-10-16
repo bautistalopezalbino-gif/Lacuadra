@@ -60,8 +60,8 @@ html,body{ width:1920px; height:1080px; overflow:hidden; background:var(--espres
 .outro .foot{ font:300 30px/1.5 var(--sans); color:var(--on-dark-muted); margin-top:44px; }
 .outro .foot b{ font-weight:500; color:var(--cream); }
 .outro .sep{ position:absolute; left:830px; top:200px; bottom:200px; width:1px; background:rgba(201,138,60,.35); transform-origin:top; }
-.outro ul{ position:absolute; left:930px; right:120px; top:50%; margin-top:-300px; list-style:none; }
-.outro li{ display:flex; align-items:baseline; gap:18px; font:300 38px/1 var(--sans); height:75px; }
+.outro ul{ position:absolute; left:930px; right:120px; top:50%; list-style:none; }
+.outro li{ display:flex; align-items:baseline; gap:18px; font:300 42px/1 var(--sans); height:96px; }
 .outro li .dots{ flex:1; border-bottom:3px dotted rgba(224,205,180,.45); transform:translateY(-8px); }
 .outro li .pr{ font-weight:500; color:var(--gold-bright); }
 </style>
@@ -70,31 +70,23 @@ html,body{ width:1920px; height:1080px; overflow:hidden; background:var(--espres
 <div id="stage"></div>
 
 <script>
+// Todas las fotos son reales, de la carpeta «Fotos La Cuadra» de Drive.
 const IMG = {
-  tortilla:  '../../pomelli_photoshoot_image_9_16_1016.png',
-  esgarraet: '../../pomelli_photoshoot_image_9_16_1016%20(1).png',
-  revuelto:  '../../Gemini_Generated_Image_mpkp7umpkp7umpkp.jfif',
-  croissant: '../../Gemini_Generated_Image_kjrrpckjrrpckjrr.jfif',
-  chips:     '../../Gemini_Generated_Image_cpj345cpj345cpj3.jfif',
-  // Fotos reales de la carpeta «Fotos La Cuadra» de Drive
+  cafe:      '../../Fotos/D000B64D-B1EE-4318-A0B5-E23E2AFFA9B6.png',
+  croissant: '../../Fotos/IMG_2586.PNG',
+  tosta:     '../../Fotos/IMG_2600.PNG',
   promo:     '../../Fotos/EAB9B55D-4DE6-4698-82A0-7E4E36BC36E1.jpg',
-  intro:     '../../Fotos/IMG_2586.PNG',
+  intro:     '../../Fotos/IMG_9639.png',
 };
 
-// Nombres y precios tal cual aparecen en carta.html (sección Desayunos y meriendas).
+// Nombres y precios tal cual aparecen en carta.html.
 const PLATOS = [
-  { nombre:'Tortilla francesa',           precio:'2,20 €', img:IMG.tortilla,  vert:true, pos:'50% 44%' },
-  { nombre:'Huevo revuelto',              precio:'2,50 €', img:IMG.revuelto,  extra:'2 huevos revueltos o francesa · 4,40 €' },
-  { nombre:'Croissant york y queso',      precio:'2,80 €', img:IMG.croissant },
-  { nombre:'Tosta de esgarraet y queso',  precio:'4,50 €', img:IMG.esgarraet, vert:true, pos:'50% 57%' },
-  { nombre:'Mini chips de jamón y queso', precio:'1,50 €', img:IMG.chips },
-  { nombre:'Promo croissant',             precio:'2,70 €', img:IMG.promo, fit:true },
+  { nombre:'Café con leche',                    precio:'1,60 €', img:IMG.cafe,      vert:true, pos:'50% 72%', left:560 },
+  { nombre:'Super croissant',                   precio:'2,40 €', img:IMG.croissant, vert:true, pos:'50% 60%' },
+  { nombre:'Tosta de huevo, tomate y guacamole', precio:'3,90 €', img:IMG.tosta,     vert:true, pos:'50% 62%' },
+  { nombre:'Promo croissant',                   precio:'2,70 €', img:IMG.promo,     fit:true },
 ];
-const LISTA = [
-  ['Tortilla francesa','2,20 €'], ['Huevo revuelto','2,50 €'], ['2 huevos revueltos o francesa','4,40 €'],
-  ['Croissant york y queso','2,80 €'], ['Tosta de esgarraet y queso','4,50 €'], ['Mini chips de jamón y queso','1,50 €'],
-  ['Promo croissant','2,70 €'], ['Promo tostada','2,90 €'],
-];
+const LISTA = PLATOS.map(p => [p.nombre, p.precio]);
 
 // Tiempos (segundos): lo que cada escena está en pantalla hasta que empieza la siguiente.
 // Cada escena entra en fundido sobre la anterior durante XF.
@@ -116,7 +108,7 @@ add(h(`<section class="scene intro">
 
 PLATOS.forEach((p, i) => add(h(`<section class="scene dish ${p.fit ? 'fit' : p.vert ? 'vert' : 'land'}">
   <div class="bg" style="background-image:url('${p.img}')"></div>
-  <img class="photo" src="${p.img}" alt=""${p.pos ? ` style="object-position:${p.pos}"` : ''}>
+  <img class="photo" src="${p.img}" alt="" style="${p.pos ? `object-position:${p.pos};` : ''}${p.left ? `left:${p.left}px;width:${1920 - p.left}px;` : ''}">
   <div class="shade"></div>
   <span class="logo"></span>
   <div class="txt">
@@ -136,7 +128,7 @@ add(h(`<section class="scene outro">
     <p class="foot"><b>C/ dels Campaners, 16</b><br>Patraix, Valencia · @lacuadravalencia</p>
   </div>
   <div class="sep"></div>
-  <ul>${LISTA.map(([n, pr]) => `<li><span>${n}</span><span class="dots"></span><span class="pr">${pr}</span></li>`).join('')}</ul></section>`), OUTRO, animOutro);
+  <ul style="margin-top:${-LISTA.length * 48}px">${LISTA.map(([n, pr]) => `<li><span>${n}</span><span class="dots"></span><span class="pr">${pr}</span></li>`).join('')}</ul></section>`), OUTRO, animOutro);
 
 window.DURATION = t0;
 
